@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-4">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+                                                                							                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">客户名称：</label>
+								<div class="col-sm-4">
+									<input id="customerName" name="customerName" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">联系人姓名：</label>
+								<div class="col-sm-4">
+									<input id="personName" name="personName" class="form-control" type="text">
+								</div>
+							</div>
+
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">联系人手机电话：</label>
+								<div class="col-sm-4">
+									<input id="personTel" name="personTel" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">联系人职位：</label>
+								<div class="col-sm-4">
+									<input id="personPosition" name="personPosition" class="form-control" type="text">
+								</div>
+							</div>
+
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">地区：</label>
+								<div class="col-sm-4">
+									<input id="area" name="area" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">通讯地址：</label>
+								<div class="col-sm-4">
+									<input id="relationArea" name="relationArea" class="form-control" type="text">
+								</div>
+							</div>
+
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">邮箱：</label>
+								<div class="col-sm-4">
+									<input id="eMail" name="email" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">传真：</label>
+								<div class="col-sm-4">
+									<input id="facsimile" name="facsimile" class="form-control" type="text">
+								</div>
+							</div>
+
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">邮编：</label>
+								<div class="col-sm-4">
+									<input id="zipcode" name="zipcode" class="form-control" type="text">
+								</div>
+
+							</div>
+
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-6">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/common/customerInfo/add.js">
+	</script>
+</body>
+</html>

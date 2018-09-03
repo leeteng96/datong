@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+                                                                							                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">关联单号：</label>
+								<div class="col-sm-8">
+									<input id="relaNo" name="relaNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">订单号：</label>
+								<div class="col-sm-8">
+									<input id="orderNo" name="orderNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">内件小票号：</label>
+								<div class="col-sm-8">
+									<input id="ticketNo" name="ticketNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">快递单号：</label>
+								<div class="col-sm-8">
+									<input id="waybillNo" name="waybillNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">提单号：</label>
+								<div class="col-sm-8">
+									<input id="ladingBillNo" name="ladingBillNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">托盘号：</label>
+								<div class="col-sm-8">
+									<input id="trayNo" name="trayNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">航班号：</label>
+								<div class="col-sm-8">
+									<input id="flightNo" name="flightNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">票数：</label>
+								<div class="col-sm-8">
+									<input id="packageNo" name="packageNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">模式：</label>
+								<div class="col-sm-8">
+									<input id="logisticsType" name="logisticsType" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">提货日期：</label>
+								<div class="col-sm-8">
+									<input id="pickupDate" name="pickupDate" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">到场日期：</label>
+								<div class="col-sm-8">
+									<input id="turnupDate" name="turnupDate" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">清关日期：</label>
+								<div class="col-sm-8">
+									<input id="cleanDate" name="cleanDate" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">放行：</label>
+								<div class="col-sm-8">
+									<input id="release" name="release" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">查检：</label>
+								<div class="col-sm-8">
+									<input id="check" name="check" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">异常：</label>
+								<div class="col-sm-8">
+									<input id="odd" name="odd" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">发件人：</label>
+								<div class="col-sm-8">
+									<input id="sender" name="sender" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">发件人地址：</label>
+								<div class="col-sm-8">
+									<input id="senderAddress" name="senderAddress" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">发件人电话：</label>
+								<div class="col-sm-8">
+									<input id="senderPhone" name="senderPhone" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">收件人：</label>
+								<div class="col-sm-8">
+									<input id="receiver" name="receiver" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">收件人身份证号：</label>
+								<div class="col-sm-8">
+									<input id="receiverIdcard" name="receiverIdcard" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">收件人电话：</label>
+								<div class="col-sm-8">
+									<input id="receiverPhone" name="receiverPhone" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">区/县：</label>
+								<div class="col-sm-8">
+									<input id="district" name="district" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">城市：</label>
+								<div class="col-sm-8">
+									<input id="city" name="city" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">省份：</label>
+								<div class="col-sm-8">
+									<input id="province" name="province" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">邮编：</label>
+								<div class="col-sm-8">
+									<input id="zipCode" name="zipCode" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">收件人地址：</label>
+								<div class="col-sm-8">
+									<input id="receiverAddress" name="receiverAddress" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">商品序号：</label>
+								<div class="col-sm-8">
+									<input id="goodsSeq" name="goodsSeq" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">本包裹名称：</label>
+								<div class="col-sm-8">
+									<input id="goodsName" name="goodsName" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">本包裹总毛重量(KG)：</label>
+								<div class="col-sm-8">
+									<input id="goodsWeight" name="goodsWeight" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">国家简称：</label>
+								<div class="col-sm-8">
+									<input id="nationalShortName" name="nationalShortName" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">原产国：</label>
+								<div class="col-sm-8">
+									<input id="originCountry" name="originCountry" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">货号：</label>
+								<div class="col-sm-8">
+									<input id="goodsCode" name="goodsCode" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">商品规格：</label>
+								<div class="col-sm-8">
+									<input id="goodsModel" name="goodsModel" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">品牌名称：</label>
+								<div class="col-sm-8">
+									<input id="brand" name="brand" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">单价：</label>
+								<div class="col-sm-8">
+									<input id="goodsValue" name="goodsValue" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">币制：</label>
+								<div class="col-sm-8">
+									<input id="currency" name="currency" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">毛重：</label>
+								<div class="col-sm-8">
+									<input id="grossWeight" name="grossWeight" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">净重：</label>
+								<div class="col-sm-8">
+									<input id="netWt" name="netWt" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">数量：</label>
+								<div class="col-sm-8">
+									<input id="quantity" name="quantity" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">行邮税号：</label>
+								<div class="col-sm-8">
+									<input id="taxNo" name="taxNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">海关商品编码：</label>
+								<div class="col-sm-8">
+									<input id="hsCode" name="hsCode" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">公司ID：</label>
+								<div class="col-sm-8">
+									<input id="corpId" name="corpId" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">清关口岸ID：</label>
+								<div class="col-sm-8">
+									<input id="portId" name="portId" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">快递公司ID：</label>
+								<div class="col-sm-8">
+									<input id="expressId" name="expressId" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">快递公司编码：</label>
+								<div class="col-sm-8">
+									<input id="express" name="express" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">物流状态：</label>
+								<div class="col-sm-8">
+									<input id="logisticStatus" name="logisticStatus" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">清关状态：</label>
+								<div class="col-sm-8">
+									<input id="cleanStatus" name="cleanStatus" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">创建时间：</label>
+								<div class="col-sm-8">
+									<input id="createTime" name="createTime" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">操作用户：</label>
+								<div class="col-sm-8">
+									<input id="userId" name="userId" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">客户ID：</label>
+								<div class="col-sm-8">
+									<input id="customerId" name="customerId" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">收件人大头笔：</label>
+								<div class="col-sm-8">
+									<input id="bigPen" name="bigPen" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">集包地名称：</label>
+								<div class="col-sm-8">
+									<input id="packageCenterName" name="packageCenterName" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">打印状态：</label>
+								<div class="col-sm-8">
+									<input id="printStatus" name="printStatus" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-3 control-label">打板状态:1未打板,2打板：</label>
+								<div class="col-sm-8">
+									<input id="boardStatus" name="boardStatus" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/ifast/expressOrder/add.js">
+	</script>
+</body>
+</html>

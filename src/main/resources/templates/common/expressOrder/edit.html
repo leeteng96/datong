@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${expressOrder.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">关联单号：</label>
+								<div class="col-sm-8">
+									<input id="relaNo" name="relaNo" th:value="${expressOrder.relaNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">订单号：</label>
+								<div class="col-sm-8">
+									<input id="orderNo" name="orderNo" th:value="${expressOrder.orderNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">内件小票号：</label>
+								<div class="col-sm-8">
+									<input id="ticketNo" name="ticketNo" th:value="${expressOrder.ticketNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">快递单号：</label>
+								<div class="col-sm-8">
+									<input id="waybillNo" name="waybillNo" th:value="${expressOrder.waybillNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">提单号：</label>
+								<div class="col-sm-8">
+									<input id="ladingBillNo" name="ladingBillNo" th:value="${expressOrder.ladingBillNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">托盘号：</label>
+								<div class="col-sm-8">
+									<input id="trayNo" name="trayNo" th:value="${expressOrder.trayNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">航班号：</label>
+								<div class="col-sm-8">
+									<input id="flightNo" name="flightNo" th:value="${expressOrder.flightNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">票数：</label>
+								<div class="col-sm-8">
+									<input id="packageNo" name="packageNo" th:value="${expressOrder.packageNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模式：</label>
+								<div class="col-sm-8">
+									<input id="logisticsType" name="logisticsType" th:value="${expressOrder.logisticsType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">提货日期：</label>
+								<div class="col-sm-8">
+									<input id="pickupDate" name="pickupDate" th:value="${expressOrder.pickupDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">到场日期：</label>
+								<div class="col-sm-8">
+									<input id="turnupDate" name="turnupDate" th:value="${expressOrder.turnupDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">清关日期：</label>
+								<div class="col-sm-8">
+									<input id="cleanDate" name="cleanDate" th:value="${expressOrder.cleanDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">放行：</label>
+								<div class="col-sm-8">
+									<input id="release" name="release" th:value="${expressOrder.release}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">查检：</label>
+								<div class="col-sm-8">
+									<input id="check" name="check" th:value="${expressOrder.check}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">异常：</label>
+								<div class="col-sm-8">
+									<input id="odd" name="odd" th:value="${expressOrder.odd}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">发件人：</label>
+								<div class="col-sm-8">
+									<input id="sender" name="sender" th:value="${expressOrder.sender}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">发件人地址：</label>
+								<div class="col-sm-8">
+									<input id="senderAddress" name="senderAddress" th:value="${expressOrder.senderAddress}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">发件人电话：</label>
+								<div class="col-sm-8">
+									<input id="senderPhone" name="senderPhone" th:value="${expressOrder.senderPhone}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收件人：</label>
+								<div class="col-sm-8">
+									<input id="receiver" name="receiver" th:value="${expressOrder.receiver}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收件人身份证号：</label>
+								<div class="col-sm-8">
+									<input id="receiverIdcard" name="receiverIdcard" th:value="${expressOrder.receiverIdcard}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收件人电话：</label>
+								<div class="col-sm-8">
+									<input id="receiverPhone" name="receiverPhone" th:value="${expressOrder.receiverPhone}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">区/县：</label>
+								<div class="col-sm-8">
+									<input id="district" name="district" th:value="${expressOrder.district}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">城市：</label>
+								<div class="col-sm-8">
+									<input id="city" name="city" th:value="${expressOrder.city}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">省份：</label>
+								<div class="col-sm-8">
+									<input id="province" name="province" th:value="${expressOrder.province}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">邮编：</label>
+								<div class="col-sm-8">
+									<input id="zipCode" name="zipCode" th:value="${expressOrder.zipCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收件人地址：</label>
+								<div class="col-sm-8">
+									<input id="receiverAddress" name="receiverAddress" th:value="${expressOrder.receiverAddress}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">商品序号：</label>
+								<div class="col-sm-8">
+									<input id="goodsSeq" name="goodsSeq" th:value="${expressOrder.goodsSeq}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">本包裹名称：</label>
+								<div class="col-sm-8">
+									<input id="goodsName" name="goodsName" th:value="${expressOrder.goodsName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">本包裹总毛重量(KG)：</label>
+								<div class="col-sm-8">
+									<input id="goodsWeight" name="goodsWeight" th:value="${expressOrder.goodsWeight}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">国家简称：</label>
+								<div class="col-sm-8">
+									<input id="nationalShortName" name="nationalShortName" th:value="${expressOrder.nationalShortName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">原产国：</label>
+								<div class="col-sm-8">
+									<input id="originCountry" name="originCountry" th:value="${expressOrder.originCountry}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">货号：</label>
+								<div class="col-sm-8">
+									<input id="goodsCode" name="goodsCode" th:value="${expressOrder.goodsCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">商品规格：</label>
+								<div class="col-sm-8">
+									<input id="goodsModel" name="goodsModel" th:value="${expressOrder.goodsModel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">品牌名称：</label>
+								<div class="col-sm-8">
+									<input id="brand" name="brand" th:value="${expressOrder.brand}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">单价：</label>
+								<div class="col-sm-8">
+									<input id="goodsValue" name="goodsValue" th:value="${expressOrder.goodsValue}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">币制：</label>
+								<div class="col-sm-8">
+									<input id="currency" name="currency" th:value="${expressOrder.currency}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">毛重：</label>
+								<div class="col-sm-8">
+									<input id="grossWeight" name="grossWeight" th:value="${expressOrder.grossWeight}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">净重：</label>
+								<div class="col-sm-8">
+									<input id="netWt" name="netWt" th:value="${expressOrder.netWt}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">数量：</label>
+								<div class="col-sm-8">
+									<input id="quantity" name="quantity" th:value="${expressOrder.quantity}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">行邮税号：</label>
+								<div class="col-sm-8">
+									<input id="taxNo" name="taxNo" th:value="${expressOrder.taxNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">海关商品编码：</label>
+								<div class="col-sm-8">
+									<input id="hsCode" name="hsCode" th:value="${expressOrder.hsCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">公司ID：</label>
+								<div class="col-sm-8">
+									<input id="corpId" name="corpId" th:value="${expressOrder.corpId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">清关口岸ID：</label>
+								<div class="col-sm-8">
+									<input id="portId" name="portId" th:value="${expressOrder.portId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">快递公司ID：</label>
+								<div class="col-sm-8">
+									<input id="expressId" name="expressId" th:value="${expressOrder.expressId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">快递公司编码：</label>
+								<div class="col-sm-8">
+									<input id="express" name="express" th:value="${expressOrder.express}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">物流状态：</label>
+								<div class="col-sm-8">
+									<input id="logisticStatus" name="logisticStatus" th:value="${expressOrder.logisticStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">清关状态：</label>
+								<div class="col-sm-8">
+									<input id="cleanStatus" name="cleanStatus" th:value="${expressOrder.cleanStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">创建时间：</label>
+								<div class="col-sm-8">
+									<input id="createTime" name="createTime" th:value="${expressOrder.createTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">操作用户：</label>
+								<div class="col-sm-8">
+									<input id="userId" name="userId" th:value="${expressOrder.userId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">客户ID：</label>
+								<div class="col-sm-8">
+									<input id="customerId" name="customerId" th:value="${expressOrder.customerId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收件人大头笔：</label>
+								<div class="col-sm-8">
+									<input id="bigPen" name="bigPen" th:value="${expressOrder.bigPen}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">集包地名称：</label>
+								<div class="col-sm-8">
+									<input id="packageCenterName" name="packageCenterName" th:value="${expressOrder.packageCenterName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">打印状态：</label>
+								<div class="col-sm-8">
+									<input id="printStatus" name="printStatus" th:value="${expressOrder.printStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">打板状态:1未打板,2打板：</label>
+								<div class="col-sm-8">
+									<input id="boardStatus" name="boardStatus" th:value="${expressOrder.boardStatus}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/ifast/expressOrder/edit.js">
+	</script>
+</body>
+</html>
