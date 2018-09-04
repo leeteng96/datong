@@ -2,12 +2,20 @@ package com.ifast.customerService.controller;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import com.alibaba.fastjson.JSON;
+import com.ifast.common.annotation.Log;
 import com.ifast.common.domain.Message;
 import com.ifast.common.domain.Status;
+import com.ifast.customer.domain.CustomerInfoDO;
+import com.ifast.customer.service.CustomerInfoService;
 import com.ifast.customerService.domain.ExpressOrderDO;
 import com.ifast.customerService.service.ExpressOrderService;
+import com.ifast.sys.domain.UserDO;
+import com.ifast.sys.service.UserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +41,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class ExpressOrderController extends AdminBaseController {
 	@Autowired
 	private ExpressOrderService expressOrderService;
-	
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private CustomerInfoService customerInfoService;
 	@GetMapping()
 	@RequiresPermissions("common:expressOrder:expressOrder")
 	String ExpressOrder(){
@@ -74,6 +87,8 @@ public class ExpressOrderController extends AdminBaseController {
 		expressOrderService.insert(expressOrder);
         return Result.ok();
 	}
+
+
 	/**
 	 * 修改
 	 */
@@ -107,6 +122,29 @@ public class ExpressOrderController extends AdminBaseController {
 		return Result.ok();
 	}
 
+	@GetMapping("/userList")
+	@ResponseBody
+	@RequiresPermissions("common:expressOrder:getUser")
+	public  String  userList(UserDO userDTO){
+		Wrapper<UserDO> wrapper = new EntityWrapper<UserDO>(userDTO);
+		wrapper.setSqlSelect("id,name").orderBy("id",false);
+		List <UserDO> userDOList = userService.selectList(wrapper);
+		String userList = JSON.toJSONString(userDOList);
+		return userList;
+	}
+
+	@GetMapping("/customerList")
+	@ResponseBody
+	@RequiresPermissions("common:expressOrder:customerList")
+	public  String  customerList(CustomerInfoDO customerInfoDTO){
+		Wrapper<CustomerInfoDO> wrapper = new EntityWrapper<CustomerInfoDO>(customerInfoDTO);
+		wrapper.setSqlSelect("id,customer_name").orderBy("id",false);
+		List <CustomerInfoDO> customerList = customerInfoService.selectList(wrapper);
+		String customerInfo = JSON.toJSONString(customerList);
+		return customerInfo;
+	}
+
+	@Log("excel 导入")
 	@RequestMapping(value = "/importExcel", method = RequestMethod.POST, produces = "application/json;charset=utf8")
 	@ResponseBody
 	public Message uploadFileHandler(@RequestParam("file") MultipartFile file) throws IOException {
@@ -139,9 +177,7 @@ public class ExpressOrderController extends AdminBaseController {
 			return msg;
 		}
 
-
-
-
-
 	}
+
+
 }

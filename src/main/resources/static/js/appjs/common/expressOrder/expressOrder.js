@@ -1,7 +1,8 @@
 
 var prefix = "/common/expressOrder"
 $(function() {
-	load();
+
+    load();
 });
 
 function load() {
@@ -48,19 +49,13 @@ function load() {
                                 "rows": res.data.records   //数据
                              };
                         },
-                        onLoadSuccess:function(){
-
-                            lay('.starttime-item').each(function(){
-                                laydate.render({
-                                    elem: this,
-                                    type: 'datetime',
-                                    format: 'yyyy年MM月dd日 HH时'
-                                });
-                                 });
-
-                        },
                         onEditableSave: function (field, row, oldValue, $el) {
                             $.ajax({
+								url: "/common/expressOrder/save",
+								async:false,
+								type:"POST",
+                                dataType: 'JSON',
+								data:row,
                                 success: function (data, status) {
                                     if (status == "success") {
                                         alert("编辑成功");
@@ -84,11 +79,29 @@ function load() {
 								},
 								{
 									field : 'ladingBillNo',
-									title : '提单号'
+									title : '提单号',
+                                    editable: {
+                                        type: 'text',
+                                        title: '提单号',
+                                        validate: function (value) {
+                                            if ($.trim(value) == '') {
+                                                return '提单号不能为空!';
+                                            }
+                                        }
+                                    }
 								},
 																{
 									field : 'relaNo', 
-									title : '关联单号' 
+									title : '关联单号',
+									editable: {
+										type: 'text',
+										title: '提单号',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '提单号不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'waybillNo', 
@@ -106,145 +119,423 @@ function load() {
 
 																{
 									field : 'flightNo', 
-									title : '航班号' 
+									title : '航班号' ,
+									editable: {
+										type: 'text',
+										title: '航班号',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '航班号不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'packageNo', 
 									title : '票数',
+									editable: {
+										type: 'text',
+										title: '票数',
+                                        placeholder:'Required',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '票数不能为空!';
+											}
+										}
+									}
 
                                                                 },
 																{
 									field : 'logisticsType', 
 									title : '模式' ,
+									formatter:function(value,row,index){
+
+											if(value == '1'){
+												return "BC";
+											}else if(value == '2'){
+												return "CC";
+											}
+									},
+									editable: {
+										type: 'select',
+										title: '票数',
+										pk:1,
+										source:
+											[{value:"1",text:"BC"},{value:"2",text:"CC"}],
+
+										}
+
 
 								},
 																{
 									field : 'pickupDate', 
 									title : '提货日期' ,
-                                     formatter: function (value, row, index) {
+									editable:{
+										type:"combodate",
+                                        format: 'yyyy-mm-dd HH',
+                                        template:"YYYY年MM月DD日HH时 ",
+                                        placement:"left",
+										pk:1,
+                                        language: 'zh-CN',
+                                        todayBtn: 1,
+									}
 
-                                            return "<a class='starttime-item' id='starttime_\"+row.id+\"' onclick='loadingDate()'>请选择日期!</a>";
-                                        /*return "<input type='type'  id='starttime_"+row.id+"' class='starttime-item'>";*/
-                                     },
 
+									/*formatter: function (value, row, index) {
+										return "<input type='type' readonly='readonly'  id='starttime_"+row.id+"' class='starttime-item'>";
+									},*/
 								},
 																{
 									field : 'turnupDate', 
-									title : '到场日期' 
+									title : '到场日期' ,
+									editable:{
+										type:"combodate",
+										format: 'yyyy-mm-dd HH',
+										template:"YYYY年MM月DD日HH时 ",
+										placement:"left",
+										pk:1,
+										language: 'zh-CN',
+										todayBtn: 1,
+									}
 								},
 																{
 									field : 'cleanDate', 
-									title : '清关日期' 
+									title : '清关日期' ,
+									editable:{
+										type:"combodate",
+										format: 'yyyy-mm-dd HH',
+										template:"YYYY年MM月DD日HH时 ",
+										placement:"left",
+										pk:1,
+										language: 'zh-CN',
+										todayBtn: 1,
+									}
 								},
 																{
 									field : 'release', 
-									title : '放行' 
+									title : '放行',
+									editable: {
+										type: 'text',
+										title: '放行',
+										placeholder:'Required',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '放行不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'check', 
-									title : '查检' 
+									title : '查检',
+									editable: {
+										type: 'text',
+										title: '查检',
+										placeholder:'Required',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '查检不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'odd', 
-									title : '异常' 
+									title : '异常',
+									editable: {
+										type: 'text',
+										title: '异常',
+										placeholder:'Required',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '异常不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'sender', 
-									title : '发件人' 
+									title : '发件人',
+									editable: {
+										type: 'text',
+										title: '发件人',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '发件人不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'senderAddress', 
-									title : '发件人地址' 
+									title : '发件人地址',
+									editable: {
+										type: 'text',
+										title: '发件人地址',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '发件人地址不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'senderPhone', 
-									title : '发件人电话' 
+									title : '发件人电话',
+									editable: {
+										type: 'text',
+										title: '发件人电话',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '发件人电话不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'receiver', 
-									title : '收件人' 
+									title : '收件人' ,
+									editable: {
+										type: 'text',
+										title: '收件人',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '收件人电话不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'receiverIdcard', 
-									title : '收件人身份证号' 
+									title : '收件人身份证号',
+									editable: {
+										type: 'text',
+										title: '收件人身份证号',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '收件人身份证号不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'receiverPhone', 
-									title : '收件人电话' 
+									title : '收件人电话',
+									editable: {
+										type: 'text',
+										title: '收件人电话',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '收件人电话不能为空!';
+											}
+										}
+									}
+
 								},
 
 																{
 									field : 'receiverAddress', 
-									title : '收件人地址' 
+									title : '收件人地址' ,
+									editable: {
+										type: 'text',
+										title: '收件人地址',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '收件人地址不能为空!';
+											}
+										}
+									}
 								},
 																{
 									field : 'goodsSeq', 
-									title : '商品序号' 
+									title : '商品序号',
+									editable: {
+										type: 'text',
+										title: '商品序号',
+
+									}
 								},
 																{
 									field : 'goodsName', 
-									title : '本包裹名称' 
+									title : '包裹名称',
+									editable: {
+										type: 'text',
+										title: '包裹名称',
+										validate: function (value) {
+											if ($.trim(value) == '') {
+												return '包裹名称不能为空!';
+											}
+										}
+									}
+
 								},
 																{
 									field : 'goodsWeight', 
-									title : '本包裹总毛重量(KG)' 
+									title : '本包裹总毛重量(KG)',
+									editable: {
+										type: 'text',
+										title: '本包裹总毛重量',
+
+									}
 								},
 																{
 									field : 'nationalShortName', 
-									title : '国家简称' 
+									title : '国家简称',
+									editable: {
+										type: 'text',
+										title: '国家简称',
+
+									}
 								},
 																{
 									field : 'originCountry',
-									title : '原产国'
+									title : '原产国',
+									editable: {
+										type: 'text',
+										title: '原产国',
+
+									}
+
 								},
 																{
 									field : 'goodsCode', 
-									title : '货号' 
+									title : '货号',
+									editable: {
+										type: 'text',
+										title: '货号',
+
+									}
 								},
 																{
 									field : 'goodsModel', 
-									title : '商品规格' 
+									title : '商品规格',
+									editable: {
+										type: 'text',
+										title: '商品规格',
+
+									}
 								},
 																{
 									field : 'brand', 
-									title : '品牌名称' 
+									title : '品牌名称',
+									editable: {
+										type: 'text',
+										title: '品牌名称',
+
+									}
 								},
 																{
 									field : 'goodsValue', 
-									title : '单价' 
+									title : '单价',
+									editable: {
+										type: 'text',
+										title: '单价',
+
+									}
 								},
 																{
 									field : 'currency', 
-									title : '币制' 
+									title : '币制',
+									editable: {
+										type: 'text',
+										title: '币制',
+
+									}
 								},
 																{
 									field : 'grossWeight', 
-									title : '毛重' 
+									title : '毛重',
+									editable: {
+										type: 'text',
+										title: '毛重',
+
+									}
 								},
 																{
 									field : 'netWt', 
-									title : '净重' 
+									title : '净重',
+									editable: {
+										type: 'text',
+										title: '净重',
+
+									}
 								},
 																{
 									field : 'quantity', 
-									title : '数量' 
+									title : '数量',
+									editable: {
+										type: 'text',
+										title: '数量',
+
+									}
 								},
 
 																{
 									field : 'expressId', 
-									title : '快递公司ID' 
+									title : '快递公司ID',
+									editable: {
+										type: 'text',
+										title: '快递公司ID',
+
+									}
+
 								},
 																{
 									field : 'express', 
-									title : '快递公司编码' 
+									title : '快递公司编码',
+									editable: {
+										type: 'text',
+										title: '快递公司编码',
+
+									}
 								},
 																{
 									field : 'userId', 
-									title : '操作用户' 
+									title : '操作用户',
+									editable: {
+										type: 'select',
+										title: '操作用户',
+										source:function () {
+											var result 	= [];
+											$.ajax({
+												url:'/common/expressOrder/userList',
+												async:false,
+												type:"get",
+												data:{},
+												success:function(data,status){
+														$.each(JSON.parse(data),function (key,value) {
+															result.push({value:value.id,text:value.name});
+                                                        })
+												}
+											})
+											return result;
+                                        }
+
+									}
 								},
 																{
 									field : 'customerId', 
-									title : '客户ID' 
+									title : '客户ID',
+									editable: {
+										type: 'select',
+										title: '客户ID',
+                                        source:function () {
+                                            var result 	= [];
+                                            $.ajax({
+                                                url:'/common/expressOrder/customerList',
+                                                async:false,
+                                                type:"get",
+                                                data:{},
+                                                success:function(data,status){
+                                                    $.each(JSON.parse(data),function (key,value) {
+                                                        result.push({value:value.id,text:value.customerName});
+                                                    })
+                                                }
+                                            })
+                                            return result;
+                                        }
+
+                                    }
 								},
 
 																{
@@ -270,12 +561,6 @@ function load() {
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
-
-function loadingDate(){
-
-}
-
-
 
 function add() {
 	layer.open({
