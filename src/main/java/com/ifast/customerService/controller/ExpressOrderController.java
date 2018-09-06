@@ -135,7 +135,6 @@ public class ExpressOrderController extends AdminBaseController {
 
 	@GetMapping("/customerList")
 	@ResponseBody
-	@RequiresPermissions("common:expressOrder:customerList")
 	public  String  customerList(CustomerInfoDO customerInfoDTO){
 		Wrapper<CustomerInfoDO> wrapper = new EntityWrapper<CustomerInfoDO>(customerInfoDTO);
 		wrapper.setSqlSelect("id,customer_name").orderBy("id",false);

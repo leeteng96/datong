@@ -489,31 +489,7 @@ function load() {
 
 									}
 								},
-																{
-									field : 'userId', 
-									title : '操作用户',
-									editable: {
-										type: 'select',
-										title: '操作用户',
-										source:function () {
-											var result 	= [];
-											$.ajax({
-												url:'/common/expressOrder/userList',
-												async:false,
-												type:"get",
-												data:{},
-												success:function(data,status){
-														$.each(JSON.parse(data),function (key,value) {
-															result.push({value:value.id,text:value.name});
-                                                        })
-												}
-											})
-											return result;
-                                        }
-
-									}
-								},
-																{
+																			{
 									field : 'customerId', 
 									title : '客户ID',
 									editable: {

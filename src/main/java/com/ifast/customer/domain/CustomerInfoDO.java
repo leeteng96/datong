@@ -25,7 +25,7 @@ public class CustomerInfoDO implements Serializable {
     @TableId
     private Long id;
     /** 客户名称 */
-    private String customerName;
+    private String name;
     /** 联系人姓名 */
     private String personName;
     /** 联系人手机电话 */
@@ -40,8 +40,6 @@ public class CustomerInfoDO implements Serializable {
     private String email;
     /** 传真 */
     private String facsimile;
-    /** 邮编 */
-    private String zipcode;
     /** 录入日期 */
     private Date indate;
 
@@ -61,13 +59,13 @@ public class CustomerInfoDO implements Serializable {
      * 设置：客户名称
      */
     public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+        this.name = customerName;
     }
     /**
      * 获取：客户名称
      */
     public String getCustomerName() {
-        return customerName;
+        return name;
     }
     /**
      * 设置：联系人姓名
@@ -154,18 +152,7 @@ public class CustomerInfoDO implements Serializable {
     public String getFacsimile() {
         return facsimile;
     }
-    /**
-     * 设置：邮编
-     */
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
-    /**
-     * 获取：邮编
-     */
-    public String getZipcode() {
-        return zipcode;
-    }
+
     /**
      * 设置：录入日期
      */
