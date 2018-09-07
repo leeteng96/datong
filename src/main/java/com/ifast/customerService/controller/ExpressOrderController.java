@@ -48,14 +48,12 @@ public class ExpressOrderController extends AdminBaseController {
 	@Autowired
 	private CustomerInfoService customerInfoService;
 	@GetMapping()
-	@RequiresPermissions("common:expressOrder:expressOrder")
 	String ExpressOrder(){
 	    return "common/expressOrder/expressOrder";
 	}
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("common:expressOrder:expressOrder")
 	public Result<Page<ExpressOrderDO>> list(ExpressOrderDO expressOrderDTO){
         Wrapper<ExpressOrderDO> wrapper = new EntityWrapper<ExpressOrderDO>(expressOrderDTO);
         wrapper.orderBy("id",false);
@@ -64,13 +62,11 @@ public class ExpressOrderController extends AdminBaseController {
 	}
 	
 	@GetMapping("/add")
-	@RequiresPermissions("common:expressOrder:add")
 	String add(){
 	    return "common/expressOrder/add";
 	}
 
 	@GetMapping("/edit/{id}")
-	@RequiresPermissions("common:expressOrder:edit")
 	String edit(@PathVariable("id") Long id,Model model){
 		ExpressOrderDO expressOrder = expressOrderService.selectById(id);
 		model.addAttribute("expressOrder", expressOrder);
@@ -81,8 +77,7 @@ public class ExpressOrderController extends AdminBaseController {
 	 * 保存
 	 */
 	@ResponseBody
-	@PostMapping("/save")
-	@RequiresPermissions("common:expressOrder:add")
+	@RequestMapping("/save")
 	public Result<String> save( ExpressOrderDO expressOrder){
 		expressOrderService.insert(expressOrder);
         return Result.ok();
@@ -94,7 +89,6 @@ public class ExpressOrderController extends AdminBaseController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions("common:expressOrder:edit")
 	public Result<String>  update( ExpressOrderDO expressOrder){
 		expressOrderService.updateById(expressOrder);
 		return Result.ok();
@@ -105,7 +99,6 @@ public class ExpressOrderController extends AdminBaseController {
 	 */
 	@PostMapping( "/remove")
 	@ResponseBody
-	@RequiresPermissions("common:expressOrder:remove")
 	public Result<String>  remove( Long id){
 		expressOrderService.deleteById(id);
         return Result.ok();
@@ -116,7 +109,6 @@ public class ExpressOrderController extends AdminBaseController {
 	 */
 	@PostMapping( "/batchRemove")
 	@ResponseBody
-	@RequiresPermissions("common:expressOrder:batchRemove")
 	public Result<String>  remove(@RequestParam("ids[]") Long[] ids){
 		expressOrderService.deleteBatchIds(Arrays.asList(ids));
 		return Result.ok();
@@ -124,7 +116,6 @@ public class ExpressOrderController extends AdminBaseController {
 
 	@GetMapping("/userList")
 	@ResponseBody
-	@RequiresPermissions("common:expressOrder:getUser")
 	public  String  userList(UserDO userDTO){
 		Wrapper<UserDO> wrapper = new EntityWrapper<UserDO>(userDTO);
 		wrapper.setSqlSelect("id,name").orderBy("id",false);
@@ -137,7 +128,7 @@ public class ExpressOrderController extends AdminBaseController {
 	@ResponseBody
 	public  String  customerList(CustomerInfoDO customerInfoDTO){
 		Wrapper<CustomerInfoDO> wrapper = new EntityWrapper<CustomerInfoDO>(customerInfoDTO);
-		wrapper.setSqlSelect("id,customer_name").orderBy("id",false);
+		wrapper.setSqlSelect("id,name").orderBy("id",false);
 		List <CustomerInfoDO> customerList = customerInfoService.selectList(wrapper);
 		String customerInfo = JSON.toJSONString(customerList);
 		return customerInfo;

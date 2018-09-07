@@ -49,9 +49,15 @@ function load() {
                                 "rows": res.data.records   //数据
                              };
                         },
+                        onLoadSuccess : function(data) {
+                            var data = $('#exampleTable').bootstrapTable('getData', true);
+                            //合并单元格
+                            mergeCells(data, "waybillNo", 1, $('#exampleTable'));
+
+                        },
                         onEditableSave: function (field, row, oldValue, $el) {
                             $.ajax({
-								url: "/common/expressOrder/save",
+								url: "/common/expressOrder/update",
 								async:false,
 								type:"POST",
                                 dataType: 'JSON',
@@ -71,6 +77,7 @@ function load() {
                         },
 						columns : [
 								{
+
 									checkbox : true
 								},
 								{
@@ -93,6 +100,7 @@ function load() {
 																{
 									field : 'relaNo', 
 									title : '关联单号',
+
 									editable: {
 										type: 'text',
 										title: '提单号',
@@ -148,14 +156,6 @@ function load() {
 																{
 									field : 'logisticsType', 
 									title : '模式' ,
-									formatter:function(value,row,index){
-
-											if(value == '1'){
-												return "BC";
-											}else if(value == '2'){
-												return "CC";
-											}
-									},
 									editable: {
 										type: 'select',
 										title: '票数',
@@ -180,10 +180,6 @@ function load() {
                                         todayBtn: 1,
 									}
 
-
-									/*formatter: function (value, row, index) {
-										return "<input type='type' readonly='readonly'  id='starttime_"+row.id+"' class='starttime-item'>";
-									},*/
 								},
 																{
 									field : 'turnupDate', 
@@ -212,47 +208,12 @@ function load() {
 									}
 								},
 																{
-									field : 'release', 
-									title : '放行',
-									editable: {
-										type: 'text',
-										title: '放行',
-										placeholder:'Required',
-										validate: function (value) {
-											if ($.trim(value) == '') {
-												return '放行不能为空!';
-											}
-										}
-									}
+									field : 'cleanStatus',
+									title : '清关状态',
+
 								},
-																{
-									field : 'check', 
-									title : '查检',
-									editable: {
-										type: 'text',
-										title: '查检',
-										placeholder:'Required',
-										validate: function (value) {
-											if ($.trim(value) == '') {
-												return '查检不能为空!';
-											}
-										}
-									}
-								},
-																{
-									field : 'odd', 
-									title : '异常',
-									editable: {
-										type: 'text',
-										title: '异常',
-										placeholder:'Required',
-										validate: function (value) {
-											if ($.trim(value) == '') {
-												return '异常不能为空!';
-											}
-										}
-									}
-								},
+
+
 																{
 									field : 'sender', 
 									title : '发件人',
@@ -504,7 +465,7 @@ function load() {
                                                 data:{},
                                                 success:function(data,status){
                                                     $.each(JSON.parse(data),function (key,value) {
-                                                        result.push({value:value.id,text:value.customerName});
+                                                        result.push({value:value.id,text:value.name});
                                                     })
                                                 }
                                             })
@@ -520,10 +481,10 @@ function load() {
 									align : 'center',
 									formatter : function(value, row, index) {
 
-										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
+										var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
 												+ row.id
 												+ '\')"><i class="fa fa-edit"></i></a> ';
-										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
+										var d = '<a class="btn btn-warning btn-sm " href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.id
 												+ '\')"><i class="fa fa-remove"></i></a> ';
 										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
@@ -531,22 +492,59 @@ function load() {
 												+ '\')"><i class="fa fa-key"></i></a> ';
 										return e + d ;
 									}
-								} ]
+								}
+
+						]
 					});
 }
+
+
+
+function mergeCells(data,fieldName,colspan,target){
+    //声明一个map计算相同属性值在data对象出现的次数和
+    var sortMap = {};
+
+    for(var i = 0 ; i < data.length ; i++){
+        for(var prop in data[i]){
+            if(prop == fieldName){
+                var key = data[i][prop]
+                if(sortMap.hasOwnProperty(key)){
+                    sortMap[key] = sortMap[key] * 1 + 1;
+                } else {
+                    sortMap[key] = 1;
+                }
+                break;
+            }
+
+        }
+    }
+    /*for(var prop in sortMap){
+        console.log(prop,sortMap[prop])
+    }*/
+
+    var index = 0;
+    for(var prop in sortMap){
+        var count = sortMap[prop] * 1;
+        $(target).bootstrapTable('mergeCells',{index:index, field:fieldName, colspan: colspan, rowspan: count});
+        index += count;
+    }
+}
+
+
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
 
 function add() {
-	layer.open({
+	var add = layer.open({
 		type : 2,
 		title : '增加',
-		maxmin : true,
+        maxmin: true ,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
 		content : prefix + '/add' // iframe的url
 	});
+	layer.full(add);
 }
 function edit(id) {
 	layer.open({

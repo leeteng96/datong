@@ -13,7 +13,7 @@
 							<div class="form-group">	
 								<label class="col-sm-2 control-label">客户名称：</label>
 								<div class="col-sm-4">
-									<input id="customerName" name="customerName" th:value="${customerInfo.customerName}" class="form-control" type="text">
+									<input id="name" name="name" th:value="${customerInfo.name}" class="form-control" type="text">
 								</div>
 								<label class="col-sm-2 control-label">联系人姓名：</label>
 								<div class="col-sm-4">
@@ -36,7 +36,7 @@
 														<div class="form-group">	
 								<label class="col-sm-2 control-label">地区：</label>
 								<div class="col-sm-4">
-									<input id="area" name="area" th:value="${customerInfo.area}" class="form-control" type="text">
+									<input id="country" name="country" th:value="${customerInfo.country}" class="form-control" type="text">
 								</div>
 
 								<label class="col-sm-2 control-label">通讯地址：</label>
@@ -57,17 +57,7 @@
 								</div>
 							</div>
 
-														<div class="form-group">	
-								<label class="col-sm-2 control-label">邮编：</label>
-								<div class="col-sm-4">
-									<input id="zipcode" name="zipcode" th:value="${customerInfo.zipcode}" class="form-control" type="text">
-								</div>
 
-								<label class="col-sm-2 control-label">录入日期：</label>
-								<div class="col-sm-4">
-									<input id="indate" name="indate" th:value="${customerInfo.indate}" class="form-control" type="text">
-								</div>
-							</div>
 																			<div class="form-group">
 								<div class="col-sm-8 col-sm-offset-3">
 									<button type="submit" class="btn btn-primary">提交</button>

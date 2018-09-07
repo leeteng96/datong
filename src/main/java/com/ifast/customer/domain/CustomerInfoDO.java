@@ -10,25 +10,25 @@ import com.baomidou.mybatisplus.annotations.TableName;
 
 
 /**
- * 
+ *
  * <pre>
  * 客户信息
  * </pre>
- * <small> 2018-08-07 14:36:07 | Aron</small>
+ * <small> 2018-09-07 09:39:25 | Aron</small>
  */
- @TableName("tb_customer_info")
+@TableName("tb_customer_info")
 public class CustomerInfoDO implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
-    
-    /** 客户编号 */
+
+    /**  */
     @TableId
     private Long id;
     /** 客户名称 */
     private String name;
     /** 联系人姓名 */
     private String personName;
-    /** 联系人手机电话 */
+    /** personTel */
     private String personTel;
     /** 联系人职位 */
     private String personPosition;
@@ -44,13 +44,13 @@ public class CustomerInfoDO implements Serializable {
     private Date indate;
 
     /**
-     * 设置：客户编号
+     * 设置：
      */
     public void setId(Long id) {
         this.id = id;
     }
     /**
-     * 获取：客户编号
+     * 获取：
      */
     public Long getId() {
         return id;
@@ -58,13 +58,13 @@ public class CustomerInfoDO implements Serializable {
     /**
      * 设置：客户名称
      */
-    public void setCustomerName(String customerName) {
-        this.name = customerName;
+    public void setName(String name) {
+        this.name = name;
     }
     /**
      * 获取：客户名称
      */
-    public String getCustomerName() {
+    public String getName() {
         return name;
     }
     /**
@@ -80,13 +80,13 @@ public class CustomerInfoDO implements Serializable {
         return personName;
     }
     /**
-     * 设置：联系人手机电话
+     * 设置：personTel
      */
     public void setPersonTel(String personTel) {
         this.personTel = personTel;
     }
     /**
-     * 获取：联系人手机电话
+     * 获取：personTel
      */
     public String getPersonTel() {
         return personTel;
@@ -130,16 +130,15 @@ public class CustomerInfoDO implements Serializable {
     /**
      * 设置：邮箱
      */
-    public String getEmail() {
-        return email;
+    public void setEmail(String email) {
+        this.email = email;
     }
     /**
      * 获取：邮箱
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public String getEmail() {
+        return email;
     }
-
     /**
      * 设置：传真
      */
@@ -152,7 +151,6 @@ public class CustomerInfoDO implements Serializable {
     public String getFacsimile() {
         return facsimile;
     }
-
     /**
      * 设置：录入日期
      */

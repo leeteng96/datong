@@ -36,14 +36,12 @@ public class CustomerInfoController extends AdminBaseController {
 	private CustomerInfoService customerInfoService;
 	
 	@GetMapping()
-	@RequiresPermissions("common:customerInfo:customerInfo")
 	String CustomerInfo(){
 	    return prefix+"/customerInfo";
 	}
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("common:customerInfo:customerInfo")
 	public Result<Page<CustomerInfoDO>> list(CustomerInfoDO customerInfoDTO){
         Wrapper<CustomerInfoDO> wrapper = new EntityWrapper<CustomerInfoDO>(customerInfoDTO);
 		wrapper.orderBy("id",false);
@@ -52,13 +50,11 @@ public class CustomerInfoController extends AdminBaseController {
 	}
 	
 	@GetMapping("/add")
-	@RequiresPermissions("common:customerInfo:add")
 	String add(){
 	    return "common/customerInfo/add";
 	}
 
 	@GetMapping("/edit/{id}")
-	@RequiresPermissions("common:customerInfo:edit")
 	String edit(@PathVariable("id") String id,Model model){
 		CustomerInfoDO customerInfo = customerInfoService.selectById(id);
 		model.addAttribute("customerInfo", customerInfo);
@@ -70,7 +66,6 @@ public class CustomerInfoController extends AdminBaseController {
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	@RequiresPermissions("common:customerInfo:add")
 	public Result<String> save( CustomerInfoDO customerInfo){
 		customerInfoService.insertCustomer(customerInfo);
 		customerInfoService.relationCustomer(getUserId(),customerInfo.getId());
@@ -81,7 +76,6 @@ public class CustomerInfoController extends AdminBaseController {
 	 */
 	@ResponseBody
 	@RequestMapping("/update")
-	@RequiresPermissions("common:customerInfo:edit")
 	public Result<String>  update( CustomerInfoDO customerInfo){
 		customerInfoService.updateById(customerInfo);
 		return Result.ok();
@@ -92,7 +86,6 @@ public class CustomerInfoController extends AdminBaseController {
 	 */
 	@PostMapping( "/remove")
 	@ResponseBody
-	@RequiresPermissions("common:customerInfo:remove")
 	public Result<String>  remove( Long id){
 		customerInfoService.deleteById(id);
         return Result.ok();
@@ -103,7 +96,6 @@ public class CustomerInfoController extends AdminBaseController {
 	 */
 	@PostMapping( "/batchRemove")
 	@ResponseBody
-	@RequiresPermissions("common:customerInfo:batchRemove")
 	public Result<String>  remove(@RequestParam("ids[]") String[] ids){
 		customerInfoService.deleteBatchIds(Arrays.asList(ids));
 		return Result.ok();
