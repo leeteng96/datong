@@ -1,4 +1,4 @@
-package com.ifast.customerService.domain;
+package com.ifast.cs.domain;
 
 /**
  * Created by zhangjk on 2016/1/16.

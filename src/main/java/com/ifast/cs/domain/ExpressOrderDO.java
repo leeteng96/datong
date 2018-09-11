@@ -1,4 +1,4 @@
-package com.ifast.customerService.domain;
+package com.ifast.cs.domain;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -31,10 +31,7 @@ public class ExpressOrderDO implements Serializable {
     @Excel(name="关联单号",orderNum="0")
     @NotBlank(message = "关联单号不能为空")
     private String relaNo;
-    /** 订单号 */
-    private String orderNo;
-    /** 内件小票号 */
-    private String ticketNo;
+
     /** 快递单号 */
     @Excel(name ="企业运单编号" ,orderNum="1")
     @NotBlank(message = "企业运单编号不能为空")
@@ -44,12 +41,10 @@ public class ExpressOrderDO implements Serializable {
     @Excel(name ="提单号" ,orderNum="2")
     @NotBlank(message = "提单号不能为空")
     private String ladingBillNo;
-    /** 托盘号 */
-    private String trayNo;
+
     /** 航班号 */
     private String flightNo;
-    /** 票数 */
-    private Integer packageNo;
+
     /** 模式 */
     private Integer logisticsType;
     /** 提货日期 */
@@ -60,10 +55,23 @@ public class ExpressOrderDO implements Serializable {
     private Date cleanDate;
     /** 放行 */
     private Integer release;
+    /** 放行备注 */
+    private String releaseRemark;
     /** 查检 */
     private Integer check;
+
+    /** 查扣原因 */
+    private String checkReason;
+
+    /** 查扣备注 */
+    private String checkRemark;
     /** 异常 */
     private Integer odd;
+    /** 异常原因 */
+    private String oddReason;
+
+    /** 异常备注 */
+    private String oddRemark;
     /** 发件人 */
     @NotBlank(message = "发货人名称不能为空")
     @Excel(name="发货人名称",orderNum="3")
@@ -94,12 +102,7 @@ public class ExpressOrderDO implements Serializable {
     @Excel(name="收货人电话",orderNum="8")
     private String receiverPhone;
 
-    /** 区/县 */
-    private String district;
-    /** 城市 */
-    private String city;
-    /** 省份 */
-    private String province;
+
     /** 邮编 */
     private String zipCode;
 
@@ -148,8 +151,7 @@ public class ExpressOrderDO implements Serializable {
     @Pattern(regexp="^[0-9]*$", message = "商品数量格式不正确")
     @Excel(name="商品数量",orderNum="14")
     private BigDecimal quantity;
-    /** 行邮税号 */
-    private String taxNo;
+
     /** 海关商品编码 */
     private String hsCode;
     /** 公司ID */
@@ -203,33 +205,9 @@ public class ExpressOrderDO implements Serializable {
     public String getRelaNo() {
         return relaNo;
     }
-    /**
-     * 设置：订单号
-     */
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-    /**
-     * 获取：订单号
-     */
-    public String getOrderNo() {
-        return orderNo;
-    }
-    /**
-     * 设置：内件小票号
-     */
-    public void setTicketNo(String ticketNo) {
-        this.ticketNo = ticketNo;
-    }
-    /**
-     * 获取：内件小票号
-     */
-    public String getTicketNo() {
-        return ticketNo;
-    }
-    /**
-     * 设置：快递单号
-     */
+
+
+
     public void setWaybillNo(String waybillNo) {
         this.waybillNo = waybillNo;
     }
@@ -251,18 +229,7 @@ public class ExpressOrderDO implements Serializable {
     public String getLadingBillNo() {
         return ladingBillNo;
     }
-    /**
-     * 设置：托盘号
-     */
-    public void setTrayNo(String trayNo) {
-        this.trayNo = trayNo;
-    }
-    /**
-     * 获取：托盘号
-     */
-    public String getTrayNo() {
-        return trayNo;
-    }
+
     /**
      * 设置：航班号
      */
@@ -278,15 +245,7 @@ public class ExpressOrderDO implements Serializable {
     /**
      * 设置：票数
      */
-    public void setPackageNo(Integer packageNo) {
-        this.packageNo = packageNo;
-    }
-    /**
-     * 获取：票数
-     */
-    public Integer getPackageNo() {
-        return packageNo;
-    }
+
     /**
      * 设置：模式
      */
@@ -443,42 +402,7 @@ public class ExpressOrderDO implements Serializable {
     public String getReceiverPhone() {
         return receiverPhone;
     }
-    /**
-     * 设置：区/县
-     */
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-    /**
-     * 获取：区/县
-     */
-    public String getDistrict() {
-        return district;
-    }
-    /**
-     * 设置：城市
-     */
-    public void setCity(String city) {
-        this.city = city;
-    }
-    /**
-     * 获取：城市
-     */
-    public String getCity() {
-        return city;
-    }
-    /**
-     * 设置：省份
-     */
-    public void setProvince(String province) {
-        this.province = province;
-    }
-    /**
-     * 获取：省份
-     */
-    public String getProvince() {
-        return province;
-    }
+
     /**
      * 设置：邮编
      */
@@ -673,18 +597,7 @@ public class ExpressOrderDO implements Serializable {
     public BigDecimal getQuantity() {
         return quantity;
     }
-    /**
-     * 设置：行邮税号
-     */
-    public void setTaxNo(String taxNo) {
-        this.taxNo = taxNo;
-    }
-    /**
-     * 获取：行邮税号
-     */
-    public String getTaxNo() {
-        return taxNo;
-    }
+
     /**
      * 设置：海关商品编码
      */
@@ -852,5 +765,45 @@ public class ExpressOrderDO implements Serializable {
      */
     public Integer getBoardStatus() {
         return boardStatus;
+    }
+
+    public String getReleaseRemark() {
+        return releaseRemark;
+    }
+
+    public void setReleaseRemark(String releaseRemark) {
+        this.releaseRemark = releaseRemark;
+    }
+
+    public String getCheckReason() {
+        return checkReason;
+    }
+
+    public void setCheckReason(String checkReason) {
+        this.checkReason = checkReason;
+    }
+
+    public String getCheckRemark() {
+        return checkRemark;
+    }
+
+    public void setCheckRemark(String checkRemark) {
+        this.checkRemark = checkRemark;
+    }
+
+    public String getOddReason() {
+        return oddReason;
+    }
+
+    public void setOddReason(String oddReason) {
+        this.oddReason = oddReason;
+    }
+
+    public String getOddRemark() {
+        return oddRemark;
+    }
+
+    public void setOddRemark(String oddRemark) {
+        this.oddRemark = oddRemark;
     }
 }

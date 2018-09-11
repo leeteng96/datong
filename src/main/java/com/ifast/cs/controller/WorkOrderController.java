@@ -1,12 +1,10 @@
-package com.ifast.customerService.controller;
+package com.ifast.cs.controller;
 
 
 import java.util.Arrays;
 
 import com.ifast.common.annotation.Log;
 import com.ifast.common.domain.Tree;
-import com.ifast.sys.domain.DeptDO;
-import com.ifast.sys.domain.UserDO;
 import org.apache.poi.ss.formula.functions.T;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +21,8 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.ifast.common.base.AdminBaseController;
-import com.ifast.customerService.domain.WorkOrderDO;
-import com.ifast.customerService.service.WorkOrderService;
+import com.ifast.cs.domain.WorkOrderDO;
+import com.ifast.cs.service.WorkOrderService;
 import com.ifast.common.utils.Result;
 
 /**

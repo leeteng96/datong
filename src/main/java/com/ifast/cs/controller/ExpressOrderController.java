@@ -1,8 +1,7 @@
-package com.ifast.customerService.controller;
+package com.ifast.cs.controller;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,11 +11,10 @@ import com.ifast.common.domain.Message;
 import com.ifast.common.domain.Status;
 import com.ifast.customer.domain.CustomerInfoDO;
 import com.ifast.customer.service.CustomerInfoService;
-import com.ifast.customerService.domain.ExpressOrderDO;
-import com.ifast.customerService.service.ExpressOrderService;
+import com.ifast.cs.domain.ExpressOrderDO;
+import com.ifast.cs.service.ExpressOrderService;
 import com.ifast.sys.domain.UserDO;
 import com.ifast.sys.service.UserService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

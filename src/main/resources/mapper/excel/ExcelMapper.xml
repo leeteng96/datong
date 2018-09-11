@@ -3,17 +3,5 @@
 
 <mapper namespace="com.ifast.common.dao.ExpressOrderDao">
 
-    <insert id="addExcel">
-insert  into tb_express_order(rela_no,order_no,ticket_no,waybill_no,lading_bill_no,
-sender,sender_address,sender_phone,receiver,receiver_idcard,receiver_phone,district,
-city,province,zip_code,receiver_address,goods_seq,goods_name,goods_weight,national_short_name,
-origin_country,goods_code,goods_model,brand,goods_value,currency,gross_weight,net_wt,quantity,
-tax_no,hs_code,express)
-values
-    (#{relaNo},#{orderNo},#{ticketNo},#{waybillNo},#{ladingBillNo},#{sender},#{senderAddress},#{senderPhone},#{receiver},#{receiverIdcard}
-    ,#{receiverPhone},#{district},#{city},#{province},#{zipCode},#{receiverAddress},#{goodsSeq},#{goodsName},#{goodsWeight},#{nationalShortName}
-    ,#{originCountry},#{goodsCode},#{goodsModel},#{brand},#{goodsValue},#{currency},#{grossWeight},#{netWt},#{quantity},#{taxNo},#{hsCode}
-    ,#{express})
 
-   </insert>
 </mapper>

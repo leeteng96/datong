@@ -1,11 +1,11 @@
-package com.ifast.customerService.service.impl;
+package com.ifast.cs.service.impl;
 
 import com.ifast.common.base.CoreServiceImpl;
 import com.ifast.common.domain.Tree;
 import com.ifast.common.utils.BuildTree;
-import com.ifast.customerService.dao.WorkOrderDao;
-import com.ifast.customerService.domain.WorkOrderDO;
-import com.ifast.customerService.service.WorkOrderService;
+import com.ifast.cs.dao.WorkOrderDao;
+import com.ifast.cs.domain.WorkOrderDO;
+import com.ifast.cs.service.WorkOrderService;
 import com.ifast.sys.domain.DeptDO;
 import com.ifast.sys.domain.UserDO;
 import org.apache.poi.ss.formula.functions.T;

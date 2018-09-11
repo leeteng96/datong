@@ -1,7 +1,6 @@
-package com.ifast.customerService.domain;
+package com.ifast.cs.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;

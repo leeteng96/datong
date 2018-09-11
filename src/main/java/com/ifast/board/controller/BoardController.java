@@ -2,8 +2,8 @@ package com.ifast.board.controller;
 
 
 import com.ifast.board.service.BoardService;
-import com.ifast.customerService.domain.ExpressOrderDO;
-import com.ifast.customerService.service.ExpressOrderService;
+import com.ifast.cs.domain.ExpressOrderDO;
+import com.ifast.cs.service.ExpressOrderService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

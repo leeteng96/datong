@@ -1,8 +1,7 @@
-package com.ifast.customerService.service;
+package com.ifast.cs.service;
 
 import com.ifast.common.base.CoreService;
-import com.ifast.customerService.domain.ExpressOrderDO;
-import org.apache.poi.ss.formula.functions.T;
+import com.ifast.cs.domain.ExpressOrderDO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

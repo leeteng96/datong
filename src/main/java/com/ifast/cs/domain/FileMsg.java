@@ -1,4 +1,4 @@
-package com.ifast.customerService.domain;
+package com.ifast.cs.domain;
 
 import java.util.List;
 

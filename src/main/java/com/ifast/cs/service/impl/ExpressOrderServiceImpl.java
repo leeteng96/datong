@@ -1,11 +1,11 @@
-package com.ifast.customerService.service.impl;
+package com.ifast.cs.service.impl;
 
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import com.ifast.common.base.CoreServiceImpl;
-import com.ifast.customerService.dao.ExpressOrderDao;
-import com.ifast.customerService.domain.ExpressOrderDO;
-import com.ifast.customerService.service.ExpressOrderService;
+import com.ifast.cs.dao.ExpressOrderDao;
+import com.ifast.cs.domain.ExpressOrderDO;
+import com.ifast.cs.service.ExpressOrderService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,7 +1,7 @@
-package com.ifast.customerService.service;
+package com.ifast.cs.service;
 
 import com.ifast.common.domain.Tree;
-import com.ifast.customerService.domain.WorkOrderDO;
+import com.ifast.cs.domain.WorkOrderDO;
 import com.ifast.common.base.CoreService;
 import org.apache.poi.ss.formula.functions.T;
 
