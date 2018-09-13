@@ -86,4 +86,47 @@ public class BuildTree {
 		return topNodes;
 	}
 
+	public static <T> Tree<T> buildParent(List<Tree<T>> nodes, String text,Map<String, Object> state) {
+		if (nodes == null) {
+			return null;
+		}
+		List<Tree<T>> topNodes = new ArrayList<Tree<T>>();
+
+		for (Tree<T> children : nodes) {
+
+			String pid = children.getParentId();
+			if (pid == null || "0".equals(pid)) {
+				topNodes.add(children);
+
+				continue;
+			}
+
+			for (Tree<T> parent : nodes) {
+				String id = parent.getId();
+				if (id != null && id.equals(pid)) {
+					parent.getChildren().add(children);
+					children.setHasParent(true);
+					parent.setChildren(true);
+					continue;
+				}
+			}
+
+		}
+
+		Tree<T> root = new Tree<T>();
+		if (topNodes.size() == 1) {
+			root = topNodes.get(0);
+		} else {
+			root.setId("-1");
+			root.setParentId("");
+			root.setHasParent(false);
+			root.setChildren(true);
+			root.setChecked(true);
+			root.setChildren(topNodes);
+			root.setText(text);
+			root.setState(state);
+		}
+
+		return root;
+	}
 }

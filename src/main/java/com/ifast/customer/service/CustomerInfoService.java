@@ -1,7 +1,8 @@
 package com.ifast.customer.service;
 
-import com.ifast.customer.domain.CustomerInfoDO;
 import com.ifast.common.base.CoreService;
+import com.ifast.common.domain.Tree;
+import com.ifast.customer.domain.CustomerInfoDO;
 
 /**
  * 
@@ -18,4 +19,8 @@ public interface CustomerInfoService extends CoreService<CustomerInfoDO> {
     boolean relationCustomer(Long userId,Long customerId);
 
     boolean insertCustomer(CustomerInfoDO customerInfoDO);
+
+    Tree<CustomerInfoDO> getTree();
+
+    /*Tree<CustomerInfoDO> getTree(Long id);*/
 }

@@ -11,26 +11,27 @@ function load() {
         $('#exampleTable')
 			.bootstrapTable(
 					{
-						method : 'get', // 服务器数据的请求方式 get or post
-						url : prefix + "/list", // 服务器数据的加载地址
-					//	showRefresh : true,
-					//	showToggle : true,
-					//	showColumns : true,
-						iconSize : 'outline',
-						toolbar : '#exampleToolbar',
-						striped : true, // 设置为true会有隔行变色效果
-						dataType : "json", // 服务器返回的数据类型
-						singleSelect : false, // 设置为true将禁止多选
-						sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
-                        showColumns:true,
-                        pagination:true,
-                        minimumCountColumns:2,
-                        pageNumber:1,                       //初始化加载第一页，默认第一页
-                        pageSize: 10,                       //每页的记录行数（*）
+                        method : 'get', // 服务器数据的请求方式 get or post
+                        url : prefix + "/list", // 服务器数据的加载地址
+                        striped : true, // 设置为true会有隔行变色效果
+                        dataType : "json", // 服务器返回的数据类型
+                        pagination : true, // 设置为true会在底部显示分页条
+                        singleSelect : false, // 设置为true将禁止多选
+
+                        // contentType : "application/x-www-form-urlencoded",
+                        // //发送到服务器的数据编码类型
+                        iconSize : 'outline',
+                        toolbar : '#exampleToolbar',
+                        showColumns : false,
+                        pageSize : 10, // 如果设置了分页，每页数据条数
+                        pageNumber : 1, // 如果设置了分布，首页页码
+                        sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
+                        queryParamsType : "",                  //每页的记录行数（*）
                         pageList: [10, 15, 20, 25],        //可供选择的每页的行数（*）
                         uniqueId: "id",                     //每一行的唯一标识，一般为主键列
                         clickToSelect: true,
                         undefinedText:"",
+                        minimumCountColumns:2,
                         // //设置为limit则会发送符合RESTFull格式的参数
 						queryParams : function(params) {
 							return {
@@ -77,26 +78,42 @@ function load() {
                         },
 						columns : [
 
-                            [
                                 {
                                     checkbox:true,
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
                                 },
                                 {
                                     field : 'id',
                                     title : '序号',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+                                },
+
+                                {
+                                    field : 'totalWaybillNo',
+                                    title : '总运单号',
+                                    valign:"middle",
+                                    align:"center",
+                                    editable: {
+                                        type: 'text',
+                                        title: '总运单号',
+                                        validate: function (value) {
+                                            if ($.trim(value) == '') {
+                                                return '总运单号不能为空!';
+                                            }
+                                        }
+                                    },
+
+
                                 },
                                 {
                                     field : 'ladingBillNo',
                                     title : '提单号',
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable: {
                                         type: 'text',
                                         title: '提单号',
@@ -106,15 +123,14 @@ function load() {
                                             }
                                         }
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
                                 {
                                     field : 'relaNo',
                                     title : '关联单号',
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable: {
                                         type: 'text',
                                         title: '提单号',
@@ -124,15 +140,14 @@ function load() {
                                             }
                                         }
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
                                 {
                                     field : 'waybillNo',
                                     title : '快递单号' ,
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable: {
                                         type: 'text',
                                         title: '快递单号',
@@ -142,15 +157,14 @@ function load() {
                                             }
                                         }
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
                                 {
                                     field : 'flightNo',
                                     title : '航班号' ,
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable: {
                                         type: 'text',
                                         title: '航班号',
@@ -159,18 +173,20 @@ function load() {
                                                 return '航班号不能为空!';
                                             }
                                         }
+                                    }, noeditFormatter: function (value,row,index) {
+                                        var result={filed:"flightNo",value:'',style:"background:#333;padding:5px 10px;"};
+                                        return result;
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
 
 
                                 {
                                     field : 'logisticsType',
                                     title : '模式' ,
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable: {
                                         type: 'select',
                                         title: '模式',
@@ -179,79 +195,99 @@ function load() {
                                             [{value:"1",text:"BC"},{value:"2",text:"CC"}],
 
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
                                 {
                                     field : 'pickupDate',
                                     title : '提货日期' ,
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable:{
                                         type:"combodate",
-                                        format: 'yyyy-mm-dd HH',
+                                        format: 'YYYY-MM-DD  HH',
                                         template:"YYYY年MM月DD日HH时 ",
                                         placement:"left",
                                         pk:1,
                                         language: 'zh-CN',
                                         todayBtn: 1,
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
                                 {
                                     field : 'turnupDate',
                                     title : '到场日期' ,
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable:{
                                         type:"combodate",
-                                        format: 'yyyy-mm-dd HH',
+                                        format: 'YYYY-MM-DD  HH',
                                         template:"YYYY年MM月DD日HH时 ",
                                         placement:"left",
                                         pk:1,
                                         language: 'zh-CN',
                                         todayBtn: 1,
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
                                 {
                                     field : 'cleanDate',
                                     title : '清关日期' ,
-
+                                    valign:"middle",
+                                    align:"center",
                                     editable:{
                                         type:"combodate",
-                                        format: 'yyyy-mm-dd HH',
+                                        format: 'YYYY-MM-DD  HH',
                                         template:"YYYY年MM月DD日HH时 ",
                                         placement:"left",
                                         pk:1,
                                         language: 'zh-CN',
                                         todayBtn: 1,
                                     },
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3
+
+
                                 },
                                 {
+                                    field: 'cleanStatus',
                                     title: "清关状态",
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 8,
-                                    rowspan: 1
+                                    editable: {
+                                        type: 'select',
+                                        title: '清关状态',
+                                        source:[
+                                            {value:'1',text:'放行'},
+                                            {value:'2',text:'查检放行'},
+                                            {value:'3',text:'查检暂扣'},
+                                            {value:'4',text:'异常长装'},
+                                            {value:'5',text:'异常短装'},
+                                            {value:'6',text:'无数据'},
+                                        ]
+
+                                    },
+
                                 },
                                 {
+                                    field: 'cleanRemark',
+                                    title: '备注',
+                                    valign:"middle",
+                                    align:"center",
+                                    editable: {
+                                        type: 'text',
+                                        title: '备注',
+
+
+                                    },
+                                },
+
+                            {
                                     field : 'sender',
                                     title : '发件人',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
+
                                     editable: {
                                         type: 'text',
                                         title: '发件人',
@@ -268,8 +304,7 @@ function load() {
                                     title : '发件人地址',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
+
                                     editable: {
                                         type: 'text',
                                         title: '发件人地址',
@@ -285,8 +320,7 @@ function load() {
                                     title : '发件人电话',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
+
                                     editable: {
                                         type: 'text',
                                         title: '发件人电话',
@@ -302,8 +336,7 @@ function load() {
                                     title : '收件人' ,
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
+
                                     editable: {
                                         type: 'text',
                                         title: '收件人',
@@ -319,8 +352,7 @@ function load() {
                                     title : '收件人身份证号',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
+
                                     editable: {
                                         type: 'text',
                                         title: '收件人身份证号',
@@ -336,8 +368,6 @@ function load() {
                                     title : '收件人电话',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '收件人电话',
@@ -355,8 +385,6 @@ function load() {
                                     title : '收件人地址' ,
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '收件人地址',
@@ -372,8 +400,6 @@ function load() {
                                     title : '商品序号',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '商品序号',
@@ -385,8 +411,6 @@ function load() {
                                     title : '包裹名称',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '包裹名称',
@@ -398,26 +422,12 @@ function load() {
                                     }
 
                                 },
-                                {
-                                    field : 'goodsWeight',
-                                    title : '本包裹总毛重量(KG)',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
-                                    editable: {
-                                        type: 'text',
-                                        title: '本包裹总毛重量',
 
-                                    }
-                                },
                                 {
                                     field : 'nationalShortName',
                                     title : '国家简称',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '国家简称',
@@ -429,8 +439,6 @@ function load() {
                                     title : '原产国',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '原产国',
@@ -443,8 +451,6 @@ function load() {
                                     title : '货号',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '货号',
@@ -456,8 +462,6 @@ function load() {
                                     title : '商品规格',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '商品规格',
@@ -468,8 +472,6 @@ function load() {
                                     field : 'brand',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     title : '品牌名称',
                                     editable: {
                                         type: 'text',
@@ -482,8 +484,6 @@ function load() {
                                     title : '单价',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '单价',
@@ -496,8 +496,6 @@ function load() {
                                     title : '毛重',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '毛重',
@@ -509,8 +507,6 @@ function load() {
                                     title : '净重',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '净重',
@@ -522,8 +518,6 @@ function load() {
                                     title : '数量',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'text',
                                         title: '数量',
@@ -537,8 +531,6 @@ function load() {
                                     title : '客户ID',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     editable: {
                                         type: 'select',
                                         title: '客户ID',
@@ -567,8 +559,6 @@ function load() {
                                     align : 'center',
                                     valign:"middle",
                                     align:"center",
-                                    colspan: 1,
-                                    rowspan: 3,
                                     formatter : function(value, row, index) {
 
                                         var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="编辑" onclick="edit(\''
@@ -583,132 +573,9 @@ function load() {
                                         return e + d ;
                                     }
                                 }
-                            ],
-                            [
-                                {
-                                    field: 'release',
-                                    title: '放行',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'select',
-                                        title: '放行',
-                                        pk:1,
-                                        source:
-                                            [{value:"1",text:"放行"}],
-
-                                    },
-                                },
-                                {
-                                    field: 'releaseRemark',
-                                    title: '备注',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'text',
-                                        title: '备注',
-                                    },
-                                },
-                                {
-                                    field: 'check',
-                                    title: '查检',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'select',
-                                        title: '查检',
-                                        source:
-                                            [{value:"1",text:"放行"},{value:"2",text:"扣件"}],
-
-                                    },
-                                },
-
-                                {
-                                    field: 'checkReason',
-                                    title: '查扣原因',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'text',
-                                        title: '查扣原因',
-
-                                    }
-                                },
-                                {
-                                    field: 'checkRemark',
-                                    title: '备注',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'text',
-                                        title: '备注',
-
-                                    },
-                                },
-                                {
-                                    field: 'odd',
-                                    title: '异常',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'select',
-                                        title: '异常',
-                                        source:
-                                            [{value:"1",text:"长装"},{value:"2",text:"短装"},{value:"3",text:"无数据"}],
-
-                                    },
-                                },
-                                {
-                                    field: 'oddReason',
-                                    title: '异常原因',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'text',
-                                        title: '异常原因',
-                                    },
-                                },
-                                {
-                                    field: 'oddRemark',
-                                    title: '备注',
-                                    valign:"middle",
-                                    align:"center",
-                                    colspan: 1,
-                                    rowspan: 2,
-                                    editable: {
-                                        type: 'text',
-                                        title: '备注',
-
-
-                                    },
-                                },
-
-                            ],
-							[
-
-							],
 
 
 
-
-
-
-                            /*	[
-                                                       */
 
 						]
 					});
@@ -765,7 +632,7 @@ function add() {
 	layer.full(add);
 }
 function edit(id) {
-	layer.open({
+    var edit = layer.open({
 		type : 2,
 		title : '编辑',
 		maxmin : true,
@@ -773,6 +640,7 @@ function edit(id) {
 		area : [ '800px', '520px' ],
 		content : prefix + '/edit/' + id // iframe的url
 	});
+    layer.full(edit);
 }
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {

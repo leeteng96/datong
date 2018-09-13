@@ -1,4 +1,5 @@
 $().ready(function() {
+    changeSelect();
 	validateRule();
 });
 
@@ -7,11 +8,21 @@ $.validator.setDefaults({
 		update();
 	}
 });
+
+function changeSelect() {
+	var pickupDate =$("#logisticsType").val();
+	alert(pickupDate);
+    /*$("select option").each(function(){
+        if($(this).val()==val){
+            $(this).attr("selected","selected");
+        }
+    });*/
+}
 function update() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/ifast/expressOrder/update",
+		url : "/common/expressOrder/update",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {

@@ -27,6 +27,10 @@ public class ExpressOrderDO implements Serializable {
     /** 主键 */
     @TableId
     private Long id;
+
+    /** 总运单号 */
+    private String totalWaybillNo;
+
     /** 关联单号 */
     @Excel(name="关联单号",orderNum="0")
     @NotBlank(message = "关联单号不能为空")
@@ -53,25 +57,10 @@ public class ExpressOrderDO implements Serializable {
     private Date turnupDate;
     /** 清关日期 */
     private Date cleanDate;
-    /** 放行 */
-    private Integer release;
-    /** 放行备注 */
-    private String releaseRemark;
-    /** 查检 */
-    private Integer check;
-
-    /** 查扣原因 */
-    private String checkReason;
-
-    /** 查扣备注 */
-    private String checkRemark;
-    /** 异常 */
-    private Integer odd;
-    /** 异常原因 */
-    private String oddReason;
-
-    /** 异常备注 */
-    private String oddRemark;
+    /** 清关状态 */
+    private Integer cleanStatus;
+    /** 备注 */
+    private String cleanRemark;
     /** 发件人 */
     @NotBlank(message = "发货人名称不能为空")
     @Excel(name="发货人名称",orderNum="3")
@@ -118,8 +107,6 @@ public class ExpressOrderDO implements Serializable {
     @NotBlank(message = "主要商品不能为空")
     @Excel(name="主要商品",orderNum="10")
     private String goodsName;
-    /** 本包裹总毛重量(KG) */
-    private BigDecimal goodsWeight;
     /** 国家简称 */
     private String nationalShortName;
     /** 原产国 */
@@ -158,22 +145,18 @@ public class ExpressOrderDO implements Serializable {
     private Long corpId;
     /** 清关口岸ID */
     private Long portId;
-    /** 快递公司ID */
-    private Long expressId;
-    /** 快递公司编码 */
-    private String express;
-    /** 物流状态 */
-    private Integer logisticStatus;
-    /** 清关状态 */
-    private Integer cleanStatus;
+    /** 快递公司 */
+    private String expressCompany;
+
+
+
     /** 创建时间 */
     private Date createTime;
     /** 操作用户 */
     private Long userId;
     /** 客户ID */
     private Long customerId;
-    /** 收件人大头笔 */
-    private String bigPen;
+
     /** 集包地名称 */
     private String packageCenterName;
     /** 打印状态 */
@@ -193,9 +176,21 @@ public class ExpressOrderDO implements Serializable {
     public Long getId() {
         return id;
     }
+
+    public String getTotalWaybillNo() {
+        return totalWaybillNo;
+    }
+
+    public void setTotalWaybillNo(String totalWaybillNo) {
+        this.totalWaybillNo = totalWaybillNo;
+    }
+
     /**
      * 设置：关联单号
      */
+
+
+
     public void setRelaNo(String relaNo) {
         this.relaNo = relaNo;
     }
@@ -294,42 +289,7 @@ public class ExpressOrderDO implements Serializable {
     public Date getCleanDate() {
         return cleanDate;
     }
-    /**
-     * 设置：放行
-     */
-    public void setRelease(Integer release) {
-        this.release = release;
-    }
-    /**
-     * 获取：放行
-     */
-    public Integer getRelease() {
-        return release;
-    }
-    /**
-     * 设置：查检
-     */
-    public void setCheck(Integer check) {
-        this.check = check;
-    }
-    /**
-     * 获取：查检
-     */
-    public Integer getCheck() {
-        return check;
-    }
-    /**
-     * 设置：异常
-     */
-    public void setOdd(Integer odd) {
-        this.odd = odd;
-    }
-    /**
-     * 获取：异常
-     */
-    public Integer getOdd() {
-        return odd;
-    }
+
     /**
      * 设置：发件人
      */
@@ -451,18 +411,8 @@ public class ExpressOrderDO implements Serializable {
     public String getGoodsName() {
         return goodsName;
     }
-    /**
-     * 设置：本包裹总毛重量(KG)
-     */
-    public void setGoodsWeight(BigDecimal goodsWeight) {
-        this.goodsWeight = goodsWeight;
-    }
-    /**
-     * 获取：本包裹总毛重量(KG)
-     */
-    public BigDecimal getGoodsWeight() {
-        return goodsWeight;
-    }
+
+
     /**
      * 设置：国家简称
      */
@@ -634,54 +584,17 @@ public class ExpressOrderDO implements Serializable {
     public Long getPortId() {
         return portId;
     }
-    /**
-     * 设置：快递公司ID
-     */
-    public void setExpressId(Long expressId) {
-        this.expressId = expressId;
+
+    public String getExpressCompany() {
+        return expressCompany;
     }
-    /**
-     * 获取：快递公司ID
-     */
-    public Long getExpressId() {
-        return expressId;
+
+    public void setExpressCompany(String  expressCompany) {
+        this.expressCompany = expressCompany;
     }
+
     /**
-     * 设置：快递公司编码
-     */
-    public void setExpress(String express) {
-        this.express = express;
-    }
-    /**
-     * 获取：快递公司编码
-     */
-    public String getExpress() {
-        return express;
-    }
-    /**
-     * 设置：物流状态
-     */
-    public void setLogisticStatus(Integer logisticStatus) {
-        this.logisticStatus = logisticStatus;
-    }
-    /**
-     * 获取：物流状态
-     */
-    public Integer getLogisticStatus() {
-        return logisticStatus;
-    }
-    /**
-     * 设置：清关状态
-     */
-    public void setCleanStatus(Integer cleanStatus) {
-        this.cleanStatus = cleanStatus;
-    }
-    /**
-     * 获取：清关状态
-     */
-    public Integer getCleanStatus() {
-        return cleanStatus;
-    }
+
     /**
      * 设置：创建时间
      */
@@ -718,18 +631,7 @@ public class ExpressOrderDO implements Serializable {
     public Long getCustomerId() {
         return customerId;
     }
-    /**
-     * 设置：收件人大头笔
-     */
-    public void setBigPen(String bigPen) {
-        this.bigPen = bigPen;
-    }
-    /**
-     * 获取：收件人大头笔
-     */
-    public String getBigPen() {
-        return bigPen;
-    }
+
     /**
      * 设置：集包地名称
      */
@@ -767,43 +669,19 @@ public class ExpressOrderDO implements Serializable {
         return boardStatus;
     }
 
-    public String getReleaseRemark() {
-        return releaseRemark;
+    public Integer getCleanStatus() {
+        return cleanStatus;
     }
 
-    public void setReleaseRemark(String releaseRemark) {
-        this.releaseRemark = releaseRemark;
+    public void setCleanStatus(Integer cleanStatus) {
+        this.cleanStatus = cleanStatus;
     }
 
-    public String getCheckReason() {
-        return checkReason;
+    public String getCleanRemark() {
+        return cleanRemark;
     }
 
-    public void setCheckReason(String checkReason) {
-        this.checkReason = checkReason;
-    }
-
-    public String getCheckRemark() {
-        return checkRemark;
-    }
-
-    public void setCheckRemark(String checkRemark) {
-        this.checkRemark = checkRemark;
-    }
-
-    public String getOddReason() {
-        return oddReason;
-    }
-
-    public void setOddReason(String oddReason) {
-        this.oddReason = oddReason;
-    }
-
-    public String getOddRemark() {
-        return oddRemark;
-    }
-
-    public void setOddRemark(String oddRemark) {
-        this.oddRemark = oddRemark;
+    public void setCleanRemark(String cleanRemark) {
+        this.cleanRemark = cleanRemark;
     }
 }

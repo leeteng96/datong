@@ -77,7 +77,7 @@ public class ExpressOrderController extends AdminBaseController {
 	@ResponseBody
 	@RequestMapping("/save")
 	public Result<String> save( ExpressOrderDO expressOrder){
-		expressOrderService.insert(expressOrder);
+		expressOrderService.insert(expressOrderService.setDate(expressOrder));
         return Result.ok();
 	}
 
@@ -122,7 +122,7 @@ public class ExpressOrderController extends AdminBaseController {
 		return userList;
 	}
 
-	@GetMapping("/customerList")
+	@RequestMapping("/customerList")
 	@ResponseBody
 	public  String  customerList(CustomerInfoDO customerInfoDTO){
 		Wrapper<CustomerInfoDO> wrapper = new EntityWrapper<CustomerInfoDO>(customerInfoDTO);

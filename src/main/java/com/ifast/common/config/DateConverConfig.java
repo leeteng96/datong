@@ -19,19 +19,24 @@ public class DateConverConfig {
         return new Converter<String, Date>() {
             @Override
             public Date convert(String source) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date date = null;
-                try {
-                    date = sdf.parse((String) source);
-                } catch (Exception e) {
-                    SimpleDateFormat sdfday = new SimpleDateFormat("yyyy-MM-dd");
+                if("".equals(source)){
+                    return null;
+                }else {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Date date = null;
                     try {
-                        date = sdfday.parse((String) source);
-                    } catch (ParseException e1) {
-                        e1.printStackTrace();
+                        date = sdf.parse((String) source);
+                    } catch (Exception e) {
+                        SimpleDateFormat sdfday = new SimpleDateFormat("yyyy-MM-dd");
+                        try {
+                            date = sdfday.parse((String) source);
+                        } catch (ParseException e1) {
+                            e1.printStackTrace();
+                        }
                     }
-                }
+
                 return date;
+                }
             }
         };
     }

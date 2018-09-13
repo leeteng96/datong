@@ -4,10 +4,13 @@ package com.ifast.customer.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.ifast.common.annotation.Log;
 import com.ifast.common.base.AdminBaseController;
+import com.ifast.common.domain.Tree;
 import com.ifast.common.utils.Result;
 import com.ifast.customer.domain.CustomerInfoDO;
 import com.ifast.customer.service.CustomerInfoService;
+import com.ifast.sys.domain.MenuDO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,5 +103,13 @@ public class CustomerInfoController extends AdminBaseController {
 		customerInfoService.deleteBatchIds(Arrays.asList(ids));
 		return Result.ok();
 	}
-	
+
+	@Log("查询菜单树形数据")
+	@GetMapping("/tree")
+	@ResponseBody
+	Tree<CustomerInfoDO> tree() {
+		Tree<CustomerInfoDO> tree = new Tree<CustomerInfoDO>();
+		tree = customerInfoService.getTree();
+		return tree;
+	}
 }
