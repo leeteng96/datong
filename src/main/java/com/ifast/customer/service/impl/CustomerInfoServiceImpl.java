@@ -1,5 +1,7 @@
 package com.ifast.customer.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.ifast.common.domain.Tree;
 import com.ifast.common.utils.BuildTree;
 import com.ifast.customer.dao.CustomerInfoDao;
@@ -66,36 +68,5 @@ public class CustomerInfoServiceImpl extends CoreServiceImpl<CustomerInfoDao, Cu
         return t;
     }
 
-   /* @Override
-    public Tree<CustomerInfoDO> getTree(Long id) {
-        // 根据roleId查询权限
-        List<MenuDO> menus = baseMapper.selectList(null);
-        List<Long> menuIds = roleMenuMapper.listMenuIdByRoleId(id);
-        List<Long> temp = menuIds;
-        for (MenuDO menu : menus) {
-            if (temp.contains(menu.getParentId())) {
-                menuIds.remove(menu.getParentId());
-            }
-        }
-        List<Tree<MenuDO>> trees = new ArrayList<Tree<MenuDO>>();
-        List<MenuDO> menuDOs = baseMapper.selectList(null);
-        for (MenuDO sysMenuDO : menuDOs) {
-            Tree<MenuDO> tree = new Tree<MenuDO>();
-            tree.setId(sysMenuDO.getId().toString());
-            tree.setParentId(sysMenuDO.getParentId().toString());
-            tree.setText(sysMenuDO.getName());
-            Map<String, Object> state = new HashMap<>(16);
-            Long menuId = sysMenuDO.getId();
-            if (menuIds.contains(menuId)) {
-                state.put("selected", true);
-            } else {
-                state.put("selected", false);
-            }
-            tree.setState(state);
-            trees.add(tree);
-        }
-        // 默认顶级菜单为０，根据数据库实际情况调整
-        Tree<MenuDO> t = BuildTree.build(trees,"顶级节点");
-        return t;
-    }*/
+
 }

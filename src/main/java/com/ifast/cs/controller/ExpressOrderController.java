@@ -54,11 +54,12 @@ public class ExpressOrderController extends AdminBaseController {
 	@GetMapping("/list")
 	public Result<Page<ExpressOrderDO>> list(ExpressOrderDO expressOrderDTO){
         Wrapper<ExpressOrderDO> wrapper = new EntityWrapper<ExpressOrderDO>(expressOrderDTO);
+       /* wrapper.where("(total_waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or clean_date like '%"+expressOrderDTO.getTotalWaybillNo()+"%')");*/
         wrapper.orderBy("id",false);
         Page<ExpressOrderDO> page = expressOrderService.selectPage(getPage(ExpressOrderDO.class), wrapper);
         return Result.ok(page);
 	}
-	
+
 	@GetMapping("/add")
 	String add(){
 	    return "common/expressOrder/add";

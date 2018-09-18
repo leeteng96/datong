@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<head th:include="include :: header"></head>
+<head th:include="include :: header">
+	<link rel="stylesheet" href="/js/plugins/layer/laydate/skins/default/laydate.css" />
+	<link href="/css/plugins/jsTree/style.min.css" rel="stylesheet">
+</head>
 <body class="gray-bg">
 <div class="wrapper wrapper-content ">
 	<div class="row">
@@ -40,8 +43,8 @@
 
 							<label class="col-sm-2 control-label">模式：</label>
 							<div class="col-sm-2">
-
-								<select id="logisticsType" th:value="${expressOrder.logisticsType}" name="logisticsType" class="form-control" >
+								<input id="logisticsType" th:value="${expressOrder.logisticsType}" name="logisticsType" type="hidden">
+								<select id="select1" class="form-control" >
 									<option VALUE="">请选择</option>
 									<option VALUE="1">BC</option>
 									<option VALUE="2">CC</option>
@@ -52,29 +55,35 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">提货日期：</label>
 							<div class="col-sm-2">
-								<input id="pickupDate" name="pickupDate" th:value="${expressOrder.pickupDate}" class="form-control" type="text">
+								<input type="text" class="laydate-icon layer-date form-control" id="pickupDate" name="pickupDate" th:value="${expressOrder.pickupDate} eq null ? '' : ${#dates.format(expressOrder.pickupDate,'yyyy-MM-dd hh')}" placeholder="请选择出生年月"
+									   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh'})" style="background-color: #fff;" readonly="readonly"/>
+
 							</div>
 
 							<label class="col-sm-2 control-label">到场日期：</label>
 							<div class="col-sm-2">
-								<input id="turnupDate" name="turnupDate" th:value="${expressOrder.turnupDate}" class="form-control" type="text">
+								<input type="text" class="laydate-icon layer-date form-control" id="turnupDate" name="turnupDate" th:value="${expressOrder.turnupDate} eq null ? '' : ${#dates.format(expressOrder.turnupDate,'yyyy-MM-dd hh')}" placeholder="请选择出生年月"
+									   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh'})" style="background-color: #fff;" readonly="readonly"/>
+
 							</div>
 
 							<label class="col-sm-2 control-label">清关日期：</label>
 							<div class="col-sm-2">
-								<input id="cleanDate" name="cleanDate" th:value="${expressOrder.cleanDate}" class="form-control" type="text">
+								<input type="text" class="laydate-icon layer-date form-control" id="cleanDate" name="cleanDate" th:value="${expressOrder.cleanDate} eq null ? '' : ${#dates.format(expressOrder.cleanDate,'yyyy-MM-dd hh')}" placeholder="请选择出生年月"
+									   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh'})" style="background-color: #fff;" readonly="readonly"/>
 							</div>
 						</div>
 					
 						<div class="form-group">
 							<label class="col-sm-2 control-label">清关状态</label>
 							<div class="col-sm-2">
-								<input id="cleanStatus" name="cleanStatus" th:value="${expressOrder.cleanStatus}" class="form-control" type="text">
+								<div id = "cleans"></div>
+								<input id="cleanStatus" name="cleanStatus" th:value="${expressOrder.cleanStatus}" class="form-control" type="hidden">
 							</div>
 
 							<label class="col-sm-2 control-label">备注：</label>
 							<div class="col-sm-2">
-								<input id="cleanRemark" name="cleanRemark" th:value="${expressOrder.cleanRemark}" class="form-control" type="text">
+								<textarea id="cleanRemark" name="cleanRemark" th:value="${expressOrder.cleanRemark}" class="form-control"></textarea>
 							</div>
 
 							<label class="col-sm-2 control-label">快递公司：</label>
@@ -216,7 +225,8 @@
 
 							<label class="col-sm-2 control-label">客户ID：</label>
 							<div class="col-sm-2">
-								<input id="customerId" name="customerId" th:value="${expressOrder.customerId}" class="form-control" type="text">
+								<div id="cusId"></div>
+								<input id="customerId" name="customerId" th:value="${expressOrder.customerId}" class="form-control" type="hidden">
 							</div>
 						</div>
 					
@@ -233,7 +243,7 @@
 						
 						
 						<div class="form-group">
-							<div class="col-sm-2 col-sm-offset-2">
+							<div class="col-sm-2 col-sm-offset-6">
 								<button type="submit" class="btn btn-primary">提交</button>
 							</div>
 						</div>
@@ -246,5 +256,7 @@
 <div th:include="include::footer"></div>
 <script type="text/javascript" src="/js/appjs/common/expressOrder/edit.js">
 </script>
+<script type="text/javascript" src="/js/plugins/layer/laydate/laydate.js" ></script>
+<script src="/js/plugins/jsTree/jstree.min.js"></script>
 </body>
 </html>

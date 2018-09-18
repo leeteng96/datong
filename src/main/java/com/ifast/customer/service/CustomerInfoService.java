@@ -22,5 +22,4 @@ public interface CustomerInfoService extends CoreService<CustomerInfoDO> {
 
     Tree<CustomerInfoDO> getTree();
 
-    /*Tree<CustomerInfoDO> getTree(Long id);*/
 }

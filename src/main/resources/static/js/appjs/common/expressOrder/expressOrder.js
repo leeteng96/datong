@@ -22,22 +22,28 @@ function load() {
                         // //发送到服务器的数据编码类型
                         iconSize : 'outline',
                         toolbar : '#exampleToolbar',
-                        showColumns : false,
                         pageSize : 10, // 如果设置了分页，每页数据条数
                         pageNumber : 1, // 如果设置了分布，首页页码
+                        pageList: [10, 15, 20, 25],        //可供选择的每页的行数（*）
                         sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
                         queryParamsType : "",                  //每页的记录行数（*）
-                        pageList: [10, 15, 20, 25],        //可供选择的每页的行数（*）
                         uniqueId: "id",                     //每一行的唯一标识，一般为主键列
                         clickToSelect: true,
-                        undefinedText:"",
-                        minimumCountColumns:2,
+                        height:600,
+                        sortable: false,//是否排序
+                        strictSearch: true, //是否显 示刷新
+                        showColumns: true, //是否显示所有的列
+                        showRefresh: true, //是否显示刷新按钮
+                        minimumCountColumns: 2, //最少允许的列数
+                        showToggle:true, //是否显示详细视图和列表视图的切换按钮
+                        cardView: false, //是否显示详细视图
                         // //设置为limit则会发送符合RESTFull格式的参数
 						queryParams : function(params) {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 							     pageNumber : params.pageNumber,
-                                  pageSize : params.pageSize  
+                                  pageSize : params.pageSize,
+                                totalWaybillNo:$('#searchName').val(),
 					           // name:$('#searchName').val(),
 					           // username:$('#searchName').val()
 							};
@@ -260,7 +266,7 @@ function load() {
                                         source:[
                                             {value:'1',text:'放行'},
                                             {value:'2',text:'查检放行'},
-                                            {value:'3',text:'查检暂扣'},
+                                            {value:'3',text:'查检查扣'},
                                             {value:'4',text:'异常长装'},
                                             {value:'5',text:'异常短装'},
                                             {value:'6',text:'无数据'},
