@@ -15,7 +15,7 @@
 							<i class="fa fa-plus" aria-hidden="true"></i>添加
 						</button>
 						<button  type="button" class="btn  btn-danger"
-								onclick="batchRemove()">
+								 onclick="batchRemove()">
 							<i class="fa fa-trash" aria-hidden="true"></i>删除
 						</button>
 					</div>
@@ -24,7 +24,7 @@
 					</div>
 					<div class="columns pull-right col-md-2 nopadding">
 						<input id="searchName" type="text" class="form-control"
-							   placeholder="总运单号、提单、清关时间">
+							   placeholder="总运单号、提单、快递单号">
 					</div>
 				</div>
 
@@ -34,8 +34,7 @@
 			</div>
 		</div>
 	</div>
-</div>
-</div>
+</div> 
 <div th:include="include :: footer"></div>
 <script type="text/javascript" src="/js/appjs/common/expressOrder/expressOrder.js"></script>
 <script src="/js/moment.js"></script>

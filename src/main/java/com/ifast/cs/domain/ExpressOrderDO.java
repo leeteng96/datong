@@ -163,7 +163,8 @@ public class ExpressOrderDO implements Serializable {
     private Integer printStatus;
     /** 打板状态:1未打板,2打板 */
     private Integer boardStatus;
-
+    /** 处理进度 */
+    private  Integer schedule;
     /**
      * 设置：主键
      */
@@ -683,5 +684,13 @@ public class ExpressOrderDO implements Serializable {
 
     public void setCleanRemark(String cleanRemark) {
         this.cleanRemark = cleanRemark;
+    }
+
+    public Integer getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Integer schedule) {
+        this.schedule = schedule;
     }
 }

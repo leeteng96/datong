@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.enums.SqlLike;
 import com.ifast.common.annotation.Log;
 import com.ifast.common.domain.Message;
 import com.ifast.common.domain.Status;
@@ -53,13 +54,32 @@ public class ExpressOrderController extends AdminBaseController {
 	@ResponseBody
 	@GetMapping("/list")
 	public Result<Page<ExpressOrderDO>> list(ExpressOrderDO expressOrderDTO){
-        Wrapper<ExpressOrderDO> wrapper = new EntityWrapper<ExpressOrderDO>(expressOrderDTO);
-       /* wrapper.where("(total_waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or clean_date like '%"+expressOrderDTO.getTotalWaybillNo()+"%')");*/
-        wrapper.orderBy("id",false);
-        Page<ExpressOrderDO> page = expressOrderService.selectPage(getPage(ExpressOrderDO.class), wrapper);
-        return Result.ok(page);
+      	EntityWrapper ew = new EntityWrapper();
+      	ew.setEntity(new ExpressOrderDO());
+      	ew.like("total_waybill_no",expressOrderDTO.getTotalWaybillNo(), SqlLike.DEFAULT);
+      	ew.or("lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%'");
+		ew.or("waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%'");
+		ew.orderBy("id",false);
+		Page<ExpressOrderDO> page = expressOrderService.selectPage(getPage(ExpressOrderDO.class), ew);
+
+		return Result.ok(page);
 	}
 
+	@ResponseBody
+	@GetMapping("/todo")
+	public Result<Page<ExpressOrderDO>> getToDo(ExpressOrderDO expressOrderDTO) {
+		EntityWrapper ew = new EntityWrapper();
+		ew.where("1=1");
+		ew.and("user_id",getUserId());
+		ew.and("schedule = 1");
+		if(!"".equals(expressOrderDTO.getTotalWaybillNo())){
+			ew.and("(total_waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or  waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%')");
+		}
+
+		ew.and("(datediff(date_format(now(),'%y-%m-%d %h'), turnup_date)>=2 and logistics_type =1  or  datediff(date_format(now(),'%y-%m-%d %h'), turnup_date)>=3 and logistics_type =2)");
+		Page<ExpressOrderDO> page = expressOrderService.selectPage(getPage(ExpressOrderDO.class), ew);
+ 		return Result.ok(page);
+	}
 	@GetMapping("/add")
 	String add(){
 	    return "common/expressOrder/add";
@@ -78,7 +98,7 @@ public class ExpressOrderController extends AdminBaseController {
 	@ResponseBody
 	@RequestMapping("/save")
 	public Result<String> save( ExpressOrderDO expressOrder){
-		expressOrderService.insert(expressOrderService.setDate(expressOrder));
+		expressOrderService.insert(expressOrder);
         return Result.ok();
 	}
 
@@ -92,7 +112,7 @@ public class ExpressOrderController extends AdminBaseController {
 		expressOrderService.updateById(expressOrder);
 		return Result.ok();
 	}
-	
+
 	/**
 	 * 删除
 	 */
@@ -143,7 +163,7 @@ public class ExpressOrderController extends AdminBaseController {
 			if("xls".equals(fileName.split("\\.")[1]) || "xlsx".equals(fileName.split("\\.")[1])){
 
 				try {
-					expressOrderService.importExcel(file,1,1);
+					expressOrderService.importExcel(file,1,1,getUserId());
 					msg.setStatus(Status.SUCCESS);
 					msg.setStatusMsg("File upload success");
 					return msg;

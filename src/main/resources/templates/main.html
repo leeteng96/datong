@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head th:include="include :: header">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>欢迎页</title>
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-	<div class="panel panel-default">
+	<div class="panel panel-default" id="home">
 		<div class="panel-heading">关于 IFast 快速开发框架</div>
 		<div style="padding: 10px 0 20px 20px;">
 			<h1>简介</h1>
@@ -60,5 +60,32 @@
 			</ol>
 		</div>
 	</div>
+
+	<div class="wrapper wrapper-content " id="todo">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+					<div class="fixed-table-toolbar">
+						<div class="columns pull-right">
+							<button class="btn btn-success" onclick="reLoad()">查询</button>
+						</div>
+						<div class="columns pull-right col-md-2 nopadding">
+							<input id="searchName" type="text" class="form-control"
+								   placeholder="总运单号、提单、清关日期">
+						</div>
+					</div>
+
+					<table id="exampleTable"  data-mobile-responsive="true">
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript" src="/js/appjs/main.js"></script>
+
+
+
 </body>
 </html>
