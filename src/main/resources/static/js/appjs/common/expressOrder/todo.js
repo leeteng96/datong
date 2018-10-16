@@ -54,13 +54,6 @@ function load() {
                 },
                 onLoadSuccess:function(data){
 
-                    if (data.total == 0 || parent.$("#flag").val() == "todo"){
-                        $("#todo").show();
-                        $("#home").hide();
-                    }else{
-                        $("#todo").hide();
-                        $("#home").show();
-                    }
                 },
                 columns : [
 

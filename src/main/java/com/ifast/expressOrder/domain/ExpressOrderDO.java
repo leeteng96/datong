@@ -1,4 +1,4 @@
-package com.ifast.cs.domain;
+package com.ifast.expressOrder.domain;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;

@@ -1,4 +1,4 @@
-package com.ifast.cs.controller;
+package com.ifast.expressOrder.controller;
 
 
 import java.io.IOException;
@@ -12,10 +12,11 @@ import com.ifast.common.domain.Message;
 import com.ifast.common.domain.Status;
 import com.ifast.customer.domain.CustomerInfoDO;
 import com.ifast.customer.service.CustomerInfoService;
-import com.ifast.cs.domain.ExpressOrderDO;
-import com.ifast.cs.service.ExpressOrderService;
+import com.ifast.expressOrder.domain.ExpressOrderDO;
+import com.ifast.expressOrder.service.ExpressOrderService;
 import com.ifast.sys.domain.UserDO;
 import com.ifast.sys.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,14 +66,15 @@ public class ExpressOrderController extends AdminBaseController {
 		return Result.ok(page);
 	}
 
+
+
 	@ResponseBody
 	@GetMapping("/todo")
 	public Result<Page<ExpressOrderDO>> getToDo(ExpressOrderDO expressOrderDTO) {
 		EntityWrapper ew = new EntityWrapper();
 		ew.where("1=1");
-		ew.and("user_id",getUserId());
 		ew.and("schedule = 1");
-		if(!"".equals(expressOrderDTO.getTotalWaybillNo())){
+		if(StringUtils.isNotBlank(expressOrderDTO.getTotalWaybillNo())){
 			ew.and("(total_waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or  waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%')");
 		}
 

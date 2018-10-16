@@ -1,6 +1,7 @@
 
 var prefix = "/common/customerInfo"
 $(function() {
+
 	load();
 });
 

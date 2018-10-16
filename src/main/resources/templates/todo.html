@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="include :: header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content " id="todo">
+    <div class="col-sm-12">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div class="fixed-table-toolbar">
+                    <div class="columns pull-right">
+                        <button class="btn btn-success" onclick="reLoad()">查询</button>
+                    </div>
+                    <div class="columns pull-right col-md-2 nopadding">
+                        <input id="searchName" type="text" class="form-control"
+                               placeholder="总运单号、提单、清关日期">
+                    </div>
+                </div>
+
+                <table id="exampleTable"  data-mobile-responsive="true">
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include :: footer"></div>
+<script type="text/javascript" src="/js/appjs/common/expressOrder/todo.js"></script>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
-package com.ifast.cs.dao;
+package com.ifast.expressOrder.dao;
 
 import com.ifast.common.base.BaseDao;
-import com.ifast.cs.domain.ExpressOrderDO;
+import com.ifast.expressOrder.domain.ExpressOrderDO;
 
 import java.util.List;
 

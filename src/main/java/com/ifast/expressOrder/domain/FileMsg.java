@@ -1,4 +1,4 @@
-package com.ifast.cs.domain;
+package com.ifast.expressOrder.domain;
 
 import java.util.List;
 

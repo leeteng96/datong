@@ -1,4 +1,4 @@
-package com.ifast.cs.controller;
+package com.ifast.expressOrder.controller;
 
 
 import java.util.Arrays;
@@ -21,8 +21,8 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.ifast.common.base.AdminBaseController;
-import com.ifast.cs.domain.WorkOrderDO;
-import com.ifast.cs.service.WorkOrderService;
+import com.ifast.expressOrder.domain.WorkOrderDO;
+import com.ifast.expressOrder.service.WorkOrderService;
 import com.ifast.common.utils.Result;
 
 /**

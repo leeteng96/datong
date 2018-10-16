@@ -43,6 +43,7 @@ public class LoginController extends AdminBaseController {
         return "redirect:/login";
     }
 
+   
     @Log("请求访问主页")
     @GetMapping({ "/index" })
     String index(Model model) {
@@ -52,7 +53,6 @@ public class LoginController extends AdminBaseController {
         model.addAttribute("username", getUser().getUsername());
         FileDO fileDO = fileService.selectById(getUser().getPicId());
         model.addAttribute("picUrl", fileDO == null ? "/img/photo_s.jpg" : fileDO.getUrl());
-
         return "index_v1";
     }
 
@@ -88,7 +88,11 @@ public class LoginController extends AdminBaseController {
     String main() {
         return "main";
     }
-
+    @Log("待办")
+    @GetMapping("/todo")
+    String todo() {
+        return "todo";
+    }
     @Log("错误403")
     @GetMapping("/403")
     String error403() {

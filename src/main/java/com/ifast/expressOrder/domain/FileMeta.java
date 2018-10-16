@@ -1,4 +1,4 @@
-package com.ifast.cs.domain;
+package com.ifast.expressOrder.domain;
 
 /**
  * Created by zhangjk on 2016/1/16.

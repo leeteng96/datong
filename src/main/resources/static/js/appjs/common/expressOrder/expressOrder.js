@@ -29,7 +29,6 @@ function load() {
                         queryParamsType : "",                  //每页的记录行数（*）
                         uniqueId: "id",                     //每一行的唯一标识，一般为主键列
                         clickToSelect: true,
-                        height:600,
                         sortable: false,//是否排序
                         strictSearch: true, //是否显 示刷新
                         showColumns: true, //是否显示所有的列
@@ -56,12 +55,7 @@ function load() {
                                 "rows": res.data.records   //数据
                              };
                         },
-                      /*  onLoadSuccess : function(data) {
-                            var data = $('#exampleTable').bootstrapTable('getData', true);
-                            //合并单元格
-                            mergeCells(data, "waybillNo", 1, $('#exampleTable'));
 
-                        },*/
                         onEditableSave: function (field, row, oldValue, $el) {
                             $.ajax({
 								url: "/common/expressOrder/update",
@@ -585,6 +579,7 @@ function load() {
 
 						]
 					});
+        $('#exampleTable').bootstrapTable('resetView',{height:600});
 }
 
 

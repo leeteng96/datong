@@ -1,6 +1,6 @@
-package com.ifast.cs.dao;
+package com.ifast.expressOrder.dao;
 
-import com.ifast.cs.domain.WorkOrderDO;
+import com.ifast.expressOrder.domain.WorkOrderDO;
 import com.ifast.common.base.BaseDao;
 import com.ifast.sys.domain.DeptDO;
 import com.ifast.sys.domain.UserDO;
