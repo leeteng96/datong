@@ -474,12 +474,12 @@
         template: 'D / MMM / YYYY   H : mm',
         //initial value, can be `new Date()`    
         value: null,                       
-        minYear: 2000,
+        minYear: 1970,
         maxYear: 2018,
         yearDescending: true,
         minuteStep: 5,
         secondStep: 1,
-        firstItem: 'empty', //'name', 'empty', 'none'
+        firstItem: 'none', //'name', 'empty', 'none'
         errorClass: null,
         customClass: '',
         roundTime: true, // whether to round minutes and seconds if step > 1

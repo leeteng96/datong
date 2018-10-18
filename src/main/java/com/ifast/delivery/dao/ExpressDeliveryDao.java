@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.ifast.delivery.domain.ExpressDeliveryDO;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.session.RowBounds;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.util.List;
 
@@ -38,5 +39,6 @@ public interface ExpressDeliveryDao extends BaseMapper<ExpressDeliveryDO> {
 
     @Select("select * from tb_express_order")
     List<ExpressDeliveryDO> selectExpress();
+
 
 }

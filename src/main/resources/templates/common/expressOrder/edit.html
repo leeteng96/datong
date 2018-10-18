@@ -19,18 +19,6 @@
 								<input id="totalWaybillNo" name="totalWaybillNo" th:value="${expressOrder.totalWaybillNo}" class="form-control" type="text">
 							</div>
 
-							<label class="col-sm-2 control-label">关联单号：</label>
-							<div class="col-sm-2">
-								<input id="relaNo" name="relaNo" th:value="${expressOrder.relaNo}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">企业运单编号：</label>
-							<div class="col-sm-2">
-								<input id="waybillNo" name="waybillNo" th:value="${expressOrder.waybillNo}" class="form-control" type="text">
-							</div>
-						</div>
-					
-						<div class="form-group">
 							<label class="col-sm-2 control-label">提单号：</label>
 							<div class="col-sm-2">
 								<input id="ladingBillNo" name="ladingBillNo" th:value="${expressOrder.ladingBillNo}" class="form-control" type="text">
@@ -41,6 +29,13 @@
 								<input id="flightNo" name="flightNo" th:value="${expressOrder.flightNo}" class="form-control" type="text">
 							</div>
 
+
+						</div>
+					
+						<div class="form-group">
+
+
+
 							<label class="col-sm-2 control-label">模式：</label>
 							<div class="col-sm-2">
 								<input id="logisticsType" th:value="${expressOrder.logisticsType}" name="logisticsType" type="hidden">
@@ -50,6 +45,19 @@
 									<option VALUE="2">CC</option>
 								</select>
 							</div>
+
+							<label class="col-sm-2 control-label">客户ID：</label>
+							<div class="col-sm-2">
+								<div id="cusId"></div>
+								<input id="customerId" name="customerId" th:value="${expressOrder.customerId}" class="form-control" type="hidden">
+							</div>
+
+							<label class="col-sm-2 control-label">快递公司：</label>
+							<div class="col-sm-2">
+								<input id="expressCompany" name="expressCompany" th:value="${expressOrder.expressCompany}" class="form-control" type="text">
+							</div>
+
+
 						</div>
 						
 						<div class="form-group">
@@ -86,155 +94,11 @@
 								<textarea id="cleanRemark" name="cleanRemark" th:value="${expressOrder.cleanRemark}" class="form-control"></textarea>
 							</div>
 
-							<label class="col-sm-2 control-label">快递公司：</label>
-							<div class="col-sm-2">
-								<input id="expressCompany" name="expressCompany" th:value="${expressOrder.expressCompany}" class="form-control" type="text">
-							</div>
-						</div>
-					
-						<div class="form-group">
-							<label class="col-sm-2 control-label">发货人名称：</label>
-							<div class="col-sm-2">
-								<input id="sender" name="sender" th:value="${expressOrder.sender}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">发货人地址：</label>
-							<div class="col-sm-2">
-								<input id="senderAddress" name="senderAddress" th:value="${expressOrder.senderAddress}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">发货人电话：</label>
-							<div class="col-sm-2">
-								<input id="senderPhone" name="senderPhone" th:value="${expressOrder.senderPhone}" class="form-control" type="text">
-							</div>
-						</div>
-					
-						<div class="form-group">
-							<label class="col-sm-2 control-label">收件人姓名：</label>
-							<div class="col-sm-2">
-								<input id="receiver" name="receiver" th:value="${expressOrder.receiver}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">收货人证件号码：</label>
-							<div class="col-sm-2">
-								<input id="receiverIdcard" name="receiverIdcard" th:value="${expressOrder.receiverIdcard}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">收货人电话：</label>
-							<div class="col-sm-2">
-								<input id="receiverPhone" name="receiverPhone" th:value="${expressOrder.receiverPhone}" class="form-control" type="text">
-							</div>
-						</div>
-					
-						<div class="form-group">
-							<label class="col-sm-2 control-label">收件人地址：</label>
-							<div class="col-sm-2">
-								<input id="receiverAddress" name="receiverAddress" th:value="${expressOrder.receiverAddress}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">客户ID：</label>
-							<div class="col-sm-2">
-								<div id="cusId"></div>
-								<input id="customerId" name="customerId" th:value="${expressOrder.customerId}" class="form-control" type="hidden">
-							</div>
-
 							<label class="col-sm-2 control-label">邮编：</label>
 							<div class="col-sm-2">
 								<input id="zipCode" name="zipCode" th:value="${expressOrder.zipCode}" class="form-control" type="text">
 							</div>
 
-
-						</div>
-						
-						<div class="form-group">
-
-							<label class="col-sm-2 control-label">商品序号：</label>
-							<div class="col-sm-2">
-								<input id="goodsSeq" name="goodsSeq" th:value="${expressOrder.goodsSeq}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">主要商品：</label>
-							<div class="col-sm-2">
-								<input id="goodsName" name="goodsName" th:value="${expressOrder.goodsName}" class="form-control" type="text">
-							</div>
-
-
-							
-							<label class="col-sm-2 control-label">国家简称：</label>
-							<div class="col-sm-2">
-								<input id="nationalShortName" name="nationalShortName" th:value="${expressOrder.nationalShortName}" class="form-control" type="text">
-							</div>
-							
-						</div>
-					
-						<div class="form-group">
-							<label class="col-sm-2 control-label">原产国：</label>
-							<div class="col-sm-2">
-								<input id="originCountry" name="originCountry" th:value="${expressOrder.originCountry}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">货号：</label>
-							<div class="col-sm-2">
-								<input id="goodsCode" name="goodsCode" th:value="${expressOrder.goodsCode}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">商品规格：</label>
-							<div class="col-sm-2">
-								<input id="goodsModel" name="goodsModel" th:value="${expressOrder.goodsModel}" class="form-control" type="text">
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label class="col-sm-2 control-label">品牌名称：</label>
-							<div class="col-sm-2">
-								<input id="brand" name="brand" th:value="${expressOrder.brand}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">商品单价：</label>
-							<div class="col-sm-2">
-								<input id="goodsValue" name="goodsValue" th:value="${expressOrder.goodsValue}" class="form-control" type="text">
-							</div>
-
-							<label class="col-sm-2 control-label">商品总价：</label>
-							<div class="col-sm-2">
-								<input id="totalPrice" name="totalPrice" th:value="${expressOrder.totalPrice}" class="form-control" type="number">
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label class="col-sm-2 control-label">币制：</label>
-							<div class="col-sm-2">
-								<input id="currency" name="currency" th:value="${expressOrder.currency}" class="form-control" type="number">
-							</div>
-
-							<label class="col-sm-2 control-label">毛重(kg)：</label>
-							<div class="col-sm-2">
-								<input id="grossWeight" name="grossWeight" th:value="${expressOrder.grossWeight}" class="form-control" type="number">
-							</div>
-
-							<label class="col-sm-2 control-label">净重：</label>
-							<div class="col-sm-2">
-								<input id="netWt" name="netWt" th:value="${expressOrder.netWt}" class="form-control" type="number">
-							</div>
-
-
-						</div>
-					
-						<div class="form-group">
-
-							<label class="col-sm-2 control-label">商品数量：</label>
-							<div class="col-sm-2">
-								<input id="quantity" name="quantity" th:value="${expressOrder.quantity}" class="form-control" type="number">
-							</div>
-
-							<label class="col-sm-2 control-label">海关商品编码：</label>
-							<div class="col-sm-2">
-								<input id="hsCode" name="hsCode" th:value="${expressOrder.hsCode}" class="form-control" type="text">
-							</div>
-							<label class="col-sm-2 control-label">集包地名称：</label>
-							<div class="col-sm-2">
-								<input id="packageCenterName" name="packageCenterName" th:value="${expressOrder.packageCenterName}" class="form-control" type="text">
-							</div>
 						</div>
 
 

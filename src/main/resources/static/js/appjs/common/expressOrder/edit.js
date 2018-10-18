@@ -75,6 +75,7 @@ function loadTree(){
 
     $('#cusId').jstree({
         'core' : {
+            "plugins": ["wholerow"],
             'data': {
                 'url': '/common/customerInfo/tree',
                 'data': function (node) {

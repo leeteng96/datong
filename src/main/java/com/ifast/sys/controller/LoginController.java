@@ -7,6 +7,8 @@ import com.ifast.common.type.EnumErrorCode;
 import com.ifast.common.utils.MD5Utils;
 import com.ifast.common.utils.Result;
 import com.ifast.common.utils.ShiroUtils;
+import com.ifast.expressOrder.domain.ExpressOrderDO;
+import com.ifast.expressOrder.service.ExpressOrderService;
 import com.ifast.oss.domain.FileDO;
 import com.ifast.oss.service.FileService;
 import com.ifast.sys.domain.MenuDO;
@@ -36,7 +38,8 @@ public class LoginController extends AdminBaseController {
     MenuService menuService;
     @Autowired
     FileService fileService;
-
+    @Autowired
+    ExpressOrderService expressOrderService;
     @GetMapping({ "/", "" })
     @Log("重定向到登录")
     String welcome(Model model) {
@@ -53,6 +56,10 @@ public class LoginController extends AdminBaseController {
         model.addAttribute("username", getUser().getUsername());
         FileDO fileDO = fileService.selectById(getUser().getPicId());
         model.addAttribute("picUrl", fileDO == null ? "/img/photo_s.jpg" : fileDO.getUrl());
+        ExpressOrderDO  bc= expressOrderService.selectData(1);
+        ExpressOrderDO  cc= expressOrderService.selectData(2);
+        model.addAttribute("bc", bc);
+        model.addAttribute("cc", cc);
         return "index_v1";
     }
 

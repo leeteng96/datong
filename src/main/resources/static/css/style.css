@@ -199,7 +199,9 @@ body.body-small .navbar-top-links li:last-child {
     padding: 33px 25px;
     background: url("patterns/header-profile.png") no-repeat;
 }
-
+.nav-footer {
+    padding: 100px 0px;
+}
 .pace-done .nav-header {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
@@ -5407,7 +5409,7 @@ del {
     }
 
     100% {
-        -webkit-transform: perspective(120px)  rotateX(-180deg)  rotateY(-179 .9deg );
+        -webkit-transform: perspective(120px)  rotateX(-180deg)  rotateY(-179 .9deg);
         transform: perspective(120px)  rotateX(-180deg)  rotateY(-179 .9deg );
     }
 }
@@ -5524,8 +5526,8 @@ del {
     }
 
     20% {
-        -webkit-transform: scaleY (1);
-        transform: scaleY (1);
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
     }
 }
 

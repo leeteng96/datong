@@ -126,40 +126,8 @@ function load() {
 
 
                                 },
-                                {
-                                    field : 'relaNo',
-                                    title : '关联单号',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '提单号',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '提单号不能为空!';
-                                            }
-                                        }
-                                    },
 
 
-                                },
-                                {
-                                    field : 'waybillNo',
-                                    title : '快递单号' ,
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '快递单号',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '快递单号不能为空!';
-                                            }
-                                        }
-                                    },
-
-
-                                },
                                 {
                                     field : 'flightNo',
                                     title : '航班号' ,
@@ -281,250 +249,30 @@ function load() {
 
                                     },
                                 },
-
                             {
-                                    field : 'sender',
-                                    title : '发件人',
-                                    valign:"middle",
-                                    align:"center",
+                                field: 'zipCode',
+                                title: '邮编',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '邮编',
 
-                                    editable: {
-                                        type: 'text',
-                                        title: '发件人',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '发件人不能为空!';
-                                            }
-                                        }
-                                    }
-                                },
-
-                                {
-                                    field : 'senderAddress',
-                                    title : '发件人地址',
-                                    valign:"middle",
-                                    align:"center",
-
-                                    editable: {
-                                        type: 'text',
-                                        title: '发件人地址',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '发件人地址不能为空!';
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    field : 'senderPhone',
-                                    title : '发件人电话',
-                                    valign:"middle",
-                                    align:"center",
-
-                                    editable: {
-                                        type: 'text',
-                                        title: '发件人电话',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '发件人电话不能为空!';
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    field : 'receiver',
-                                    title : '收件人' ,
-                                    valign:"middle",
-                                    align:"center",
-
-                                    editable: {
-                                        type: 'text',
-                                        title: '收件人',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '收件人电话不能为空!';
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    field : 'receiverIdcard',
-                                    title : '收件人身份证号',
-                                    valign:"middle",
-                                    align:"center",
-
-                                    editable: {
-                                        type: 'text',
-                                        title: '收件人身份证号',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '收件人身份证号不能为空!';
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    field : 'receiverPhone',
-                                    title : '收件人电话',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '收件人电话',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '收件人电话不能为空!';
-                                            }
-                                        }
-                                    }
 
                                 },
+                            },
+                            {
+                                field: 'expressCompany',
+                                title: '快递公司',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '快递公司',
 
-                                {
-                                    field : 'receiverAddress',
-                                    title : '收件人地址' ,
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '收件人地址',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '收件人地址不能为空!';
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    field : 'goodsSeq',
-                                    title : '商品序号',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '商品序号',
-
-                                    }
-                                },
-                                {
-                                    field : 'goodsName',
-                                    title : '包裹名称',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '包裹名称',
-                                        validate: function (value) {
-                                            if ($.trim(value) == '') {
-                                                return '包裹名称不能为空!';
-                                            }
-                                        }
-                                    }
 
                                 },
-
-                                {
-                                    field : 'nationalShortName',
-                                    title : '国家简称',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '国家简称',
-
-                                    }
-                                },
-                                {
-                                    field : 'originCountry',
-                                    title : '原产国',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '原产国',
-
-                                    }
-
-                                },
-                                {
-                                    field : 'goodsCode',
-                                    title : '货号',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '货号',
-
-                                    }
-                                },
-                                {
-                                    field : 'goodsModel',
-                                    title : '商品规格',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '商品规格',
-
-                                    }
-                                },
-                                {
-                                    field : 'brand',
-                                    valign:"middle",
-                                    align:"center",
-                                    title : '品牌名称',
-                                    editable: {
-                                        type: 'text',
-                                        title: '品牌名称',
-
-                                    }
-                                },
-                                {
-                                    field : 'goodsValue',
-                                    title : '单价',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '单价',
-
-                                    }
-                                },
-
-                                {
-                                    field : 'grossWeight',
-                                    title : '毛重',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '毛重',
-
-                                    }
-                                },
-                                {
-                                    field : 'netWt',
-                                    title : '净重',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '净重',
-
-                                    }
-                                },
-                                {
-                                    field : 'quantity',
-                                    title : '数量',
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'text',
-                                        title: '数量',
-
-                                    }
-                                },
-
+                            },
 
                                 {
                                     field : 'customerId',
@@ -579,7 +327,6 @@ function load() {
 
 						]
 					});
-        $('#exampleTable').bootstrapTable('resetView',{height:600});
 }
 
 

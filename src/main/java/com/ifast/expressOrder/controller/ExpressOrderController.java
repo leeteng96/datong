@@ -3,6 +3,7 @@ package com.ifast.expressOrder.controller;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
@@ -14,6 +15,7 @@ import com.ifast.customer.domain.CustomerInfoDO;
 import com.ifast.customer.service.CustomerInfoService;
 import com.ifast.expressOrder.domain.ExpressOrderDO;
 import com.ifast.expressOrder.service.ExpressOrderService;
+import com.ifast.expressOrder.service.PackInfoService;
 import com.ifast.sys.domain.UserDO;
 import com.ifast.sys.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -47,6 +49,7 @@ public class ExpressOrderController extends AdminBaseController {
 
 	@Autowired
 	private CustomerInfoService customerInfoService;
+
 	@GetMapping()
 	String ExpressOrder(){
 	    return "common/expressOrder/expressOrder";
@@ -56,13 +59,10 @@ public class ExpressOrderController extends AdminBaseController {
 	@GetMapping("/list")
 	public Result<Page<ExpressOrderDO>> list(ExpressOrderDO expressOrderDTO){
       	EntityWrapper ew = new EntityWrapper();
-      	ew.setEntity(new ExpressOrderDO());
       	ew.like("total_waybill_no",expressOrderDTO.getTotalWaybillNo(), SqlLike.DEFAULT);
       	ew.or("lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%'");
-		ew.or("waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%'");
 		ew.orderBy("id",false);
 		Page<ExpressOrderDO> page = expressOrderService.selectPage(getPage(ExpressOrderDO.class), ew);
-
 		return Result.ok(page);
 	}
 
@@ -73,13 +73,14 @@ public class ExpressOrderController extends AdminBaseController {
 	public Result<Page<ExpressOrderDO>> getToDo(ExpressOrderDO expressOrderDTO) {
 		EntityWrapper ew = new EntityWrapper();
 		ew.where("1=1");
-		ew.and("schedule = 1");
+		ew.and("clean_date is null");
 		if(StringUtils.isNotBlank(expressOrderDTO.getTotalWaybillNo())){
-			ew.and("(total_waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or  waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%')");
+			ew.and("(total_waybill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%' or lading_bill_no like '%"+expressOrderDTO.getTotalWaybillNo()+"%')");
 		}
 
 		ew.and("(datediff(date_format(now(),'%y-%m-%d %h'), turnup_date)>=2 and logistics_type =1  or  datediff(date_format(now(),'%y-%m-%d %h'), turnup_date)>=3 and logistics_type =2)");
 		Page<ExpressOrderDO> page = expressOrderService.selectPage(getPage(ExpressOrderDO.class), ew);
+
  		return Result.ok(page);
 	}
 	@GetMapping("/add")
@@ -115,6 +116,8 @@ public class ExpressOrderController extends AdminBaseController {
 		return Result.ok();
 	}
 
+
+
 	/**
 	 * 删除
 	 */
@@ -147,48 +150,18 @@ public class ExpressOrderController extends AdminBaseController {
 
 	@RequestMapping("/customerList")
 	@ResponseBody
-	public  String  customerList(CustomerInfoDO customerInfoDTO){
-		Wrapper<CustomerInfoDO> wrapper = new EntityWrapper<CustomerInfoDO>(customerInfoDTO);
+	public  String  customerList(){
+		Wrapper<CustomerInfoDO> wrapper = new EntityWrapper<>();
 		wrapper.setSqlSelect("id,name").orderBy("id",false);
 		List <CustomerInfoDO> customerList = customerInfoService.selectList(wrapper);
 		String customerInfo = JSON.toJSONString(customerList);
 		return customerInfo;
 	}
-
-	@Log("excel 导入")
-	@RequestMapping(value = "/importExcel", method = RequestMethod.POST, produces = "application/json;charset=utf8")
+	@GetMapping("/changeStatus")
 	@ResponseBody
-	public Message uploadFileHandler(@RequestParam("file") MultipartFile file) throws IOException {
-		if(!file.isEmpty()){
-			String fileName = file.getOriginalFilename();
-			Message msg = new Message();
-			if("xls".equals(fileName.split("\\.")[1]) || "xlsx".equals(fileName.split("\\.")[1])){
-
-				try {
-					expressOrderService.importExcel(file,1,1,getUserId());
-					msg.setStatus(Status.SUCCESS);
-					msg.setStatusMsg("File upload success");
-					return msg;
-				} catch (Exception e) {
-					msg.setStatus(Status.ERROR);
-					msg.setError("File upload file");
-					return msg;
-				}
-			}else {
-				msg.setStatus(Status.ERROR);
-				msg.setError("请选择xls或xlsx格式文件!");
-				return msg;
-			}
-
-
-		}else {
-			Message msg = new Message();
-			msg.setStatus(Status.ERROR);
-			msg.setError("File is empty");
-			return msg;
-		}
-
+	public  Result<String>  changeStatus(@RequestParam("id") Long id, @RequestParam("cleanDate") Date cleanDate){
+		expressOrderService.changeStatus(id,cleanDate);
+		return Result.ok();
 	}
-
 
 }

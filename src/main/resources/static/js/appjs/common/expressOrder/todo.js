@@ -15,7 +15,7 @@ function load() {
                 striped : true, // 设置为true会有隔行变色效果
                 dataType : "json", // 服务器返回的数据类型
                 pagination : true, // 设置为true会在底部显示分页条
-                singleSelect : false, // 设置为true将禁止多选
+                singleSelect : true, // 设置为true将禁止多选
 
                 // contentType : "application/x-www-form-urlencoded",
                 // //发送到服务器的数据编码类型
@@ -28,14 +28,13 @@ function load() {
                 queryParamsType : "",                  //每页的记录行数（*）
                 uniqueId: "id",                     //每一行的唯一标识，一般为主键列
                 clickToSelect: true,
+                sortable: false,//是否排序
                 strictSearch: true, //是否显 示刷新
                 showColumns: true, //是否显示所有的列
                 showRefresh: true, //是否显示刷新按钮
+                minimumCountColumns: 2, //最少允许的列数
                 showToggle:true, //是否显示详细视图和列表视图的切换按钮
                 cardView: false, //是否显示详细视图
-                // //设置为limit则会发送符合RESTFull格式的参数
-
-
                 queryParams : function(params) {
                     return {
                         //说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
@@ -77,38 +76,20 @@ function load() {
                         valign:"middle",
                         align:"center",
 
-
-
                     },
                     {
                         field : 'ladingBillNo',
                         title : '提单号',
                         valign:"middle",
                         align:"center",
-
-
-
                     },
-                    {
-                        field : 'relaNo',
-                        title : '关联单号',
-                        valign:"middle",
-                        align:"center",
 
-                    },
-                    {
-                        field : 'waybillNo',
-                        title : '快递单号' ,
-                        valign:"middle",
-                        align:"center",
 
-                    },
                     {
                         field : 'flightNo',
                         title : '航班号' ,
                         valign:"middle",
                         align:"center",
-
                     },
 
 
@@ -124,26 +105,27 @@ function load() {
                             if(value == "2")
                                 return "CC"
                         }
+
+
                     },
                     {
                         field : 'pickupDate',
                         title : '提货日期' ,
                         valign:"middle",
                         align:"center",
-
                     },
                     {
                         field : 'turnupDate',
                         title : '到场日期' ,
                         valign:"middle",
                         align:"center",
-
                     },
                     {
                         field : 'cleanDate',
                         title : '清关日期' ,
                         valign:"middle",
                         align:"center",
+
 
                     },
                     {
@@ -170,8 +152,8 @@ function load() {
                             if(value == "6"){
                                 return "无数据"
                             }
-
                         }
+
                     },
                     {
                         field: 'cleanRemark',
@@ -180,177 +162,97 @@ function load() {
                         align:"center",
 
                     },
-
                     {
-                        field : 'sender',
-                        title : '发件人',
-                        valign:"middle",
-                        align:"center",
-
-                    },
-
-                    {
-                        field : 'senderAddress',
-                        title : '发件人地址',
+                        field: 'zipCode',
+                        title: '邮编',
                         valign:"middle",
                         align:"center",
 
                     },
                     {
-                        field : 'senderPhone',
-                        title : '发件人电话',
+                        field: 'expressCompany',
+                        title: '快递公司',
                         valign:"middle",
                         align:"center",
 
                     },
-                    {
-                        field : 'receiver',
-                        title : '收件人' ,
-                        valign:"middle",
-                        align:"center",
-
-                    },
-                    {
-                        field : 'receiverIdcard',
-                        title : '收件人身份证号',
-                        valign:"middle",
-                        align:"center",
-
-                    },
-                    {
-                        field : 'receiverPhone',
-                        title : '收件人电话',
-                        valign:"middle",
-                        align:"center",
-
-
-                    },
-
-                    {
-                        field : 'receiverAddress',
-                        title : '收件人地址' ,
-                        valign:"middle",
-                        align:"center",
-
-                    },
-                    {
-                        field : 'goodsSeq',
-                        title : '商品序号',
-                        valign:"middle",
-                        align:"center",
-                    },
-                    {
-                        field : 'goodsName',
-                        title : '包裹名称',
-                        valign:"middle",
-                        align:"center",
-
-                    },
-
-                    {
-                        field : 'nationalShortName',
-                        title : '国家简称',
-                        valign:"middle",
-                        align:"center",
-
-                    },
-                    {
-                        field : 'originCountry',
-                        title : '原产国',
-                        valign:"middle",
-                        align:"center",
-                    },
-                    {
-                        field : 'goodsCode',
-                        title : '货号',
-                        valign:"middle",
-                        align:"center",
-                    },
-                    {
-                        field : 'goodsModel',
-                        title : '商品规格',
-                        valign:"middle",
-                        align:"center",
-                    },
-                    {
-                        field : 'brand',
-                        valign:"middle",
-                        align:"center",
-                        title : '品牌名称',
-                    },
-                    {
-                        field : 'goodsValue',
-                        title : '单价',
-                        valign:"middle",
-                        align:"center",
-                    },
-
-                    {
-                        field : 'grossWeight',
-                        title : '毛重',
-                        valign:"middle",
-                        align:"center",
-                    },
-                    {
-                        field : 'netWt',
-                        title : '净重',
-                        valign:"middle",
-                        align:"center",
-                    },
-                    {
-                        field : 'quantity',
-                        title : '数量',
-                        valign:"middle",
-                        align:"center",
-                    },
-
 
                     {
                         field : 'customerId',
-                        title : '客户ID',
+                        title : '客户名称',
                         valign:"middle",
                         align:"center",
+                        formatter:function (val) {
+                               var cusName;
+                                $.ajax({
+                                    url:'/common/expressOrder/customerList',
+                                    async:false,
+                                    type:"get",
+                                    data:{},
+                                    success:function(data,status){
+                                        $.each(JSON.parse(data),function (key,value) {
+                                            if(value.id == val){
+                                                cusName = value.name;
+                                            }
 
+                                        })
+                                    }
+                                })
+                                return cusName;
+                            }
                     },
 
-                    {
-                        title : '处理进度',
-                        field : 'schedule',
-                        align : 'center',
-                        valign:"middle",
-                        align:"center",
-                        formatter : function(value, row, index) {
-                            if(value == 1){
-                                return '<a class="btn  btn-danger" href="#" mce_href="#" title="待处理" onclick="editStatus(\''
-                                    + row.id
-                                    + '\')"></i>确认已处理</a> ';
-                            }
 
-                        }
-                    }
+
+
 
                 ]
             });
 }
-function editStatus(id){
-    $.ajax({
-        url : prefix+"/update",
-        type : "post",
-        data : {
-            'id' : id,
-            'schedule':2
+function editStatus(){
+    var rows = $('#exampleTable').bootstrapTable('getSelections');
+    if (rows.length == 0) {
+        layer.msg("请选择要处理的数据");
+        return;
+    }
+
+    layer.open({
+        title:'确认清关',
+        skin:'layui-layer-rim',
+        area:['450px', 'auto'],
+        content: ' <div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">'
+            +'<div class="col-sm-12">'
+            +'<div class="input-group">'
+            +'<span class="input-group-addon"> 清关日期   :</span>'
+            +'<input type="text" class="laydate-icon layer-date form-control" id="cleanDate" name="cleanDate"  placeholder="日期"  onclick="laydate({istime: true, format: \'YYYY-MM-DD hh\'})" style="background-color: #fff;" readonly="readonly"/>'
+            +'</div>'
+            +'</div>',
+        btn:['保存','取消'],
+        btn1: function (index,layero) {
+            $.ajax({
+                url:'/common/expressOrder/changeStatus',
+                async:false,
+                type:'get',
+                data : {
+                    'id' : rows[0].id,
+                    'cleanDate':$("#cleanDate").val(),
+                },
+                success:function (r) {
+                    layer.msg(r.msg);
+                    reLoad();
+                }
+            })
         },
-        success : function(r) {
-            if (r.code==0) {
-                layer.msg(r.msg);
-                reLoad();
-            }else{
-                layer.msg(r.msg);
-            }
+        btn2:function (index,layero) {
+            layer.close(index);
         }
-    });
+
+
+
+    })
+
 
 }
 function reLoad() {
-    window.location.reload();
+    $('#exampleTable').bootstrapTable('refresh');
 }
