@@ -67,6 +67,7 @@ public class ExpressOrderDO implements Serializable {
     /** 打板状态:1未打板,2打板 */
     private Integer boardStatus;
 
+    private Date indate;
     /**
      * 设置：
      */
@@ -330,5 +331,13 @@ public class ExpressOrderDO implements Serializable {
      */
     public Integer getBoardStatus() {
         return boardStatus;
+    }
+
+    public Date getIndate() {
+        return indate;
+    }
+
+    public void setIndate(Date indate) {
+        this.indate = indate;
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -23,10 +24,12 @@ public class ExpressOrderServiceImpl extends CoreServiceImpl<ExpressOrderDao,Exp
 
 
     @Override
-    public boolean changeStatus(Long id,Date cleanDate) {
+    public boolean changeStatus(Long id,Date cleanDate,String cleanRemark,Integer cleanStatus) {
         ExpressOrderDO expressOrderDO = new ExpressOrderDO();
         expressOrderDO.setId(id);
         expressOrderDO.setCleanDate(cleanDate);
+        expressOrderDO.setCleanRemark(cleanRemark);
+        expressOrderDO.setCleanStatus(cleanStatus);
         baseMapper.updateById(expressOrderDO);
         return true;
     }
@@ -34,5 +37,16 @@ public class ExpressOrderServiceImpl extends CoreServiceImpl<ExpressOrderDao,Exp
     @Override
     public ExpressOrderDO selectData(Integer logisticsType) {
         return baseMapper.selectData(logisticsType);
+    }
+
+    @Override
+    public Date indate() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            return df.parse(df.format(new Date()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

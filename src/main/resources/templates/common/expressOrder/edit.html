@@ -40,17 +40,16 @@
 							<div class="col-sm-2">
 								<input id="logisticsType" th:value="${expressOrder.logisticsType}" name="logisticsType" type="hidden">
 								<select id="select1" class="form-control" >
-									<option VALUE="">请选择</option>
 									<option VALUE="1">BC</option>
 									<option VALUE="2">CC</option>
 								</select>
 							</div>
 
-							<label class="col-sm-2 control-label">客户ID：</label>
+							<label class="col-sm-2 control-label">邮编：</label>
 							<div class="col-sm-2">
-								<div id="cusId"></div>
-								<input id="customerId" name="customerId" th:value="${expressOrder.customerId}" class="form-control" type="hidden">
+								<input id="zipCode" name="zipCode" th:value="${expressOrder.zipCode}" class="form-control" type="text">
 							</div>
+
 
 							<label class="col-sm-2 control-label">快递公司：</label>
 							<div class="col-sm-2">
@@ -94,11 +93,11 @@
 								<textarea id="cleanRemark" name="cleanRemark" th:value="${expressOrder.cleanRemark}" class="form-control"></textarea>
 							</div>
 
-							<label class="col-sm-2 control-label">邮编：</label>
+							<label class="col-sm-2 control-label">客户ID：</label>
 							<div class="col-sm-2">
-								<input id="zipCode" name="zipCode" th:value="${expressOrder.zipCode}" class="form-control" type="text">
+								<div id="cusId"></div>
+								<input id="customerId" name="customerId" th:value="${expressOrder.customerId}" class="form-control" type="hidden">
 							</div>
-
 						</div>
 
 

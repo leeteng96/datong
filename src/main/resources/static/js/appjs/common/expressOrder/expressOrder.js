@@ -100,6 +100,8 @@ function load() {
                                     editable: {
                                         type: 'text',
                                         title: '总运单号',
+                                        emptytext:'-',
+
                                         validate: function (value) {
                                             if ($.trim(value) == '') {
                                                 return '总运单号不能为空!';
@@ -117,6 +119,7 @@ function load() {
                                     editable: {
                                         type: 'text',
                                         title: '提单号',
+                                        emptytext:'-',
                                         validate: function (value) {
                                             if ($.trim(value) == '') {
                                                 return '提单号不能为空!';
@@ -136,16 +139,13 @@ function load() {
                                     editable: {
                                         type: 'text',
                                         title: '航班号',
+                                        emptytext:'-',
                                         validate: function (value) {
                                             if ($.trim(value) == '') {
                                                 return '航班号不能为空!';
                                             }
                                         }
-                                    }, noeditFormatter: function (value,row,index) {
-                                        var result={filed:"flightNo",value:'',style:"background:#333;padding:5px 10px;"};
-                                        return result;
-                                    },
-
+                                    }
 
                                 },
 
@@ -159,6 +159,7 @@ function load() {
                                         type: 'select',
                                         title: '模式',
                                         pk:1,
+                                        emptytext:'-',
                                         source:
                                             [{value:"1",text:"BC"},{value:"2",text:"CC"}],
 
@@ -177,6 +178,7 @@ function load() {
                                         template:"YYYY年MM月DD日HH时 ",
                                         placement:"left",
                                         pk:1,
+                                        emptytext:'-',
                                         language: 'zh-CN',
                                         todayBtn: 1,
                                     },
@@ -194,6 +196,7 @@ function load() {
                                         template:"YYYY年MM月DD日HH时 ",
                                         placement:"left",
                                         pk:1,
+                                        emptytext:'-',
                                         language: 'zh-CN',
                                         todayBtn: 1,
                                     },
@@ -211,6 +214,7 @@ function load() {
                                         template:"YYYY年MM月DD日HH时 ",
                                         placement:"left",
                                         pk:1,
+                                        emptytext:'-',
                                         language: 'zh-CN',
                                         todayBtn: 1,
                                     },
@@ -225,6 +229,7 @@ function load() {
                                     editable: {
                                         type: 'select',
                                         title: '清关状态',
+                                        emptytext:'-',
                                         source:[
                                             {value:'1',text:'放行'},
                                             {value:'2',text:'查检放行'},
@@ -245,6 +250,7 @@ function load() {
                                     editable: {
                                         type: 'text',
                                         title: '备注',
+                                        emptytext:'-',
 
 
                                     },
@@ -257,7 +263,7 @@ function load() {
                                 editable: {
                                     type: 'text',
                                     title: '邮编',
-
+                                    emptytext:'-',
 
                                 },
                             },
@@ -269,8 +275,7 @@ function load() {
                                 editable: {
                                     type: 'text',
                                     title: '快递公司',
-
-
+                                    emptytext:'-',
                                 },
                             },
 
@@ -299,6 +304,13 @@ function load() {
                                         }
 
                                     }
+                                },
+                                {
+                                    field: 'indate',
+                                    title: '创建时间',
+                                    valign:"middle",
+                                    align:"center",
+
                                 },
 
                                 {

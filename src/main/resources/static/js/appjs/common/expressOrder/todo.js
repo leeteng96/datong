@@ -201,6 +201,13 @@ function load() {
                                 return cusName;
                             }
                     },
+                    {
+                        field: 'indate',
+                        title: '创建时间',
+                        valign:"middle",
+                        align:"center",
+
+                    },
 
 
 
@@ -219,14 +226,28 @@ function editStatus(){
     layer.open({
         title:'确认清关',
         skin:'layui-layer-rim',
-        area:['450px', 'auto'],
+        area:['450px', '450px'],
         content: ' <div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">'
             +'<div class="col-sm-12">'
             +'<div class="input-group">'
             +'<span class="input-group-addon"> 清关日期   :</span>'
             +'<input type="text" class="laydate-icon layer-date form-control" id="cleanDate" name="cleanDate"  placeholder="日期"  onclick="laydate({istime: true, format: \'YYYY-MM-DD hh\'})" style="background-color: #fff;" readonly="readonly"/>'
             +'</div>'
-            +'</div>',
+            +'<div class="input-group">'
+            +'<label class="input-group-addon"> 清关状态   :</label>'
+            +'<div id="cleans" ></div>'
+            +'<input id = "cleanStatus" name="cleanStatus" type="hidden">'
+            +'</div>'
+            +'<div class="input-group">'
+            +'<label class="input-group-addon"> 清关备注   :</label>'
+            +'<textarea id = "cleanRemark" name="cleanRemark" ></textarea>'
+            +'</div>'
+            +'</div>'
+            +'<script type="text/javascript">'
+            +'loadTree();'
+            +'</script>'
+        ,
+
         btn:['保存','取消'],
         btn1: function (index,layero) {
             $.ajax({
@@ -236,6 +257,8 @@ function editStatus(){
                 data : {
                     'id' : rows[0].id,
                     'cleanDate':$("#cleanDate").val(),
+                    'cleanStatus':$("#cleanStatus").val(),
+                    'cleanRemark':$("#cleanRemark").val(),
                 },
                 success:function (r) {
                     layer.msg(r.msg);
@@ -251,6 +274,52 @@ function editStatus(){
 
     })
 
+
+}
+
+function loadTree() {
+    $('#cleans').jstree({
+        'core': {
+            "multiple": false,
+            "themes" : { "stripes" : true },
+
+            'data': [
+                {
+                    'id':'1','text':'放行'
+                },
+                {
+                    'text': '查检',
+                    'state': {
+                        'opened': true,
+                        'disabled':true
+                    },
+                    'children': [
+                        {'id':'2','text': '放行'},
+                        {'id':'3','text':'查扣'}
+                    ]
+                },
+                {
+                    'text':'异常',
+                    'state':{
+                        'opened': true,
+                        'disabled':true
+                    },
+                    'children':[
+                        {'id':'4','text':'长装'},
+                        {'id':'5','text':'短装'},
+                        {'id':'6','text':'无数据'},
+                    ]
+                }
+            ]
+
+        },
+        "plugins": ["wholerow"],
+
+    }).on("changed.jstree",function(e,node){
+
+        $("#cleanStatus").val(node.instance.get_node(node.selected[0]).id);
+
+    });
 
 }
 function reLoad() {

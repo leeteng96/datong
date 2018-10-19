@@ -101,6 +101,7 @@ public class ExpressOrderController extends AdminBaseController {
 	@ResponseBody
 	@RequestMapping("/save")
 	public Result<String> save( ExpressOrderDO expressOrder){
+		expressOrder.setIndate(expressOrderService.indate());
 		expressOrderService.insert(expressOrder);
         return Result.ok();
 	}
@@ -159,8 +160,8 @@ public class ExpressOrderController extends AdminBaseController {
 	}
 	@GetMapping("/changeStatus")
 	@ResponseBody
-	public  Result<String>  changeStatus(@RequestParam("id") Long id, @RequestParam("cleanDate") Date cleanDate){
-		expressOrderService.changeStatus(id,cleanDate);
+	public  Result<String>  changeStatus(@RequestParam("id") Long id, @RequestParam("cleanDate") Date cleanDate,@RequestParam("cleanRemark") String cleanRemark,@RequestParam("cleanStatus") Integer cleanStatus){
+		expressOrderService.changeStatus(id,cleanDate,cleanRemark,cleanStatus);
 		return Result.ok();
 	}
 

@@ -37,16 +37,13 @@
 							<label class="col-sm-2 control-label">模式：</label>
 							<div class="col-sm-2">
 								<select id="logisticsType"  name="logisticsType" class="form-control" >
-									<option VALUE="">请选择</option>
 									<option VALUE="1">BC</option>
 									<option VALUE="2">CC</option>
 								</select>
 							</div>
-
-							<label class="col-sm-2 control-label">客户ID：</label>
+							<label class="col-sm-2 control-label">邮编：</label>
 							<div class="col-sm-2">
-								<div id = "cusId" ></div>
-								<input id = "customerId" name="customerId" type="hidden">
+								<input id="zipCode" name="zipCode" class="form-control" type="number">
 							</div>
 
 							<label class="col-sm-2 control-label">快递公司：</label>
@@ -87,12 +84,14 @@
 
 							<label class="col-sm-2 control-label">备注：</label>
 							<div class="col-sm-2">
-								<input id="cleanRemark" name="cleanRemark" class="form-control" type="text">
+								<textarea id="cleanRemark" name="cleanRemark" class="form-control" type="text"></textarea>
 							</div>
 
-							<label class="col-sm-2 control-label">邮编：</label>
+
+							<label class="col-sm-2 control-label">客户ID：</label>
 							<div class="col-sm-2">
-								<input id="zipCode" name="zipCode" class="form-control" type="number">
+								<div id = "cusId" ></div>
+								<input id = "customerId" name="customerId" type="hidden">
 							</div>
 
 						</div>

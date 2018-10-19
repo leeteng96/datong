@@ -19,6 +19,7 @@ public interface ExpressOrderDao extends BaseDao<ExpressOrderDO> {
     @Select("select count(DISTINCT lading_bill_no) as 'ladingBillNo',count(id) as 'id',sum( case  when  clean_date is null then 1  else 0 end ) as 'printStatus'," +
             "  sum( case when  clean_date is not null then 1" +
             "  else 0 end )as 'boardStatus' from tb_express_order" +
-            " where  month(clean_date) = Month(curdate())  and logistics_type =#{logistics_type}")
+            " where  month(indate) = Month(curdate()) and (datediff(date_format(now(),'%y-%m-%d %h'), turnup_date)>=2 and logistics_type =1" +
+            "  or  datediff(date_format(now(),'%y-%m-%d %h'), turnup_date)>=3 and logistics_type =2) and logistics_type =#{logistics_type}")
     ExpressOrderDO selectData(Integer logisticsType);
 }

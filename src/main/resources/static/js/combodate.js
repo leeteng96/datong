@@ -473,13 +473,13 @@
         //in this format items in dropdowns are displayed
         template: 'D / MMM / YYYY   H : mm',
         //initial value, can be `new Date()`    
-        value: null,                       
+        value: null,
         minYear: 1970,
         maxYear: 2018,
         yearDescending: true,
         minuteStep: 5,
         secondStep: 1,
-        firstItem: 'none', //'name', 'empty', 'none'
+        firstItem: 'name', //'name', 'empty', 'none'
         errorClass: null,
         customClass: '',
         roundTime: true, // whether to round minutes and seconds if step > 1

@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ExpressOrderService extends CoreService<ExpressOrderDO> {
 
+    Date indate();
 
-
-    boolean changeStatus(Long id,Date cleanDate);
+    boolean changeStatus(Long id,Date cleanDate,String Remark,Integer cleanStatus);
 
     ExpressOrderDO selectData(Integer logisticsType);
 }
