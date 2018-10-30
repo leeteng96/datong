@@ -262,7 +262,7 @@ function editStatus(){
                 },
                 success:function (r) {
                     layer.msg(r.msg);
-                    reLoad();
+
                 }
             })
         },

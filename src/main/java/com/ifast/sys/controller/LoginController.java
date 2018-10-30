@@ -56,10 +56,7 @@ public class LoginController extends AdminBaseController {
         model.addAttribute("username", getUser().getUsername());
         FileDO fileDO = fileService.selectById(getUser().getPicId());
         model.addAttribute("picUrl", fileDO == null ? "/img/photo_s.jpg" : fileDO.getUrl());
-        ExpressOrderDO  bc= expressOrderService.selectData(1);
-        ExpressOrderDO  cc= expressOrderService.selectData(2);
-        model.addAttribute("bc", bc);
-        model.addAttribute("cc", cc);
+        refresh(model);
         return "index_v1";
     }
 
@@ -95,15 +92,26 @@ public class LoginController extends AdminBaseController {
     String main() {
         return "main";
     }
+
     @Log("待办")
     @GetMapping("/todo")
     String todo() {
         return "todo";
     }
+
     @Log("错误403")
     @GetMapping("/403")
     String error403() {
         return "403";
     }
 
+    @Log("局部刷新")
+    @GetMapping("/refresh")
+    String refresh(Model model){
+        ExpressOrderDO  bc= expressOrderService.selectData(1);
+        ExpressOrderDO  cc= expressOrderService.selectData(2);
+        model.addAttribute("bc", bc);
+        model.addAttribute("cc", cc);
+        return "";
+    }
 }

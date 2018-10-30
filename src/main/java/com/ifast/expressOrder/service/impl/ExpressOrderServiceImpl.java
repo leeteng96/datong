@@ -49,4 +49,11 @@ public class ExpressOrderServiceImpl extends CoreServiceImpl<ExpressOrderDao,Exp
         }
         return null;
     }
+
+    @Override
+    public boolean insertExpress(ExpressOrderDO expressOrderDO) {
+        expressOrderDO.setIndate(indate());
+        baseMapper.insert(expressOrderDO);
+        return true;
+    }
 }

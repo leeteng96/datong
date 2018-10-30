@@ -281,12 +281,12 @@ function load() {
 
                                 {
                                     field : 'customerId',
-                                    title : '客户ID',
+                                    title : '客户',
                                     valign:"middle",
                                     align:"center",
                                     editable: {
                                         type: 'select',
-                                        title: '客户ID',
+                                        title: '客户',
                                         source:function () {
                                             var result 	= [];
                                             $.ajax({

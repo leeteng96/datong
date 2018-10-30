@@ -14,4 +14,6 @@ public interface ExpressOrderService extends CoreService<ExpressOrderDO> {
     boolean changeStatus(Long id,Date cleanDate,String Remark,Integer cleanStatus);
 
     ExpressOrderDO selectData(Integer logisticsType);
+
+    boolean insertExpress(ExpressOrderDO expressOrderDO);
 }

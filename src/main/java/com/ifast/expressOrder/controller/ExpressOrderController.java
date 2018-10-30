@@ -101,8 +101,7 @@ public class ExpressOrderController extends AdminBaseController {
 	@ResponseBody
 	@RequestMapping("/save")
 	public Result<String> save( ExpressOrderDO expressOrder){
-		expressOrder.setIndate(expressOrderService.indate());
-		expressOrderService.insert(expressOrder);
+		expressOrderService.insertExpress(expressOrder);
         return Result.ok();
 	}
 
