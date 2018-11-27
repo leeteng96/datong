@@ -14,6 +14,7 @@ import com.ifast.common.domain.Status;
 import com.ifast.customer.domain.CustomerInfoDO;
 import com.ifast.customer.service.CustomerInfoService;
 import com.ifast.expressOrder.domain.ExpressOrderDO;
+import com.ifast.expressOrder.domain.PackInfoDO;
 import com.ifast.expressOrder.service.ExpressOrderService;
 import com.ifast.expressOrder.service.PackInfoService;
 import com.ifast.sys.domain.UserDO;

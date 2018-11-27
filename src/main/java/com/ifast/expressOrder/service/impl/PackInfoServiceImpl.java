@@ -28,10 +28,7 @@ import java.util.NoSuchElementException;
 public class PackInfoServiceImpl extends CoreServiceImpl<PackInfoDao, PackInfoDO> implements PackInfoService {
 
     @Transactional(readOnly = false,rollbackFor = Exception.class)
-    public List<PackInfoDO> importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Long userId){
-        if (file == null){
-            return null;
-        }
+    public void importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Long userId){
         ImportParams params = new ImportParams();
         params.setTitleRows(titleRows);
         params.setHeadRows(headerRows);
@@ -40,14 +37,15 @@ public class PackInfoServiceImpl extends CoreServiceImpl<PackInfoDao, PackInfoDO
             list = ExcelImportUtil.importExcel(file.getInputStream(), PackInfoDO.class, params);
             for (int i = 0; i < list.size(); i++) {
                 list.get(i).setIndate(indate());
-                baseMapper.insert(list.get(i));
+
             }
+            baseMapper.addPackInfo(list);
         }catch (NoSuchElementException e){
             throw new NoSuchElementException("excel文件不能为空");
         } catch (Exception e) {
             throw new NoSuchElementException(e.getMessage());
         }
-        return list;
+
     }
 
     @Override

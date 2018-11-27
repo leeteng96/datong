@@ -98,7 +98,7 @@ public class ExpressDeliveryController extends AdminBaseController {
 	@GetMapping("/edit/{id}")
 	String edit(@PathVariable("id") Long id,Model model){
 		ExpressDeliveryDO expressDelivery = expressDeliveryService.selectById(id);
-		expressDelivery.setProductName(productService.selectById(expressDelivery.getProductId()).getProductName());
+		expressDelivery.setProductName(productService.selectById(expressDelivery.getProductId()).getName());
 		model.addAttribute("expressDelivery", expressDelivery);
 		return prefix+ "/edit";
 

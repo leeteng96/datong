@@ -45,10 +45,7 @@ public class ExpressDeliveryDO implements Serializable {
     private String senderIdcard;
     /** 商品ID */
     private String productId;
-    /** 数量 */
-    private Integer data;
-    /** 重量 */
-    private BigDecimal weight;
+
 
     @TableField(exist = false)
     private String productName;
@@ -180,30 +177,7 @@ public class ExpressDeliveryDO implements Serializable {
     }
 
 
-    /**
-     * 设置：数据
-     */
-    public void setData(Integer data) {
-        this.data = data;
-    }
-    /**
-     * 获取：数据
-     */
-    public Integer getData() {
-        return data;
-    }
-    /**
-     * 设置：重量
-     */
-    public void setWeight(BigDecimal weight) {
-        this.weight = weight;
-    }
-    /**
-     * 获取：重量
-     */
-    public BigDecimal getWeight() {
-        return weight;
-    }
+
     public String getProductId() {
         return productId;
     }
@@ -220,24 +194,5 @@ public class ExpressDeliveryDO implements Serializable {
         this.productName = productName;
     }
 
-    @Override
-    public String toString() {
-        return "ExpressDeliveryDO{" +
-                "id=" + id +
-                ", orderNo='" + orderNo + '\'' +
-                ", receiverAddress='" + receiverAddress + '\'' +
-                ", receiver='" + receiver + '\'' +
-                ", receiverCtype='" + receiverCtype + '\'' +
-                ", receiverIdcard='" + receiverIdcard + '\'' +
-                ", senderAddress='" + senderAddress + '\'' +
-                ", sender='" + sender + '\'' +
-                ", senderCtype='" + senderCtype + '\'' +
-                ", senderIdcard='" + senderIdcard + '\'' +
-                ", productId='" + productId + '\'' +
-                ", productName='" + productName + '\'' +
-                ", products=" + products +
-                ", data='" + data + '\'' +
-                ", weight='" + weight + '\'' +
-                '}';
-    }
+
 }

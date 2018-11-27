@@ -17,7 +17,7 @@ import java.util.List;
  * <small> 2018-07-02 18:34:07 | Aron</small>
  */
 public interface ExpressDeliveryDao extends BaseMapper<ExpressDeliveryDO> {
-    @Select("select p.*, ed.* from  tb_Product p ,tb_express_delivery ed where p.product_id = ed.product_id")
+    @Select("select p.*, ed.* from  tb_Product p ,tb_express_delivery ed where p.id = ed.product_id")
     @Results({
            @Result(property = "products" , column = "product_id",
            many = @Many(select = "com.ifast.delivery.dao.ProductDao.selectById")

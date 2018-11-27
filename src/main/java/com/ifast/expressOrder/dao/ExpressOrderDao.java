@@ -23,6 +23,6 @@ public interface ExpressOrderDao extends BaseDao<ExpressOrderDO> {
             "  else 0 end )as Unlisted," +
             "  sum( case" +
             "  when clean_date is not null then 1" +
-            "  else 0 end )as Listed,lading_bill_no from tb_express_order where  logistics_type =#{logistics_type}) tb on tp.lading_bill_no = tb.lading_bill_no  where  month(tp.indate) = Month(curdate())")
+            "  else 0 end )as Listed,lading_bill_no from tb_express_order where  logistics_type =#{logistics_type} and month(indate) = Month(curdate())) tb on tp.lading_bill_no = tb.lading_bill_no ")
     ExpressOrderDO selectData(Integer logisticsType);
 }

@@ -5,7 +5,10 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.ifast.common.domain.Tree;
 import com.ifast.delivery.domain.ProductDO;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,6 +24,9 @@ import java.util.List;
 public interface ProductService extends IService<ProductDO>{
 
 
+    Workbook exportProduct(List<ProductDO> plist);
+
+    List<ProductDO>  importExcel(MultipartFile file, Integer titleRows, Integer headerRows);
 
     String selectByPId(String productId);
 

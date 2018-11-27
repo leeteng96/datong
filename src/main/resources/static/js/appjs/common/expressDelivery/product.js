@@ -39,15 +39,15 @@ function load() {
                         checkbox : true
                     },
                     {
-                        field : 'productId',
+                        field : 'id',
                         title : '商品ID'
                     },
                     {
-                        field : 'productName',
+                        field : 'name',
                         title : '商品名称'
                     },
                     {
-                        field : 'productCode',
+                        field : 'code',
                         title : '商品编码'
                     },
                     {
@@ -55,23 +55,23 @@ function load() {
                         title : '原产国'
                     },
                     {
-                        field : 'productPrice',
+                        field : 'price',
                         title : '商品价格'
                     },
                     {
-                        field : 'productWeight',
+                        field : 'weight',
                         title : '商品重量'
                     },
                     {
-                        field : 'productModel',
+                        field : 'model',
                         title : '商品规格'
                     },
                     {
-                        field : 'productColor',
+                        field : 'color',
                         title : '商品颜色'
                     },
                     {
-                        field : 'productionDate',
+                        field : 'produceDate',
                         title : '生产日期'
                     },
                     {
@@ -81,6 +81,26 @@ function load() {
                     {
                         field : 'indate',
                         title : '商品录入时间'
+                    },
+                    {
+                        field : 'unit1',
+                        title : '第一单位'
+                    },
+                    {
+                        field : 'qty1',
+                        title : '第一数量'
+                    },
+                    {
+                        field : 'unit2',
+                        title : '第二单位'
+                    },
+                    {
+                        field : 'qty2',
+                        title : '第二数量'
+                    },
+                    {
+                        field : 'netwt',
+                        title : '净重'
                     },
 
 

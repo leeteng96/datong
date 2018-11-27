@@ -175,7 +175,7 @@
         <div class="row ">
             <div style="padding:10px; ">
                 <form enctype="multipart/form-data">
-                    <input id="file-0a" class="file" name="file" type="file" multiple data-min-file-count="1" accept="application/vnd.ms-excel">
+                    <input id="file-0a" class="file" name="file" type="file" multiple data-min-file-count="1" webkitdirectory mozdirectory>
                     <br>
                 </form>
             </div>
@@ -209,7 +209,6 @@
     $('#file-0a').fileinput({
         language: 'zh',
         uploadUrl: '/common/packInfo/importExcel',
-        allowedPreviewTypes : ['excel']
 
     });
 

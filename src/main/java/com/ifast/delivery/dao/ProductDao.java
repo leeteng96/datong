@@ -18,4 +18,5 @@ public interface ProductDao extends BaseDao<ProductDO> {
     List<ProductDO> listMenuByUserId(Long id);
     List<Long> listMenuIdByRoleId(Serializable roleId);
 
+    List<ProductDO> exportProduct(List<ProductDO> list);
 }

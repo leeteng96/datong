@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.ifast.common.domain.Tree;
 import com.ifast.delivery.domain.ExpressDeliveryDO;
 import com.ifast.delivery.domain.ProductDO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * <small> 2018-07-02 18:34:07 | Aron</small>
  */
 public interface ExpressDeliveryService extends IService<ExpressDeliveryDO> {
+
 
 
        boolean saveExpressDelivery(ExpressDeliveryDO edd);

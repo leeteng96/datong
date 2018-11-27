@@ -15,7 +15,7 @@ import java.util.List;
  * <small> 2018-10-18 15:04:33 | Aron</small>
  */
 public interface PackInfoService extends CoreService<PackInfoDO> {
-    List<PackInfoDO> importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Long userId);
+   void importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Long userId);
 
     Date indate();
 }

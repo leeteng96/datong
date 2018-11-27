@@ -92,14 +92,8 @@ function load() {
 									field : 'productName',
 									title : '商品',
 								},
-																{
-									field : 'data',
-									title : '数量'
-								},
-																{
-									field : 'weight',
-									title : '重量'
-								},
+
+
 																{
 									title : '操作',
 									field : 'id',
