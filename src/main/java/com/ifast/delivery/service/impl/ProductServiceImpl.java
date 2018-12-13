@@ -108,28 +108,5 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao,ProductDO> implem
         return pdd;
     }
 
-    @Override
-    public List<ProductDO> importExcel(MultipartFile file, Integer titleRows, Integer headerRows) {
-        ImportParams params = new ImportParams();
-        params.setTitleRows(titleRows);
-        params.setHeadRows(headerRows);
-        List<ProductDO> list ;
-        try {
-            list = ExcelImportUtil.importExcel(file.getInputStream(), ProductDO.class, params);
 
-            return list;
-
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException("excel文件不能为空");
-        } catch (Exception e) {
-            throw new NoSuchElementException(e.getMessage());
-        }
-
-    }
-
-    @Override
-    public Workbook exportProduct(List<ProductDO> plist) {
-        List<ProductDO> list = baseMapper.exportProduct(plist);
-        return  ExcelExportUtil.exportExcel(new ExportParams("匹配成功数据","数据结果"), ProductDO.class,list);
-    }
 }

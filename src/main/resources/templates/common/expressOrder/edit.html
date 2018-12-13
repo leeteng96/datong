@@ -31,11 +31,9 @@
 
 
 						</div>
-					
+
 						<div class="form-group">
-
-
-
+							
 							<label class="col-sm-2 control-label">模式：</label>
 							<div class="col-sm-2">
 								<input id="logisticsType" th:value="${expressOrder.logisticsType}" name="logisticsType" type="hidden">
@@ -44,28 +42,22 @@
 									<option VALUE="2">CC</option>
 								</select>
 							</div>
-
-							<label class="col-sm-2 control-label">邮编：</label>
-							<div class="col-sm-2">
-								<input id="zipCode" name="zipCode" th:value="${expressOrder.zipCode}" class="form-control" type="text">
-							</div>
-
-
+							
 							<label class="col-sm-2 control-label">快递公司：</label>
 							<div class="col-sm-2">
 								<input id="expressCompany" name="expressCompany" th:value="${expressOrder.expressCompany}" class="form-control" type="text">
 							</div>
-
-
-						</div>
-						
-						<div class="form-group">
 							<label class="col-sm-2 control-label">提货日期：</label>
 							<div class="col-sm-2">
 								<input type="text" class="laydate-icon layer-date form-control" id="pickupDate" name="pickupDate" th:value="${expressOrder.pickupDate} eq null ? '' : ${#dates.format(expressOrder.pickupDate,'yyyy-MM-dd hh')}" placeholder="请选择出生年月"
 									   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh'})" style="background-color: #fff;" readonly="readonly"/>
 
 							</div>
+
+						</div>
+
+						<div class="form-group">
+							
 
 							<label class="col-sm-2 control-label">到场日期：</label>
 							<div class="col-sm-2">
@@ -79,19 +71,49 @@
 								<input type="text" class="laydate-icon layer-date form-control" id="cleanDate" name="cleanDate" th:value="${expressOrder.cleanDate} eq null ? '' : ${#dates.format(expressOrder.cleanDate,'yyyy-MM-dd hh')}" placeholder="请选择出生年月"
 									   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh'})" style="background-color: #fff;" readonly="readonly"/>
 							</div>
-						</div>
-					
-						<div class="form-group">
-							<label class="col-sm-2 control-label">清关状态</label>
-							<div class="col-sm-2">
-								<div id = "cleans"></div>
-								<input id="cleanStatus" name="cleanStatus" th:value="${expressOrder.cleanStatus}" class="form-control" type="hidden">
-							</div>
 
 							<label class="col-sm-2 control-label">备注：</label>
 							<div class="col-sm-2">
 								<textarea id="cleanRemark" name="cleanRemark" th:value="${expressOrder.cleanRemark}" class="form-control"></textarea>
 							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">放行：</label>
+							<div class="col-sm-2">
+								<input id="release" name="release" th:value="${expressOrder.release}" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">国检：</label>
+							<div class="col-sm-2">
+								<input id="nationalInspection" name="nationalInspection" th:value="${expressOrder.nationalInspection}" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">海关：</label>
+							<div class="col-sm-2">
+								<input id="customs" name="customs" th:value="${expressOrder.customs}" class="form-control" type="text">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">联合：</label>
+							<div class="col-sm-2">
+								<input id="unity" name="unity" th:value="${expressOrder.unity}" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">异常：</label>
+							<div class="col-sm-2">
+								<input id="odd" name="odd" th:value="${expressOrder.odd}" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">无数据：</label>
+							<div class="col-sm-2">
+								<input id="nodata" name="nodata" th:value="${expressOrder.nodata}" class="form-control" type="text">
+							</div>
+						</div>
+
+
+
+						<div class="form-group">
 
 							<label class="col-sm-2 control-label">客户：</label>
 							<div class="col-sm-2">

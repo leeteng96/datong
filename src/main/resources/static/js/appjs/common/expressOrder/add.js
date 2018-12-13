@@ -2,7 +2,6 @@ $().ready(function() {
 	validateRule();
     loadjsTree()
 });
-var cleanId;
 $.validator.setDefaults({
 	submitHandler : function() {
 

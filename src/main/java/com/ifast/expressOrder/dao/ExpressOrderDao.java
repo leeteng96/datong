@@ -14,7 +14,6 @@ import java.util.List;
  * <small> 2018-08-28 15:04:45 | Aron</small>
  */
 public interface ExpressOrderDao extends BaseDao<ExpressOrderDO> {
-    Integer insertBatch(List<ExpressOrderDO> list);
 
     @Select("select  tb.ladingNo as 'ladingBillNo',count(tp.id) as 'id', tb.Unlisted as 'printStatus',tb.Listed as 'boardStatus'" +
             " from tb_pack_info tp inner join" +

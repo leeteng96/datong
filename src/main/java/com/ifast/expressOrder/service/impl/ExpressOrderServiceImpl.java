@@ -29,7 +29,6 @@ public class ExpressOrderServiceImpl extends CoreServiceImpl<ExpressOrderDao,Exp
         expressOrderDO.setId(id);
         expressOrderDO.setCleanDate(cleanDate);
         expressOrderDO.setCleanRemark(cleanRemark);
-        expressOrderDO.setCleanStatus(cleanStatus);
         baseMapper.updateById(expressOrderDO);
         return true;
     }

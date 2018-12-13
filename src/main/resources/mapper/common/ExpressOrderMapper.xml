@@ -3,45 +3,7 @@
 
 <mapper namespace="com.ifast.expressOrder.dao.ExpressOrderDao">
 
-    <insert id="insertBatch" parameterType="java.util.List" >
-        INSERT INTO tb_express_order(
-                lading_bill_no,
-                waybill_no,
-                gross_weight,
-                goods_name,
-                receiver,
-                receiver_address,
-                receiver_phone,
-                receiver_idcard,
-                rela_no,
-                sender,
-                sender_address,
-                sender_phone,
-                quantity,
-                goods_value,
-                total_price
-        )values
 
-        <foreach collection="list" index="index" item="item"  separator="," >
-            (
-                #{item.ladingBillNo},
-                #{item.waybillNo},
-                #{item.grossWeight},
-                #{item.goodsName},
-                #{item.receiver},
-                #{item.receiverAddress},
-                #{item.receiverPhone},
-                #{item.receiverIdcard},
-                #{item.relaNo},
-                #{item.sender},
-                #{item.senderAddress},
-                #{item.senderPhone},
-                #{item.quantity},
-                #{item.goodsValue},
-                #{item.totalPrice},
-            )
-        </foreach>
-    </insert>
 
 
 </mapper>

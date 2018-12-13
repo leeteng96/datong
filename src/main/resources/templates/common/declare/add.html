@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+                                                                							                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">类别：</label>
+								<div class="col-sm-2">
+									<input id="category" name="category" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收发货人编号：</label>
+								<div class="col-sm-2">
+									<input id="transceiverNo" name="transceiverNo" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收发货人名称：</label>
+								<div class="col-sm-2">
+									<input id="transceiverName" name="transceiverName" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">收发货人统一社会信用代码：</label>
+								<div class="col-sm-2">
+									<input id="creditCode" name="creditCode" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">提单号：</label>
+								<div class="col-sm-2">
+									<input id="ladingBillNo" name="ladingBillNo" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">分运单号：</label>
+								<div class="col-sm-2">
+									<input id="waybillNo" name="waybillNo" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">商品序号：</label>
+								<div class="col-sm-2">
+									<input id="serialNo" name="serialNo" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">货物名称：</label>
+								<div class="col-sm-2">
+									<input id="productName" name="productName" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">货物英文名称：</label>
+								<div class="col-sm-2">
+									<input id="enName" name="enName" class="form-control" type="text">
+								</div>
+							</div>
+														                                                               
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">产销城市：</label>
+								<div class="col-sm-2">
+									<input id="city" name="city" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">商品编码：</label>
+								<div class="col-sm-2">
+									<input id="code" name="code" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">数量：</label>
+								<div class="col-sm-2">
+									<input id="quantity" name="quantity" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">净重(KG)：</label>
+								<div class="col-sm-2">
+									<input id="netwt" name="netwt" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">毛重(KG)：</label>
+								<div class="col-sm-2">
+									<input id="weight" name="weight" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">规格/型号：</label>
+								<div class="col-sm-2">
+									<input id="model" name="model" class="form-control" type="text">
+								</div>
+							</div>
+														                                                               
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">申报单价：</label>
+								<div class="col-sm-2">
+									<input id="price" name="price" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">申报数量：</label>
+								<div class="col-sm-2">
+									<input id="applyQuantity" name="applyQuantity" class="form-control" type="text">
+								</div>
+		
+								<label class="col-sm-2 control-label">申报总价：</label>
+								<div class="col-sm-2">
+									<input id="totalPrice" name="totalPrice" class="form-control" type="text">
+								</div>
+							</div>
+														                                                               
+						
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">成交总价：</label>
+								<div class="col-sm-2">
+									<input id="transactionPrice" name="transactionPrice" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">申报计量单位：</label>
+								<div class="col-sm-2">
+									<input id="firstUit" name="firstUit" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">收件人：</label>
+								<div class="col-sm-2">
+									<input id="receiver" name="receiver" class="form-control" type="text">
+								</div>
+																															
+							</div>
+														                                                             
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">收件人证件号：</label>
+								<div class="col-sm-2">
+									<input id="receiverIdcard" name="receiverIdcard" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收件人证件类型：</label>
+								<div class="col-sm-2">
+									<input id="recevierType" name="recevierType" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">收件人城市：</label>
+								<div class="col-sm-2">
+									<input id="receiverCity" name="receiverCity" class="form-control" type="text">
+								</div>
+							</div>
+							
+														                                                             
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">收件人地址：</label>
+								<div class="col-sm-2">
+									<input id="receiverAddress" name="receiverAddress" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">收件人电话：</label>
+								<div class="col-sm-2">
+									<input id="receiverPhone" name="receiverPhone" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">货主单位名称：</label>
+								<div class="col-sm-2">
+									<input id="unitName" name="unitName" class="form-control" type="text">
+								</div>
+							</div>
+														                                                               
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">货主单位代码：</label>
+								<div class="col-sm-2">
+									<input id="unitNo" name="unitNo" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">货主单位统一社会信用代码：</label>
+								<div class="col-sm-2">
+									<input id="ownerCode" name="ownerCode" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">货主单位地区代码：</label>
+								<div class="col-sm-2">
+									<input id="ownerAreaCode" name="ownerAreaCode" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">贸易国别：</label>
+								<div class="col-sm-2">
+									<input id="tradingCountry" name="tradingCountry" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">产销国：</label>
+								<div class="col-sm-2">
+									<input id="copam" name="copam" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">发件人：</label>
+								<div class="col-sm-2">
+									<input id="sender" name="sender" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">英文发件人：</label>
+								<div class="col-sm-2">
+									<input id="senderEn" name="senderEn" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人国别：</label>
+								<div class="col-sm-2">
+									<input id="senderNation" name="senderNation" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">发件人城市：</label>
+								<div class="col-sm-2">
+									<input id="senderCity" name="senderCity" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">英文发件人城市：</label>
+								<div class="col-sm-2">
+									<input id="senderCityEn" name="senderCityEn" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">英文经停城市：</label>
+								<div class="col-sm-2">
+									<input id="stopcityEn" name="stopcityEn" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">发件人地址：</label>
+								<div class="col-sm-2">
+									<input id="senderAddress" name="senderAddress" class="form-control" type="text">
+								</div>
+							</div>
+														                                                               
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">英文发件人地址：</label>
+								<div class="col-sm-2">
+									<input id="senderAddressEn" name="senderAddressEn" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人电话：</label>
+								<div class="col-sm-2">
+									<input id="senderPhone" name="senderPhone" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">包装种类：</label>
+								<div class="col-sm-2">
+									<input id="packageType" name="packageType" class="form-control" type="text">
+								</div>
+							</div>
+														                                                               
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">是否含木质包装：</label>
+								<div class="col-sm-2">
+									<input id="woodenFlag" name="woodenFlag" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">是否为旧物品：</label>
+								<div class="col-sm-2">
+									<input id="oldgoodsFlag" name="oldgoodsFlag" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">是否为低温运输：</label>
+								<div class="col-sm-2">
+									<input id="lowshipFlag" name="lowshipFlag" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">用途：</label>
+								<div class="col-sm-2">
+									<input id="use" name="use" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">随附单证类型：</label>
+								<div class="col-sm-2">
+									<input id="documentType" name="documentType" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">随附单证编号：</label>
+								<div class="col-sm-2">
+									<input id="documentNo" name="documentNo" class="form-control" type="text">
+								</div>
+							</div>							                                                             
+							
+																					<div class="form-group">
+								<div class="col-sm-2 col-sm-offset-2">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/common/declare/add.js">
+	</script>
+</body>
+</html>

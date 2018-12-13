@@ -175,7 +175,7 @@
         <div class="row ">
             <div style="padding:10px; ">
                 <form enctype="multipart/form-data">
-                    <input id="file-0a" class="file" name="file" type="file" multiple data-min-file-count="1" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                    <input id="file-0a" class="file" name="file" type="file" multiple data-min-file-count="1" >
                     <br>
                 </form>
             </div>
@@ -208,7 +208,7 @@
 <script>
     $('#file-0a').fileinput({
         language: 'zh',
-        uploadUrl: '/common/product/importExcel',
+        uploadUrl: '/common/declare/importExcel',
 
     });
 
@@ -230,7 +230,7 @@
     $('#file-0a').on('fileuploaded', function(event, data, previewId, index) {
         var form = data.form, files = data.files, extra = data.extra,
             response = data.response, reader = data.reader;
-        location.href="/common/product/exportProduct";
+        location.href="/common/declare/exportDeclare";
 
     });
 </script>

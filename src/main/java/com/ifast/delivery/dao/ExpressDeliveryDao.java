@@ -26,7 +26,7 @@ public interface ExpressDeliveryDao extends BaseMapper<ExpressDeliveryDO> {
     List<ExpressDeliveryDO> getExpressDeliverys();
 
     @Insert("insert into tb_express_delivery values (0,#{orderNo},#{receiverAddress},#{receiver},#{receiverCtype},#{receiverIdcard},#{senderAddress}," +
-            "#{sender},#{senderCtype},#{senderIdcard},#{productId},#{data},#{weight})")
+            "#{sender},#{senderCtype},#{senderIdcard},#{productId})")
     @Options(useGeneratedKeys = true ,keyProperty = "id",keyColumn = "id")
     boolean saveExpressDelivery(ExpressDeliveryDO edd);
 

@@ -10,13 +10,13 @@
 					<div class="fixed-table-toolbar">
 						<div class="columns pull-left">
 
-
-
-							<button  type="button" class="btn  btn-primary" onclick="add()">
-								<i class="fa fa-anchor" aria-hidden="true"></i>添加
+							<button  type="button" class="btn  btn-primary" onclick="comparisonExport()">
+								<i class="fa fa-book" aria-hidden="true"></i>对比导出
 							</button>
-
-							<button  type="button" class="btn  btn-danger"
+							<button  type="button" class="btn  btn-primary" onclick="add()">
+								<i class="fa fa-plus" aria-hidden="true"></i>添加
+							</button>
+							<button type="button" class="btn  btn-danger"
 								onclick="batchRemove()">
 								<i class="fa fa-trash" aria-hidden="true"></i>删除
 							</button>
@@ -39,6 +39,6 @@
 
 	</div>
 	<div th:include="include :: footer"></div>
-	<script type="text/javascript" src="/js/appjs/common/product/product.js"></script>
+	<script type="text/javascript" src="/js/appjs/common/declare/declare.js"></script>
 </body>
 </html>

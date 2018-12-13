@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-2">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="Id" name="Id" th:value="${declare.Id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-2 control-label">类别：</label>
+								<div class="col-sm-2">
+									<input id="category" name="category" th:value="${declare.category}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收发货人编号：</label>
+								<div class="col-sm-2">
+									<input id="transceiverNo" name="transceiverNo" th:value="${declare.transceiverNo}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收发货人名称：</label>
+								<div class="col-sm-2">
+									<input id="transceiverName" name="transceiverName" th:value="${declare.transceiverName}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">收发货人统一社会信用代码：</label>
+								<div class="col-sm-2">
+									<input id="creditCode" name="creditCode" th:value="${declare.creditCode}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">提单号：</label>
+								<div class="col-sm-2">
+									<input id="ladingBillNo" name="ladingBillNo" th:value="${declare.ladingBillNo}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">分运单号：</label>
+								<div class="col-sm-2">
+									<input id="waybillNo" name="waybillNo" th:value="${declare.waybillNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">商品序号：</label>
+								<div class="col-sm-2">
+									<input id="serialNo" name="serialNo" th:value="${declare.serialNo}" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">货物名称：</label>
+								<div class="col-sm-2">
+									<input id="productName" name="productName" th:value="${declare.productName}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">货物英文名称：</label>
+								<div class="col-sm-2">
+									<input id="enName" name="enName" th:value="${declare.enName}" class="form-control" type="text">
+								</div>
+
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">产销城市：</label>
+								<div class="col-sm-2">
+									<input id="city" name="city" th:value="${declare.city}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">商品编码：</label>
+								<div class="col-sm-2">
+									<input id="code" name="code" th:value="${declare.code}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">数量：</label>
+								<div class="col-sm-2">
+									<input id="quantity" name="quantity" th:value="${declare.quantity}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">净重(KG)：</label>
+								<div class="col-sm-2">
+									<input id="netwt" name="netwt" th:value="${declare.netwt}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">毛重(KG)：</label>
+								<div class="col-sm-2">
+									<input id="weight" name="weight" th:value="${declare.weight}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">规格/型号：</label>
+								<div class="col-sm-2">
+									<input id="model" name="model" th:value="${declare.model}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">申报单价：</label>
+								<div class="col-sm-2">
+									<input id="price" name="price" th:value="${declare.price}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">申报数量：</label>
+								<div class="col-sm-2">
+									<input id="applyQuantity" name="applyQuantity" th:value="${declare.applyQuantity}" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">申报总价：</label>
+								<div class="col-sm-2">
+									<input id="totalPrice" name="totalPrice" th:value="${declare.totalPrice}" class="form-control" type="text">
+								</div>
+
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">成交总价：</label>
+								<div class="col-sm-2">
+									<input id="transactionPrice" name="transactionPrice" th:value="${declare.transactionPrice}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">申报计量单位：</label>
+								<div class="col-sm-2">
+									<input id="firstUit" name="firstUit" th:value="${declare.firstUit}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收件人：</label>
+								<div class="col-sm-2">
+									<input id="receiver" name="receiver" th:value="${declare.receiver}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">收件人证件号：</label>
+								<div class="col-sm-2">
+									<input id="receiverIdcard" name="receiverIdcard" th:value="${declare.receiverIdcard}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收件人证件类型：</label>
+								<div class="col-sm-2">
+									<input id="recevierType" name="recevierType" th:value="${declare.recevierType}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收件人城市：</label>
+								<div class="col-sm-2">
+									<input id="receiverCity" name="receiverCity" th:value="${declare.receiverCity}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">收件人地址：</label>
+								<div class="col-sm-2">
+									<input id="receiverAddress" name="receiverAddress" th:value="${declare.receiverAddress}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">收件人电话：</label>
+								<div class="col-sm-2">
+									<input id="receiverPhone" name="receiverPhone" th:value="${declare.receiverPhone}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">货主单位名称：</label>
+								<div class="col-sm-2">
+									<input id="unitName" name="unitName" th:value="${declare.unitName}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">货主单位代码：</label>
+								<div class="col-sm-2">
+									<input id="unitNo" name="unitNo" th:value="${declare.unitNo}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">货主单位统一社会信用代码：</label>
+								<div class="col-sm-2">
+									<input id="ownerCode" name="ownerCode" th:value="${declare.ownerCode}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">货主单位地区代码：</label>
+								<div class="col-sm-2">
+									<input id="ownerAreaCode" name="ownerAreaCode" th:value="${declare.ownerAreaCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">贸易国别：</label>
+								<div class="col-sm-2">
+									<input id="tradingCountry" name="tradingCountry" th:value="${declare.tradingCountry}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">产销国：</label>
+								<div class="col-sm-2">
+									<input id="copam" name="copam" th:value="${declare.copam}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人：</label>
+								<div class="col-sm-2">
+									<input id="sender" name="sender" th:value="${declare.sender}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">英文发件人：</label>
+								<div class="col-sm-2">
+									<input id="senderEn" name="senderEn" th:value="${declare.senderEn}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人国别：</label>
+								<div class="col-sm-2">
+									<input id="senderNation" name="senderNation" th:value="${declare.senderNation}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人城市：</label>
+								<div class="col-sm-2">
+									<input id="senderCity" name="senderCity" th:value="${declare.senderCity}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">英文发件人城市：</label>
+								<div class="col-sm-2">
+									<input id="senderCityEn" name="senderCityEn" th:value="${declare.senderCityEn}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">英文经停城市：</label>
+								<div class="col-sm-2">
+									<input id="stopcityEn" name="stopcityEn" th:value="${declare.stopcityEn}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人地址：</label>
+								<div class="col-sm-2">
+									<input id="senderAddress" name="senderAddress" th:value="${declare.senderAddress}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">英文发件人地址：</label>
+								<div class="col-sm-2">
+									<input id="senderAddressEn" name="senderAddressEn" th:value="${declare.senderAddressEn}" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">发件人电话：</label>
+								<div class="col-sm-2">
+									<input id="senderPhone" name="senderPhone" th:value="${declare.senderPhone}" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">包装种类：</label>
+								<div class="col-sm-2">
+									<input id="packageType" name="packageType" th:value="${declare.packageType}" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">是否含木质包装：</label>
+								<div class="col-sm-2">
+									<input id="woodenFlag" name="woodenFlag" th:value="${declare.woodenFlag}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">是否为旧物品：</label>
+								<div class="col-sm-2">
+									<input id="oldgoodsFlag" name="oldgoodsFlag" th:value="${declare.oldgoodsFlag}" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">是否为低温运输：</label>
+								<div class="col-sm-2">
+									<input id="lowshipFlag" name="lowshipFlag" th:value="${declare.lowshipFlag}" class="form-control" type="text">
+								</div>
+
+							</div>
+
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">用途：</label>
+								<div class="col-sm-2">
+									<input id="use" name="use" th:value="${declare.use}" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">随附单证类型：</label>
+								<div class="col-sm-2">
+									<input id="documentType" name="documentType" th:value="${declare.documentType}" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">随附单证编号：</label>
+								<div class="col-sm-2">
+									<input id="documentNo" name="documentNo" th:value="${declare.documentNo}" class="form-control" type="text">
+								</div>
+
+							</div>
+														
+																					<div class="form-group">
+								<div class="col-sm-2 col-sm-offset-6">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/ifast/declare/edit.js">
+	</script>
+</body>
+</html>

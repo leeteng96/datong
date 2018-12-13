@@ -8,7 +8,7 @@ function load() {
 
     //销毁bootstrapTable 对象
     $("#tab").bootstrapTable('destroy');
-    $('#tab')
+    $("#tab")
         .bootstrapTable(
             {
                 method : 'get', // 服务器数据的请求方式 get or post
@@ -138,7 +138,7 @@ function transfer(){
 
     // 遍历所有选择的行数据，取每条数据对应的ID
     $.each(rows, function(i, row) {
-        ids += ","+row['productId'];
+        ids += ","+row['id'];
     });
     window.parent.$("#insertPro").show();
     var index=parent.layer.getFrameIndex(window.name);

@@ -41,24 +41,23 @@
 									<option VALUE="2">CC</option>
 								</select>
 							</div>
-							<label class="col-sm-2 control-label">邮编：</label>
-							<div class="col-sm-2">
-								<input id="zipCode" name="zipCode" class="form-control" type="number">
-							</div>
+
 
 							<label class="col-sm-2 control-label">快递公司：</label>
 							<div class="col-sm-2">
 								<input id="expressCompany" name="expressCompany" class="form-control" type="text">
 							</div>
-						</div>
 
-						<div class="form-group">
 							<label class="col-sm-2 control-label">提货日期：</label>
 							<div class="col-sm-2">
 
 								<input type="text" class="laydate-icon layer-date form-control" id="pickupDate" name="pickupDate"  placeholder="请选择提货日期"
 									   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh'})" style="background-color: #fff;" readonly="readonly"/>
 							</div>
+						</div>
+
+						<div class="form-group">
+
 
 							<label class="col-sm-2 control-label">到场日期：</label>
 							<div class="col-sm-2">
@@ -73,32 +72,56 @@
 									   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh'})" style="background-color: #fff;" readonly="readonly"/>
 
 							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-sm-2 control-label">清关状态:</label>
-							<div class="col-sm-2">
-								<div id="cleans" ></div>
-								<input id = "cleanStatus" name="cleanStatus" type="hidden">
-							</div>
 
 							<label class="col-sm-2 control-label">备注：</label>
 							<div class="col-sm-2">
 								<textarea id="cleanRemark" name="cleanRemark" class="form-control" type="text"></textarea>
 							</div>
 
+						</div>
 
+						<div class="form-group">
+								<label class="col-sm-2 control-label">放行：</label>
+								<div class="col-sm-2">
+									<input id="release" name="release" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">国检：</label>
+								<div class="col-sm-2">
+									<input id="nationalInspection" name="nationalInspection" class="form-control" type="text">
+								</div>
+
+
+								<label class="col-sm-2 control-label">海关：</label>
+								<div class="col-sm-2">
+									<input id="customs" name="customs" class="form-control" type="text">
+								</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">联合：</label>
+							<div class="col-sm-2">
+								<input id="unity" name="unity" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">异常：</label>
+							<div class="col-sm-2">
+								<input id="odd" name="odd" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">无数据：</label>
+							<div class="col-sm-2">
+								<input id="nodata" name="nodata" class="form-control" type="text">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label class="col-sm-2 control-label">客户：</label>
 							<div class="col-sm-2">
 								<div id = "cusId" ></div>
 								<input id = "customerId" name="customerId" type="hidden">
 							</div>
-
-						</div>
-
-						<div class="form-group">
-
-
 
 						</div>
 						<div class="form-group">

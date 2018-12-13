@@ -1,5 +1,6 @@
 $().ready(function() {
 	validateRule();
+	loadjsTree();
 });
 
 $.validator.setDefaults({
@@ -30,6 +31,55 @@ function save() {
 
 		}
 	});
+
+}
+
+function  loadjsTree() {
+
+    $("#cleans").jstree({
+        'core': {
+            "multiple": false,
+            "themes": {"stripes": true},
+
+            'data': [
+                {
+                    'id': '1', 'text': '放行'
+                },
+                {
+                    'text': '查检',
+                    'state': {
+                        'opened': true,
+                        'disabled': true
+                    },
+                    'children': [
+                        {'id': '2', 'text': '放行'},
+                        {'id': '3', 'text': '查扣'}
+                    ]
+                },
+                {
+                    'text': '异常',
+                    'state': {
+                        'opened': true,
+                        'disabled': true
+                    },
+                    'children': [
+                        {'id': '4', 'text': '长装'},
+                        {'id': '5', 'text': '短装'},
+                        {'id': '6', 'text': '无数据'},
+                    ]
+                }
+            ]
+
+        },
+        "plugins": ["wholerow"],
+
+    }).on("changed.jstree", function (e, node) {
+
+        $("#firstState").val(node.instance.get_node(node.selected[0]).id);
+
+    });
+
+
 
 }
 function validateRule() {

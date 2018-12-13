@@ -56,7 +56,6 @@ public class LoginController extends AdminBaseController {
         model.addAttribute("username", getUser().getUsername());
         FileDO fileDO = fileService.selectById(getUser().getPicId());
         model.addAttribute("picUrl", fileDO == null ? "/img/photo_s.jpg" : fileDO.getUrl());
-        refresh(model);
         return "index_v1";
     }
 
@@ -105,7 +104,7 @@ public class LoginController extends AdminBaseController {
         return "403";
     }
 
-    @Log("局部刷新")
+    /*@Log("局部刷新")
     @GetMapping("/refresh")
     String refresh(Model model){
         ExpressOrderDO  bc= expressOrderService.selectData(1);
@@ -113,5 +112,5 @@ public class LoginController extends AdminBaseController {
         model.addAttribute("bc", bc);
         model.addAttribute("cc", cc);
         return "";
-    }
+    }*/
 }

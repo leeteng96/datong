@@ -41,8 +41,8 @@ function load() {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 							     pageNumber : params.pageNumber,
-                                  pageSize : params.pageSize,
-                                totalWaybillNo:$('#searchName').val(),
+                                 pageSize : params.pageSize,
+                                 totalWaybillNo:$('#searchName').val(),
 					           // name:$('#searchName').val(),
 					           // username:$('#searchName').val()
 							};
@@ -55,7 +55,16 @@ function load() {
                                 "rows": res.data.records   //数据
                              };
                         },
+                        onDblClickCell:function(field,value,row,$element){
 
+                            if(field == "ladingBillNo") {
+                                if(row.ladingBillNo != ""){
+                                    $.cookie("ladingBillNo",row.ladingBillNo);
+                                    location.href="/common/packInfo";
+                                }
+                            }
+
+                        },
                         onEditableSave: function (field, row, oldValue, $el) {
                             $.ajax({
 								url: "/common/expressOrder/update",
@@ -221,27 +230,83 @@ function load() {
 
 
                                 },
-                                {
-                                    field: 'cleanStatus',
-                                    title: "清关状态",
-                                    valign:"middle",
-                                    align:"center",
-                                    editable: {
-                                        type: 'select',
-                                        title: '清关状态',
-                                        emptytext:'-',
-                                        source:[
-                                            {value:'1',text:'放行'},
-                                            {value:'2',text:'查检放行'},
-                                            {value:'3',text:'查检查扣'},
-                                            {value:'4',text:'异常长装'},
-                                            {value:'5',text:'异常短装'},
-                                            {value:'6',text:'无数据'},
-                                        ]
+                            {
+                                field: 'release',
+                                title: '放行',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '放行',
+                                    emptytext:'-',
 
-                                    },
 
                                 },
+                            },
+                            {
+                                field: 'nationalInspection',
+                                title: '国检',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '国检',
+                                    emptytext:'-',
+
+
+                                },
+                            },{
+                                field: 'customs',
+                                title: '海关',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '海关',
+                                    emptytext:'-',
+
+
+                                },
+                            },
+                            {
+                                field: 'unity',
+                                title: '联合',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '联合',
+                                    emptytext:'-',
+
+
+                                },
+                            },
+                            {
+                                field: 'odd',
+                                title: '异常',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '异常',
+                                    emptytext:'-',
+
+
+                                },
+                            },
+                            {
+                                field: 'nodata',
+                                title: '无数据',
+                                valign:"middle",
+                                align:"center",
+                                editable: {
+                                    type: 'text',
+                                    title: '无数据',
+                                    emptytext:'-',
+
+
+                                },
+                            },
                                 {
                                     field: 'cleanRemark',
                                     title: '备注',
@@ -255,18 +320,6 @@ function load() {
 
                                     },
                                 },
-                            {
-                                field: 'zipCode',
-                                title: '邮编',
-                                valign:"middle",
-                                align:"center",
-                                editable: {
-                                    type: 'text',
-                                    title: '邮编',
-                                    emptytext:'-',
-
-                                },
-                            },
                             {
                                 field: 'expressCompany',
                                 title: '快递公司',

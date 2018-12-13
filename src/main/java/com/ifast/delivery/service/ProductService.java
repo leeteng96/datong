@@ -24,9 +24,7 @@ import java.util.List;
 public interface ProductService extends IService<ProductDO>{
 
 
-    Workbook exportProduct(List<ProductDO> plist);
 
-    List<ProductDO>  importExcel(MultipartFile file, Integer titleRows, Integer headerRows);
 
     String selectByPId(String productId);
 

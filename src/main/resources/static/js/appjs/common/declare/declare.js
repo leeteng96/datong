@@ -1,5 +1,5 @@
 
-var prefix = "/common/product"
+var prefix = "/common/declare"
 $(function() {
 	load();
 });
@@ -9,7 +9,7 @@ function load() {
 			.bootstrapTable(
 					{
 						method : 'get', // 服务器数据的请求方式 get or post
-						url : prefix + "/getList", // 服务器数据的加载地址
+						url : prefix + "/list", // 服务器数据的加载地址
 					//	showRefresh : true,
 					//	showToggle : true,
 					//	showColumns : true,
@@ -56,67 +56,199 @@ function load() {
 								},
 																{
 									field : 'id', 
-									title : '商品序号'
+									title : '' 
 								},
 																{
-									field : 'name', 
-									title : '商品名称' 
+									field : 'category', 
+									title : '类别' 
+								},
+																{
+									field : 'transceiverNo', 
+									title : '收发货人编号' 
+								},
+																{
+									field : 'transceiverName', 
+									title : '收发货人名称' 
+								},
+																{
+									field : 'creditCode', 
+									title : '收发货人统一社会信用代码' 
+								},
+																{
+									field : 'ladingBillNo', 
+									title : '提单号' 
+								},
+																{
+									field : 'waybillNo', 
+									title : '分运单号' 
+								},
+																{
+									field : 'serialNo', 
+									title : '商品序号' 
+								},
+																{
+									field : 'productName', 
+									title : '货物名称' 
+								},
+																{
+									field : 'enName', 
+									title : '货物英文名称' 
+								},
+																{
+									field : 'city', 
+									title : '产销城市' 
 								},
 																{
 									field : 'code', 
-									title : '税号'
+									title : '商品编码' 
 								},
 																{
-									field : 'originCountry', 
-									title : '原产国' 
-								},
-																{
-									field : 'price', 
-									title : '商品价格' 
-								},
-																{
-									field : 'weight', 
-									title : '商品重量' 
-								},
-																{
-									field : 'model', 
-									title : '商品规格' 
-								},
-																{
-									field : 'color', 
-									title : '商品颜色' 
-								},
-																{
-									field : 'produceDate',
-									title : '生产日期' 
-								},
-																{
-									field : 'shelfLife', 
-									title : '有效期' 
-								},
-																{
-									field : 'indate', 
-									title : '商品录入时间' 
-								},
-																{
-									field : 'unit1', 
-									title : '第一单位' 
-								},
-																{
-									field : 'qty1', 
-									title : '第一数量' 
-								},
-																{
-									field : 'unit2', 
-									title : '第二单位' 
-								},
-																{
-									field : 'qty2', 
-									title : '第二数量' 
+									field : 'quantity', 
+									title : '数量' 
 								},
 																{
 									field : 'netwt', 
-									title : '净重' 
+									title : '净重(KG)' 
+								},
+																{
+									field : 'weight', 
+									title : '毛重(KG)' 
+								},
+																{
+									field : 'model', 
+									title : '规格/型号' 
+								},
+																{
+									field : 'price', 
+									title : '申报单价' 
+								},
+																{
+									field : 'applyQuantity', 
+									title : '申报数量' 
+								},
+																{
+									field : 'totalPrice', 
+									title : '申报总价' 
+								},
+																{
+									field : 'transactionPrice', 
+									title : '成交总价' 
+								},
+																{
+									field : 'firstUit', 
+									title : '申报计量单位' 
+								},
+																{
+									field : 'receiver', 
+									title : '收件人' 
+								},
+																{
+									field : 'receiverIdcard', 
+									title : '收件人证件号' 
+								},
+																{
+									field : 'recevierType', 
+									title : '收件人证件类型' 
+								},
+																{
+									field : 'receiverCity', 
+									title : '收件人城市' 
+								},
+																{
+									field : 'receiverAddress', 
+									title : '收件人地址' 
+								},
+																{
+									field : 'receiverPhone', 
+									title : '收件人电话' 
+								},
+																{
+									field : 'unitName', 
+									title : '货主单位名称' 
+								},
+																{
+									field : 'unitNo', 
+									title : '货主单位代码' 
+								},
+																{
+									field : 'ownerCode', 
+									title : '货主单位统一社会信用代码' 
+								},
+																{
+									field : 'ownerAreaCode', 
+									title : '货主单位地区代码' 
+								},
+																{
+									field : 'tradingCountry', 
+									title : '贸易国别' 
+								},
+																{
+									field : 'copam', 
+									title : '产销国' 
+								},
+																{
+									field : 'sender', 
+									title : '发件人' 
+								},
+																{
+									field : 'senderEn', 
+									title : '英文发件人' 
+								},
+																{
+									field : 'senderNation', 
+									title : '发件人国别' 
+								},
+																{
+									field : 'senderCity', 
+									title : '发件人城市' 
+								},
+																{
+									field : 'senderCityEn', 
+									title : '英文发件人城市' 
+								},
+																{
+									field : 'stopcityEn', 
+									title : '英文经停城市' 
+								},
+																{
+									field : 'senderAddress', 
+									title : '发件人地址' 
+								},
+																{
+									field : 'senderAddressEn', 
+									title : '英文发件人地址' 
+								},
+																{
+									field : 'senderPhone', 
+									title : '发件人电话' 
+								},
+																{
+									field : 'packageType', 
+									title : '包装种类' 
+								},
+																{
+									field : 'woodenFlag', 
+									title : '是否含木质包装' 
+								},
+																{
+									field : 'oldgoodsFlag', 
+									title : '是否为旧物品' 
+								},
+																{
+									field : 'lowshipFlag', 
+									title : '是否为低温运输' 
+								},
+																{
+									field : 'use', 
+									title : '用途' 
+								},
+																{
+									field : 'documentType', 
+									title : '随附单证类型' 
+								},
+																{
+									field : 'documentNo', 
+									title : '随附单证编号' 
 								},
 																{
 									title : '操作',
@@ -147,7 +279,7 @@ function add() {
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/getAdd' // iframe的url
+		content : prefix + '/add' // iframe的url
 	});
 }
 function edit(id) {
@@ -157,7 +289,7 @@ function edit(id) {
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/getEdit/' + id // iframe的url
+		content : prefix + '/edit/' + id // iframe的url
 	});
 }
 function remove(id) {
@@ -182,11 +314,12 @@ function remove(id) {
 	})
 }
 
-function comparisonExport(){
-	location.href="/importExcel/ExportDeclare.html";
-
-}
 function resetPwd(id) {
+}
+
+function comparisonExport(){
+    location.href="/importExcel/ExportDeclare.html";
+
 }
 function batchRemove() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组

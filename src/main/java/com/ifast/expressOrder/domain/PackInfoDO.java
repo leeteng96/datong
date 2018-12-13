@@ -44,6 +44,11 @@ public class PackInfoDO implements Serializable {
     @Pattern(regexp="/(^[1-9]([0-9]+)?(\\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\\.[0-9]([0-9])?$)/", message = "毛重格式不正确")
     @Excel(name = "毛重(kg)",orderNum="3")
     private BigDecimal grossWeight;
+
+    /** 清关状态:1:放行,2:查检放行,3:查检暂扣,4:长装,5:短装,6:无数 */
+    private Integer firstState;
+    /** 备注 */
+    private String mark;
     /** 包裹名称 */
     @NotBlank(message = "主要商品不能为空")
     @Excel(name="主要商品",orderNum="4")
@@ -289,5 +294,21 @@ public class PackInfoDO implements Serializable {
 
     public void setIndate(Date indate) {
         this.indate = indate;
+    }
+
+    public Integer getFirstState() {
+        return firstState;
+    }
+
+    public void setFirstState(Integer firstState) {
+        this.firstState = firstState;
+    }
+
+    public String getMark() {
+        return mark;
+    }
+
+    public void setMark(String mark) {
+        this.mark = mark;
     }
 }

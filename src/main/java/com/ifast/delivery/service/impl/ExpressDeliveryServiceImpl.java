@@ -1,19 +1,11 @@
 package com.ifast.delivery.service.impl;
 
-import com.baomidou.mybatisplus.mapper.SqlHelper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.ifast.board.domain.BoardDO;
 import com.ifast.delivery.dao.ExpressDeliveryDao;
 import com.ifast.delivery.domain.ExpressDeliveryDO;
 import com.ifast.delivery.service.ExpressDeliveryService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * 

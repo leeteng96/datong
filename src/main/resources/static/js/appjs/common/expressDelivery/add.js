@@ -52,7 +52,6 @@ function save() {
             },
             success : function(data) {
                 var row = $("#exampleTable").bootstrapTable('getData');
-                console.log(row.rows);
                 if (data.code == 0) {
                     parent.layer.msg("保存成功");
                     // parent.reLoad();
@@ -106,15 +105,15 @@ function showPro(ids){
                     },
 
                     {
-                        field : 'productId',
-                        title : '序号',
+                        field : 'id',
+                        title : '商品ID'
                     },
                     {
-                        field : 'productName',
+                        field : 'name',
                         title : '商品名称'
                     },
                     {
-                        field : 'productCode',
+                        field : 'code',
                         title : '商品编码'
                     },
                     {
@@ -122,22 +121,25 @@ function showPro(ids){
                         title : '原产国'
                     },
                     {
-                        field : 'productPrice',
+                        field : 'price',
                         title : '商品价格'
                     },
                     {
-                        field : 'productWeight',
+                        field : 'weight',
                         title : '商品重量'
                     },
                     {
-                        field : 'productModel',
+                        field : 'model',
                         title : '商品规格'
                     },
                     {
-                        field : 'productColor',
+                        field : 'color',
                         title : '商品颜色'
                     },
-
+                    {
+                        field : 'produceDate',
+                        title : '生产日期'
+                    },
                     {
                         field : 'shelfLife',
                         title : '有效期'
@@ -145,6 +147,26 @@ function showPro(ids){
                     {
                         field : 'indate',
                         title : '商品录入时间'
+                    },
+                    {
+                        field : 'unit1',
+                        title : '第一单位'
+                    },
+                    {
+                        field : 'qty1',
+                        title : '第一数量'
+                    },
+                    {
+                        field : 'unit2',
+                        title : '第二单位'
+                    },
+                    {
+                        field : 'qty2',
+                        title : '第二数量'
+                    },
+                    {
+                        field : 'netwt',
+                        title : '净重'
                     },
                     {
                         title : '操作',

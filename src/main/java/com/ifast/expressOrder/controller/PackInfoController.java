@@ -10,11 +10,10 @@ import com.ifast.common.base.AdminBaseController;
 import com.ifast.common.domain.Message;
 import com.ifast.common.domain.Status;
 import com.ifast.common.utils.Result;
-import com.ifast.expressOrder.domain.ExpressOrderDO;
 import com.ifast.expressOrder.domain.PackInfoDO;
 import com.ifast.expressOrder.service.CheckOrderService;
-import com.ifast.expressOrder.service.DataComparisonService;
 import com.ifast.expressOrder.service.PackInfoService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +52,9 @@ public class PackInfoController extends AdminBaseController {
 	public Result<Page<PackInfoDO>> list(PackInfoDO packInfoDTO) {
 		Wrapper<PackInfoDO> wrapper = new EntityWrapper<PackInfoDO>(packInfoDTO);
 		wrapper.like("waybill_no", packInfoDTO.getWaybillNo(), SqlLike.DEFAULT);
+		if(StringUtils.isNotBlank(packInfoDTO.getLadingBillNo()) || StringUtils.isNotEmpty(packInfoDTO.getLadingBillNo())){
+		    wrapper.and("lading_bill_no ="+packInfoDTO.getLadingBillNo());
+        }
 		wrapper.orderBy("id", false);
 		Page<PackInfoDO> page = packInfoService.selectPage(getPage(PackInfoDO.class), wrapper);
 		return Result.ok(page);

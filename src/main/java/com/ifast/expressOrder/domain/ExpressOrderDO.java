@@ -14,7 +14,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
  * <pre>
  * 订单表
  * </pre>
- * <small> 2018-10-18 16:43:59 | Aron</small>
+ * <small> 2018-12-04 15:48:57 | Aron</small>
  */
 @TableName("tb_express_order")
 public class ExpressOrderDO implements Serializable {
@@ -42,8 +42,20 @@ public class ExpressOrderDO implements Serializable {
     private Date turnupDate;
     /** 清关日期 */
     private Date cleanDate;
-    /** 清关状态:1:放行,2:查检放行,3:查检暂扣,4:异常长装,5:异常短装,6:无数 */
-    private Integer cleanStatus;
+    /** 放行 */
+    private Integer release;
+    /** 国检 */
+    private Integer nationalInspection;
+    /** 海关 */
+    private Integer customs;
+    /** 联合 */
+    private Integer unity;
+    /** 异常 */
+    private Integer odd;
+    /** 无数据 */
+    private Integer nodata;
+    /** 票数 */
+    private Integer billNo;
     /** 备注 */
     private String cleanRemark;
     /** 邮编 */
@@ -66,8 +78,9 @@ public class ExpressOrderDO implements Serializable {
     private Integer printStatus;
     /** 打板状态:1未打板,2打板 */
     private Integer boardStatus;
-
+    /** 初始化时间 */
     private Date indate;
+
     /**
      * 设置：
      */
@@ -189,16 +202,88 @@ public class ExpressOrderDO implements Serializable {
         return cleanDate;
     }
     /**
-     * 设置：清关状态:1:放行,2:查检放行,3:查检暂扣,4:异常长装,5:异常短装,6:无数
+     * 设置：放行
      */
-    public void setCleanStatus(Integer cleanStatus) {
-        this.cleanStatus = cleanStatus;
+    public void setRelease(Integer release) {
+        this.release = release;
     }
     /**
-     * 获取：清关状态:1:放行,2:查检放行,3:查检暂扣,4:异常长装,5:异常短装,6:无数
+     * 获取：放行
      */
-    public Integer getCleanStatus() {
-        return cleanStatus;
+    public Integer getRelease() {
+        return release;
+    }
+    /**
+     * 设置：国检
+     */
+    public void setNationalInspection(Integer nationalInspection) {
+        this.nationalInspection = nationalInspection;
+    }
+    /**
+     * 获取：国检
+     */
+    public Integer getNationalInspection() {
+        return nationalInspection;
+    }
+    /**
+     * 设置：海关
+     */
+    public void setCustoms(Integer customs) {
+        this.customs = customs;
+    }
+    /**
+     * 获取：海关
+     */
+    public Integer getCustoms() {
+        return customs;
+    }
+    /**
+     * 设置：联合
+     */
+    public void setUnity(Integer unity) {
+        this.unity = unity;
+    }
+    /**
+     * 获取：联合
+     */
+    public Integer getUnity() {
+        return unity;
+    }
+    /**
+     * 设置：异常
+     */
+    public void setOdd(Integer odd) {
+        this.odd = odd;
+    }
+    /**
+     * 获取：异常
+     */
+    public Integer getOdd() {
+        return odd;
+    }
+    /**
+     * 设置：无数据
+     */
+    public void setNodata(Integer nodata) {
+        this.nodata = nodata;
+    }
+    /**
+     * 获取：无数据
+     */
+    public Integer getNodata() {
+        return nodata;
+    }
+    /**
+     * 设置：票数
+     */
+    public void setBillNo(Integer billNo) {
+        this.billNo = billNo;
+    }
+    /**
+     * 获取：票数
+     */
+    public Integer getBillNo() {
+        return billNo;
     }
     /**
      * 设置：备注
@@ -332,12 +417,16 @@ public class ExpressOrderDO implements Serializable {
     public Integer getBoardStatus() {
         return boardStatus;
     }
-
-    public Date getIndate() {
-        return indate;
-    }
-
+    /**
+     * 设置：初始化时间
+     */
     public void setIndate(Date indate) {
         this.indate = indate;
+    }
+    /**
+     * 获取：初始化时间
+     */
+    public Date getIndate() {
+        return indate;
     }
 }

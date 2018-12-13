@@ -5,6 +5,10 @@ $(function() {
 });
 
 function load() {
+	var parm = $.cookie("ladingBillNo");
+	if(parm == undefined){
+		$("#previous").attr("style","display:none;");
+	}
 	$('#exampleTable')
 			.bootstrapTable(
 					{
@@ -40,9 +44,10 @@ function load() {
 						queryParams : function(params) {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
-							     pageNumber : params.pageNumber,
+							      pageNumber : params.pageNumber,
                                   pageSize : params.pageSize  ,
-					             waybillNo:$('#searchName').val()
+					              waybillNo:$('#searchName').val(),
+                                  ladingBillNo:parm
 					           // username:$('#searchName').val()
 							};
 						},
@@ -73,7 +78,15 @@ function load() {
 								},
 																{
 									field : 'waybillNo', 
-									title : '快递编号'
+									title : '分运单号'
+								},
+								{
+									field : 'firstState',
+									title : '第一清关状态'
+								},
+								{
+									field : 'mark',
+									title : '备注'
 								},
 																{
 									field : 'grossWeight', 
@@ -81,7 +94,7 @@ function load() {
 								},
 																{
 									field : 'goodsName', 
-									title : '包裹名称' 
+									title : '主要商品'
 								},
 																{
 									field : 'receiver', 
@@ -151,6 +164,8 @@ function load() {
 								} ]
 					});
     $('#exampleTable').bootstrapTable('resetView',{height:600});
+    $.removeCookie("ladingBillNo");
+
 }
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
@@ -234,4 +249,8 @@ function batchRemove() {
 	}, function() {
 
 	});
+}
+
+function  previous() {
+	location.href="/common/expressOrder";
 }

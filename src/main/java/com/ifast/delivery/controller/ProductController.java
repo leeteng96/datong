@@ -50,7 +50,7 @@ public class ProductController extends AdminBaseController {
 	@Autowired
 	private ProductService productService;
 
-	List<ProductDO> plist ;
+
 	@GetMapping()
 	String Product(){
 	    return "common/product/product";
@@ -153,40 +153,7 @@ public class ProductController extends AdminBaseController {
 	}
 
 
-	@Log("excel 导入")
-	@RequestMapping(value = "/importExcel", method = RequestMethod.POST, produces = "application/json;charset=utf8")
-	@ResponseBody
-	public Message uploadFileHandler(@RequestParam("file") MultipartFile file, HttpServletResponse response) throws IOException {
-		if (!file.isEmpty()) {
-			plist =	productService.importExcel(file,0,1);
-			Message msg = new Message();
-			msg.setStatus(Status.SUCCESS);
-			msg.setStatusMsg("File upload success");
-			return msg;
 
-		} else {
-			Message msg = new Message();
-			msg.setStatus(Status.ERROR);
-			msg.setError("File is empty");
-			return msg;
-		}
-
-	}
-
-	@GetMapping("/exportProduct")
-	public void exportProduct(HttpServletResponse response){
-		Workbook workbook = productService.exportProduct(plist);
-		try {
-			ServletOutputStream out = response.getOutputStream();
-			response.addHeader("Content-disposition", "attachment;filename="+ URLEncoder.encode("商品信息匹配结果表","UTF-8")+".xls");
-			response.setContentType("octets/stream;charset=UTF-8");
-			workbook.write(out);
-			out.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 }
 

@@ -23,7 +23,7 @@ $("#select1").on("change",function () {
 
 function loadTree(){
 
-    $('#cleans').jstree({
+    /*$('#cleans').jstree({
         'core': {
             "multiple": false,
             "themes" : { "stripes" : true },
@@ -70,7 +70,7 @@ function loadTree(){
         $("#cleans").jstree("deselect_all",true);
         //$("#keyKamokuCd").val()是选中的节点id，然后后面的一个参数 true表示的是不触发默认select_node.change的事件
         $('#cleans').jstree('select_node',$("#cleanStatus").val(),true);
-    });
+    });*/
 
 
     $('#cusId').jstree({
