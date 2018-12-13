@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header">
+	<link rel="stylesheet" href="/js/plugins/layer/laydate/skins/default/laydate.css" />
+	<link href="/css/plugins/jsTree/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-content">
+					<form class="form-horizontal m-t" id="signupForm">
+						<div class="form-group">
+
+							<label class="col-sm-2 control-label">提单号：</label>
+							<div class="col-sm-2">
+								<input id="ladingBillNo" name="ladingBillNo" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">快递编号：</label>
+							<div class="col-sm-2">
+								<input id="waybillNo" name="waybillNo" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">毛重(kg)：</label>
+							<div class="col-sm-2">
+								<input id="grossWeight" name="grossWeight" class="form-control" type="number">
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">清关状态</label>
+							<div class="col-sm-2">
+								<div id="cleans" ></div>
+								<input id="firstState" name="firstState" class="form-control" type="hidden">
+							</div>
+
+							<label class="col-sm-2 control-label">备注：</label>
+							<div class="col-sm-2">
+								<input id="mark" name="mark" class="form-control" type="text">
+							</div>
+							<label class="col-sm-2 control-label">主要商品：</label>
+							<div class="col-sm-2">
+								<input id="goodsName" name="goodsName" class="form-control" type="text">
+							</div>
+						</div>
+
+						<div class="form-group">
+
+
+
+							<label class="col-sm-2 control-label">收件人姓名：</label>
+							<div class="col-sm-2">
+								<input id="receiver" name="receiver" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">收件人地址：</label>
+							<div class="col-sm-2">
+								<input id="receiverAddress" name="receiverAddress" class="form-control" type="text">
+							</div>
+							<label class="col-sm-2 control-label">收货人电话：</label>
+							<div class="col-sm-2">
+								<input id="receiverPhone" name="receiverPhone" class="form-control" type="text">
+							</div>
+
+
+						</div>
+
+
+
+
+						<div class="form-group">
+
+							<label class="col-sm-2 control-label">收货人证件号码：</label>
+							<div class="col-sm-2">
+								<input id="receiverIdcard" name="receiverIdcard" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">关联单号：</label>
+							<div class="col-sm-2">
+								<input id="relaNo" name="relaNo" class="form-control" type="text">
+							</div>
+							<label class="col-sm-2 control-label">发货人名称：</label>
+							<div class="col-sm-2">
+								<input id="sender" name="sender" class="form-control" type="text">
+							</div>
+
+						</div>
+
+
+
+						<div class="form-group">
+
+
+							<label class="col-sm-2 control-label">发货人地址：</label>
+							<div class="col-sm-2">
+								<input id="senderAddress" name="senderAddress" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">发货人电话：</label>
+							<div class="col-sm-2">
+								<input id="senderPhone" name="senderPhone" class="form-control" type="text">
+							</div>
+
+							<label class="col-sm-2 control-label">商品数量：</label>
+							<div class="col-sm-2">
+								<input id="quantity" name="quantity" class="form-control" type="number">
+							</div>
+
+						</div>
+
+
+						<div class="form-group">
+
+							<label class="col-sm-2 control-label">商品单价：</label>
+							<div class="col-sm-2">
+								<input id="goodsValue" name="goodsValue" class="form-control" type="number">
+							</div>
+
+							<label class="col-sm-2 control-label">商品总价：</label>
+							<div class="col-sm-2">
+								<input id="totalPrice" name="totalPrice" class="form-control" type="number">
+							</div>
+
+
+						</div>
+
+
+
+						<div class="form-group">
+							<div class="col-sm-2 col-sm-offset-6">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/common/expressOrder/add.js">
+</script>
+<script src="/js/plugins/jsTree/jstree.min.js"></script>
+<script type="text/javascript" src="/js/plugins/layer/laydate/laydate.js" ></script>
+</body>
+</html>

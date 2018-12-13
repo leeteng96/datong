@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header">
+	<link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
+	<link rel="stylesheet" href="/js/plugins/layer/laydate/skins/default/laydate.css" />
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+                                                                							                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">商品名称：</label>
+								<div class="col-sm-3">
+									<input id="productName" name="productName" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">商品编码：</label>
+								<div class="col-sm-3">
+									<input id="productCode" name="productCode" class="form-control" type="text">
+								</div>
+							</div>
+												                                                                <div class="form-group">
+								<label class="col-sm-2 control-label">原产国：</label>
+								<div class="col-sm-3">
+									<input id="originCountry" name="originCountry" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">商品价格：</label>
+								<div class="col-sm-3">
+									<input id="productPrice" name="productPrice" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">商品重量：</label>
+								<div class="col-sm-3">
+									<input id="productWeight" name="productWeight" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">商品规格：</label>
+								<div class="col-sm-3">
+									<input id="productModel" name="productModel" class="form-control" type="text">
+								</div>
+							</div>
+
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">商品颜色：</label>
+								<div class="col-sm-3">
+									<input id="productColor" name="productColor" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">生产日期：</label>
+								<div class="gg-formDetail">
+									<input type="text" class="laydate-icon layer-date form-control" id="productionDate" name="productionDate"  placeholder="请选择生产日期"
+										   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" style="background-color: #fff;" readonly="readonly"/>
+								</div>
+							</div>
+
+														                                                                <div class="form-group">	
+								<label class="col-sm-2 control-label">有效期：</label>
+								<div class="col-sm-3">
+									<input id="shelfLife" name="shelfLife" class="form-control" type="text">
+								</div>
+
+							</div>
+
+
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-5">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript" src="/js/appjs/common/expressDelivery/addProduct.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="/js/plugins/layer/laydate/laydate.js" ></script>
+</body>
+</html>

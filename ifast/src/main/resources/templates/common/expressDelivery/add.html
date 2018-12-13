@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8">
+<head th:include="include :: header">
+	<link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class ="form-group">
+								<label class="col-sm-5 control-label">
+									<h4 style="color:red">
+										tips：
+											1: 完善信息提交
+											2: 点击添加商品
+											3: 点击保存商品
+									</h4>
+								</label>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">快递单号：</label>
+								<div class="col-sm-3">
+									<input id="orderNo" name="orderNo" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">收件人地址：</label>
+								<div class="col-sm-3">
+									<input id="receiverAddress" name="receiverAddress" class="form-control" type="text">
+								</div>
+
+							</div>
+														                                                                <div class="form-group">
+								<label class="col-sm-2 control-label">收件人：</label>
+								<div class="col-sm-3">
+									<input id="receiver" name="receiver" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">收件人证件类型：</label>
+								<div class="col-sm-3">
+									<input id="receiverCtype" name="receiverCtype" value="身份证" readonly="readonly" class="form-control" type="text">
+								</div>
+							</div>
+
+
+
+														                                                                <div class="form-group">
+								<label class="col-sm-2 control-label">收件人身份证号码：</label>
+								<div class="col-sm-3">
+									<input id="receiverIdcard" name="receiverIdcard" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人地址：</label>
+								<div class="col-sm-3">
+									<input id="senderAddress" name="senderAddress" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">
+								<label class="col-sm-2 control-label">发件人：</label>
+								<div class="col-sm-3">
+									<input id="sender" name="sender" class="form-control" type="text">
+								</div>
+
+								<label class="col-sm-2 control-label">发件人证件类型：</label>
+								<div class="col-sm-3">
+									<input id="senderCtype" name="senderCtype" value="身份证" readonly="readonly" class="form-control" type="text">
+								</div>
+							</div>
+														                                                                <div class="form-group">
+								<label class="col-sm-2 control-label">发件人身份证号码：</label>
+								<div class="col-sm-3">
+									<input id="senderIdcard" name="senderIdcard" class="form-control" type="text">
+								</div>
+
+
+							</div>
+
+
+
+								<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-5">
+									<button type="submit"  name="Submit" class="btn btn-primary">提交</button>
+									&nbsp &nbsp
+									<button type="button"  class="btn btn-primary" id ="proShow">
+										添加商品
+										<i class="fa fa-plus" aria-hidden="true"></i>
+									</button>
+
+									&nbsp &nbsp&nbsp
+								</div>
+							</div>
+
+							<div   class ="form-group">
+								<button type="button"  id="insertPro" onclick="save()" class="btn btn-primary">保存商品</button>
+								<table   id="exampleTable" data-mobile-responsive="true"   >
+									<fieldset class="col-sm-5 col-sm-offset-3">
+										<legend><h1 align="center">商品列表</h1></legend>
+									</fieldset>
+
+								</table>
+							</div>
+						</form>
+
+						<iframe style="display: none" id="rfFrame"  name="rfFrame" src="about:blank"></iframe>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+
+	<div>
+		<script type="text/javascript">
+            s_edit_h = '';
+		</script>
+	</div>
+
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/common/expressDelivery/add.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+</body>
+</html>
+
+

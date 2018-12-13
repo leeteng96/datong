@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header">
+	<link href="/css/bootstrap-editable.css" rel="stylesheet"/>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+	<div class="col-sm-12">
+		<div class="ibox">
+			<div class="ibox-body">
+				<div class="fixed-table-toolbar">
+					<div class="columns pull-left">
+
+						<button  type="button" class="btn  btn-primary" onclick="add()">
+							<i class="fa fa-plus" aria-hidden="true"></i>添加
+						</button>
+						<button  type="button" class="btn  btn-danger"
+								 onclick="batchRemove()">
+							<i class="fa fa-trash" aria-hidden="true"></i>删除
+						</button>
+					</div>
+					<div class="columns pull-right">
+						<button class="btn btn-success" onclick="reLoad()">查询</button>
+					</div>
+					<div class="columns pull-right col-md-2 nopadding">
+						<input id="searchName" type="text" class="form-control"
+							   placeholder="总运单号、提单">
+					</div>
+				</div>
+			<div>
+				<table id="exampleTable" data-mobile-responsive="true">
+				</table>
+			</div>
+
+
+			</div>
+		</div>
+	</div>
+</div> 
+<div th:include="include :: footer"></div>
+<script type="text/javascript" src="/js/appjs/common/expressOrder/expressOrder.js"></script>
+<script src="/js/moment.js"></script>
+<script src="/js/bootstrap-editable.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/extensions/editable/bootstrap-table-editable.js"></script>
+<script src="/js/combodate.js"></script>
+</body>
+</html>

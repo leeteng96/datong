@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ifast.delivery.dao.ProductDao">
+  <select id="exportProduct" resultType="com.ifast.delivery.domain.ProductDO">
+      select * from tb_product where name in
+      <foreach collection="list" item="item" open="(" separator="," close=")">
+          #{item.name}
+      </foreach>
+  </select>
+
+</mapper>
